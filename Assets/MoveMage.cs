@@ -36,21 +36,21 @@ public class MoveMage : MonoBehaviour
         if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
         {
             _animator.SetBool(Animator.StringToHash("isRun"), false);
-        }        
+        }
 
-        //if (Input.GetKey(KeyCode.S))
-        //{
-        //    transform.Translate(-Vector3.forward * _speed * Time.deltaTime);
-        //}
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.Translate(-Vector3.forward * _speed * Time.deltaTime);
+        }
 
-        //if (Input.GetKey(KeyCode.A))
-        //{
-        //    transform.Rotate(Vector3.up * -_rotateSpeed * Time.deltaTime);
-        //}
+        if (Input.GetKey(KeyCode.A))
+        {
+            transform.Rotate(Vector3.up * -_rotateSpeed * Time.deltaTime);
+        }
 
-        //if (Input.GetKey(KeyCode.D))
-        //{
-        //    transform.Rotate(Vector3.up * _rotateSpeed * Time.deltaTime);
-        //}
+        if (Input.GetKey(KeyCode.D))
+        {
+            transform.Rotate(Vector3.up * _rotateSpeed * Time.deltaTime);
+        }
     }
 }
