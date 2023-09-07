@@ -2,7 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(ButtonUpgrade))]
 public abstract class Upgrade : MonoBehaviour
 {
-    public abstract void Realize();
+    private ButtonUpgrade _button;
+
+    protected abstract void Realize();
+
+    private void Awake()
+    {
+        _button = GetComponent<ButtonUpgrade>();
+    }
+
+    private void OnEnable()
+    {
+        _button.OnButtonClicked += OnButtonClicked;
+    }
+
+    private void OnDisable()
+    {
+        _button.OnButtonClicked -= OnButtonClicked;
+    }
+
+    private void OnButtonClicked()
+    {
+        Realize();
+    }
 }
