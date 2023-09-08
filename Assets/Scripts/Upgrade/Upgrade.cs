@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(ButtonUpgrade))]
+[RequireComponent(typeof(ButtonUpgrade), typeof(UpgradeView))]
 public abstract class Upgrade : MonoBehaviour
 {
     private ButtonUpgrade _button;
