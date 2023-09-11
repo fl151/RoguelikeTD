@@ -8,6 +8,8 @@ public class UpgradesCanvas : MonoBehaviour
     private const int _countVariantsUpgrades = 3;
 
     [SerializeField] private Transform _panelParent;
+    [SerializeField] private UpgradeView _buttonUpgradePrefab;
+    [SerializeField] private UpgradesRealizator _realizator;
 
     private UpgradesConteiner _conteiner;
 
@@ -25,7 +27,8 @@ public class UpgradesCanvas : MonoBehaviour
 
         for (int i = 0; i < _countVariantsUpgrades; i++)
         {
-            Instantiate(GetRandomUpgrade(upgrades).gameObject, _panelParent);
+            var view =  Instantiate(_buttonUpgradePrefab, _panelParent);
+            view.Fill(GetRandomUpgrade(upgrades));
         }
     }
 

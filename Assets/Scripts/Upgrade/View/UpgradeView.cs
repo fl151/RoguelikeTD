@@ -4,13 +4,24 @@ using UnityEngine.UI;
 
 public class UpgradeView : MonoBehaviour
 {
-    [SerializeField] private TMP_Text _text;
-    [SerializeField] private Image _image;
-    [SerializeField] private ViewData _data;
+    [SerializeField] private Button _button;
+    [SerializeField] TMP_Text _title;
+    [SerializeField] Image _image;
+    
 
-    private void Start()
+    private Upgrade _upgrade;
+    public void Fill(Upgrade upgrade)
     {
-        _text.text = _data.Title;
-        _image.sprite = _data.Sprite;
+        _upgrade = upgrade;
+
+        _title.text = _upgrade.Title;
+        _image.sprite = _upgrade.Sprite;
+
+        _button.onClick.AddListener(_upgrade.Realize);
+    }
+
+    private void OnDestroy()
+    {
+        _button.onClick.AddListener(_upgrade.Realize);
     }
 }
