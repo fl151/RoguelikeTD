@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "Upgrade", menuName = "Upgrade/UpDamage", order = 51)]
 public class UpDamageUpgrade : Upgrade
 {
-    protected override void Realize()
+    public override void Realize()
     {
-        Debug.Log("UpDamage!");
+        UpgradesRealizator.Instance.UpDamage();
     }
 }

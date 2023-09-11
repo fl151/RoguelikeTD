@@ -2,30 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(ButtonUpgrade), typeof(UpgradeView))]
-public abstract class Upgrade : MonoBehaviour
+//[CreateAssetMenu(fileName = "Upgrade", menuName = "Upgrade/", order = 51)]
+public abstract class Upgrade : ScriptableObject
 {
-    private ButtonUpgrade _button;
+    [SerializeField] protected string _title;
+    [SerializeField] protected Sprite _sprite;
 
-    protected abstract void Realize();
+    public string Title => _title;
+    public Sprite Sprite => _sprite;
 
-    private void Awake()
-    {
-        _button = GetComponent<ButtonUpgrade>();
-    }
-
-    private void OnEnable()
-    {
-        _button.OnButtonClicked += OnButtonClicked;
-    }
-
-    private void OnDisable()
-    {
-        _button.OnButtonClicked -= OnButtonClicked;
-    }
-
-    private void OnButtonClicked()
-    {
-        Realize();
-    }
+    public abstract void Realize();
 }
