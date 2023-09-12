@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float _damage=100f;
+    [SerializeField] private float _damage = 100f;
 
     private GameObject target;
 
@@ -16,10 +16,10 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         if (target != null)
-        {            
+        {
             Vector3 direction = (target.transform.position - transform.position).normalized;
             transform.Translate(direction * Time.deltaTime);
-            
+
             float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
             if (distanceToTarget < 0.1f)
             {
@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
             }
         }
         else
-        {            
+        {
             Destroy(gameObject);
         }
     }
@@ -37,10 +37,10 @@ public class Bullet : MonoBehaviour
         EnemyHealth enemy = target.GetComponent<EnemyHealth>();
 
         if (enemy != null)
-        {            
+        {
             enemy.TakeDamage(_damage);
         }
-        
+
         Destroy(gameObject);
     }
 }
