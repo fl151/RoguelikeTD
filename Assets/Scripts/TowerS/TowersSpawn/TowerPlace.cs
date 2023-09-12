@@ -17,8 +17,6 @@ public class TowerPlace : MonoBehaviour
         SetPlaceActive(true);
     }
 
-    
-
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.TryGetComponent(out TowerSpawnBarrier _))
