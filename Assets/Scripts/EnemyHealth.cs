@@ -2,29 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyScript : MonoBehaviour
+public class EnemyHealth : MonoBehaviour
 {
-    public float maxHealth = 100f; 
-    private float currentHealth; 
+    public float maxHealth = 100f;
+    private float currentHealth;
 
     void Start()
     {
-        currentHealth = maxHealth; 
+        currentHealth = maxHealth;
     }
 
-    
     public void TakeDamage(float damage)
-    {        
+    {
         currentHealth -= damage;
-        
+
         if (currentHealth <= 0)
         {
-            Die(); 
+            Die();
         }
     }
 
     void Die()
-    {        
+    {
         Destroy(gameObject);
     }
 }

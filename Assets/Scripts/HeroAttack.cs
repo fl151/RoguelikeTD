@@ -7,29 +7,56 @@ public class HeroAttack : MonoBehaviour
     [SerializeField] private GameObject _hero;
     [SerializeField] private GameObject _attackPrefab;
     [SerializeField] private float _attackRange = 5f;
-    [SerializeField] private float _attackCooldawn = 1f;
-    [SerializeField] private float _nextAttackTime = 0f;
+    [SerializeField] private Transform _attackPoint;
+    [SerializeField] private float _attackCooldown = 2f;
+
+    private float _lastAttackTime = 0f;
 
     private void Update()
     {
         Collider[] hitColliders = Physics.OverlapSphere(_hero.transform.position, _attackRange);
 
-        foreach(Collider collider in hitColliders)
-        {
-            EnemyScript enemy = collider.GetComponent<EnemyScript>();
-            if (enemy!=null&&Time.time>= _nextAttackTime)
-            {
-                AttackEnemy(enemy.gameObject);
+        GameObject nearestEnemy = FindNearestEnemy(hitColliders);
 
-                _nextAttackTime = Time.time + _attackCooldawn;
+        if (nearestEnemy != null)
+        {
+            if (Time.time - _lastAttackTime >= _attackCooldown)
+            {
+                AttackEnemy(nearestEnemy);
+                _lastAttackTime = Time.time;
             }
         }
     }
 
+    GameObject FindNearestEnemy(Collider[] colliders)
+    {
+        GameObject nearestEnemy = null;
+        float nearestDistance = float.MaxValue;
+
+        foreach (Collider collider in colliders)
+        {
+            EnemyHealth enemy = collider.GetComponent<EnemyHealth>();
+
+            if (enemy != null && collider.gameObject.activeSelf)
+            {
+                float distance = Vector3.Distance(_hero.transform.position, collider.transform.position);
+
+                if (distance < nearestDistance)
+                {
+                    nearestDistance = distance;
+                    nearestEnemy = collider.gameObject;
+                }
+            }
+        }
+
+        return nearestEnemy;
+    }
+
     void AttackEnemy(GameObject enemy)
     {
-        
-        GameObject attack = Instantiate(_attackPrefab, _hero.transform.position, Quaternion.identity);
-        attack.GetComponent<AttackScript>().SetTarget(enemy);
+        float distance = Vector3.Distance(_hero.transform.position, enemy.transform.position);
+
+        GameObject attack = Instantiate(_attackPrefab, _attackPoint.position, Quaternion.identity);
+        attack.GetComponent<Bullet>().SetTarget(enemy);
     }
 }
