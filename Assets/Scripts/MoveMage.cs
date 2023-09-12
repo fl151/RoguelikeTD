@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
 public class MoveMage : MonoBehaviour
-{
+{    
     [SerializeField] private float _rotateSpeed = 500f;
-    [SerializeField] private int _health = 100;
-    [SerializeField] private Slider _healthBar;
-
-
     private NavMeshAgent _navMeshAgent;
+
     private Animator _animator;
 
 
@@ -25,9 +21,6 @@ public class MoveMage : MonoBehaviour
 
     private void Update()
     {
-        _healthBar.value = _health;
-
-
         if (Input.GetMouseButton(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -45,7 +38,7 @@ public class MoveMage : MonoBehaviour
         if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
         {
             _animator.SetBool(Animator.StringToHash("isRun"), false);
-        }
+        }        
     }
 
     private void RotateTowardsMouse()
@@ -53,7 +46,7 @@ public class MoveMage : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray,out hit))
         {
             Vector3 targetPosition = hit.point;
             targetPosition.y = transform.position.y;
@@ -62,12 +55,7 @@ public class MoveMage : MonoBehaviour
 
             Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _rotateSpeed * Time.deltaTime);
-
+                
         }
-    }
-
-    public Vector3 GetHeroPosition()
-    {
-        return transform.position;
     }
 }
