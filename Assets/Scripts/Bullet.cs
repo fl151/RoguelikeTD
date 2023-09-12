@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackScript : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _damage=100f;
 
@@ -33,8 +33,8 @@ public class AttackScript : MonoBehaviour
     }
 
     void AttackTarget()
-    {        
-        EnemyScript enemy = target.GetComponent<EnemyScript>();
+    {
+        EnemyHealth enemy = target.GetComponent<EnemyHealth>();
 
         if (enemy != null)
         {            
