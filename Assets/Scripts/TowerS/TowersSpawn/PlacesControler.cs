@@ -10,4 +10,12 @@ public class PlacesControler : MonoBehaviour
     {
         _places = GetComponentsInChildren<TowerPlace>();
     }
+
+    private void OnEnable()
+    {
+        foreach (var place in _places)
+        {
+            place.MakeActive();
+        }
+    }
 }
