@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(BoxCollider))]
 public class TowerPlace : MonoBehaviour
@@ -29,22 +26,6 @@ public class TowerPlace : MonoBehaviour
         {
             if(colliders[i].GetComponent<TowerSpawnBarrier>())
                 SetPlaceActive(false);
-        }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.TryGetComponent(out TowerSpawnBarrier _))
-        {
-            SetPlaceActive(false);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.TryGetComponent(out TowerSpawnBarrier _))
-        {
-            SetPlaceActive(true);
         }
     }
 
