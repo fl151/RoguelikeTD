@@ -6,12 +6,17 @@ public class UpgradesConteiner : MonoBehaviour
     [SerializeField] private Upgrade[] _warriorPlayerUpgrades;
     [SerializeField] private Upgrade[] _summonerPlayerUpgrades;
 
-    [SerializeField] private Upgrade[] _mageTowerUpgrades;
-    [SerializeField] private Upgrade[] _warriorTowerUpgrades;
-    [SerializeField] private Upgrade[] _summonerTowerUpgrades;
+    [SerializeField] private Upgrade[] _mageTowerBuildUpgrades;
+    [SerializeField] private Upgrade[] _warriorTowerBuildUpgrades;
+    [SerializeField] private Upgrade[] _summonerTowerBuildUpgrades;
+
+    [SerializeField] private Upgrade[] _mageTowersUpgrades;
+    [SerializeField] private Upgrade[] _warriorTowersUpgrades;
+    [SerializeField] private Upgrade[] _summonerTowersUpgrades;
 
     [SerializeField] private Upgrade[] _defaultPlayerUpgrades;
-    [SerializeField] private Upgrade[] _defaultTowerUpgrades;
+    [SerializeField] private Upgrade[] _defaultTowerBuildUpgrades;
+    [SerializeField] private Upgrade[] _defaultTowersUpgrades;
 
     private Upgrade[,][] _upgrades = new Upgrade[2, 3][];
 
@@ -21,9 +26,9 @@ public class UpgradesConteiner : MonoBehaviour
         _upgrades[0, 1] = _warriorPlayerUpgrades;
         _upgrades[0, 2] = _summonerPlayerUpgrades;
 
-        _upgrades[1, 0] = _mageTowerUpgrades;
-        _upgrades[1, 1] = _warriorTowerUpgrades;
-        _upgrades[1, 2] = _summonerTowerUpgrades;
+        _upgrades[1, 0] = _mageTowerBuildUpgrades;
+        _upgrades[1, 1] = _warriorTowerBuildUpgrades;
+        _upgrades[1, 2] = _summonerTowerBuildUpgrades;
     }
 
     public Upgrade[] GetCharecterUpgrades(UpgradeBranch branch, Charecter charecter)
@@ -50,7 +55,7 @@ public class UpgradesConteiner : MonoBehaviour
                 break;
 
             case UpgradeBranch.Towers:
-                currentUpgrades = _defaultTowerUpgrades;
+                currentUpgrades = _defaultTowerBuildUpgrades;
                 break;
         }
 
