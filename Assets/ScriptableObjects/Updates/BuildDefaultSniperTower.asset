@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f7767d27b5b88fe4a8b22eec6c7b0651, type: 3}
-  m_Name: BuildTower
+  m_Name: BuildDefaultSniperTower
   m_EditorClassIdentifier: 
-  _title: Build Tower
+  _title: Build Sniper Tower
   _sprite: {fileID: 0}
-  _prefab: {fileID: -7818150964607678611, guid: 936770151543f3a4ba1c95040c1fa2b4, type: 3}
+  _prefab: {fileID: 3442026008501521810, guid: 936770151543f3a4ba1c95040c1fa2b4, type: 3}
