@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
     {
         if (target != null)
         {
-            Vector3 direction = (target.transform.position - transform.position).normalized;
+            Vector3 direction = (target.transform.position - transform.position).normalized * 10;
             transform.Translate(direction * Time.deltaTime);
 
             float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
