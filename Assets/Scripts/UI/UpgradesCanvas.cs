@@ -9,17 +9,22 @@ public class UpgradesCanvas : MonoBehaviour
 
     [SerializeField] private Transform _panelParent;
     [SerializeField] private UpgradeView _buttonUpgradePrefab;
-    [SerializeField] private UpgradesRealizator _realizator;
 
     private UpgradesConteiner _conteiner;
+
+    private UpgradeView[] _currentViews;
 
     private void Awake()
     {
         _conteiner = GetComponent<UpgradesConteiner>();
+
+        _currentViews = new UpgradeView[_countVariantsUpgrades];
     }
 
     public void Fill(UpgradeBranch branch)
     {
+        DestroyOldViews();
+
         var charecterUpgrades = _conteiner.GetCharecterUpgrades(branch, Charecter.Mage);
         var defaultUpgrades = _conteiner.GetDefaultUpgrades(branch);
 
@@ -29,6 +34,8 @@ public class UpgradesCanvas : MonoBehaviour
         {
             var view =  Instantiate(_buttonUpgradePrefab, _panelParent);
             view.Fill(GetRandomUpgrade(upgrades));
+
+            _currentViews[i] = view;
         }
     }
 
@@ -54,5 +61,12 @@ public class UpgradesCanvas : MonoBehaviour
         }
 
         return result;
+    }
+
+    private void DestroyOldViews()
+    {
+        for (int i = 0; i < _currentViews.Length; i++)
+            if (_currentViews[i] != null)
+                Destroy(_currentViews[i].gameObject);
     }
 }

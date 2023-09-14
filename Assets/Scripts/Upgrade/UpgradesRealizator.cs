@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class UpgradesRealizator : MonoBehaviour
 {
+    [SerializeField] private TowerSpawner _towerSpawner;
+
     public static UpgradesRealizator Instance;
 
     private void Awake()
@@ -22,5 +24,10 @@ public class UpgradesRealizator : MonoBehaviour
 
     public void UpDamage()
     {
+    }
+
+    public void BuildTower(Tower tower)
+    {
+        _towerSpawner.Build(tower);
     }
 }

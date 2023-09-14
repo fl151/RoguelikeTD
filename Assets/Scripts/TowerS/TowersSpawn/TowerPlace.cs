@@ -17,6 +17,21 @@ public class TowerPlace : MonoBehaviour
         SetPlaceActive(true);
     }
 
+    private void OnEnable()
+    {
+        Collider collider = GetComponent<BoxCollider>();
+
+        var bounds = collider.bounds;
+
+        var colliders = Physics.OverlapBox(bounds.center, bounds.extents);
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if(colliders[i].GetComponent<TowerSpawnBarrier>())
+                SetPlaceActive(false);
+        }
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.TryGetComponent(out TowerSpawnBarrier _))
@@ -31,6 +46,11 @@ public class TowerPlace : MonoBehaviour
         {
             SetPlaceActive(true);
         }
+    }
+
+    public void MakeActive()
+    {
+        SetPlaceActive(true);
     }
 
     private void SetPlaceActive(bool flag)
