@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: -1197536596423350217}
   - component: {fileID: 2324370376448783443}
   - component: {fileID: 921202328}
+  - component: {fileID: -6774718477610522502}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -205,6 +206,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: -1197536596423350217}
   _startUpgradeCanvas: {fileID: 0}
+--- !u!114 &-6774718477610522502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9118001787568041855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 462b5d54e8c1d0f4ea809fe3d8c539d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawner: {fileID: -2329631209342483951}
 --- !u!1001 &2478514974251709747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -411,6 +425,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9118001787568041825}
     m_Modifications:
+    - target: {fileID: 3712165053241319, guid: 028ae6107dc10994e966e8525043af38, type: 3}
+      propertyPath: _playerTowers
+      value: 
+      objectReference: {fileID: -6774718477610522502}
     - target: {fileID: 3712165053241319, guid: 028ae6107dc10994e966e8525043af38, type: 3}
       propertyPath: _towerSpawner
       value: 

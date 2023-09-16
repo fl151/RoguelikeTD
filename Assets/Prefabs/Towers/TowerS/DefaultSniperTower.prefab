@@ -110,3 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4768baba6f2dc34599a04b4b0090de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _towerUpgrade: {fileID: 11400000, guid: 2bca0dfd6b96b2c40bf5fb15d87ae144, type: 2}
+  _upgradeEffect: {fileID: 6810471105834413002, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}

@@ -10,13 +10,8 @@ public class UpgradesConteiner : MonoBehaviour
     [SerializeField] private Upgrade[] _warriorTowerBuildUpgrades;
     [SerializeField] private Upgrade[] _summonerTowerBuildUpgrades;
 
-    [SerializeField] private Upgrade[] _mageTowersUpgrades;
-    [SerializeField] private Upgrade[] _warriorTowersUpgrades;
-    [SerializeField] private Upgrade[] _summonerTowersUpgrades;
-
     [SerializeField] private Upgrade[] _defaultPlayerUpgrades;
     [SerializeField] private Upgrade[] _defaultTowerBuildUpgrades;
-    [SerializeField] private Upgrade[] _defaultTowersUpgrades;
 
     private Upgrade[,][] _upgrades = new Upgrade[2, 3][];
 

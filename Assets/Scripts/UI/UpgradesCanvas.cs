@@ -9,6 +9,7 @@ public class UpgradesCanvas : MonoBehaviour
 
     [SerializeField] private Transform _panelParent;
     [SerializeField] private UpgradeView _buttonUpgradePrefab;
+    [SerializeField] private PlayerTowers _playerTowers;
 
     private UpgradesConteiner _conteiner;
 
@@ -27,8 +28,10 @@ public class UpgradesCanvas : MonoBehaviour
 
         var charecterUpgrades = _conteiner.GetCharecterUpgrades(branch, Charecter.Mage);
         var defaultUpgrades = _conteiner.GetDefaultUpgrades(branch);
+        var towersUpgrades = _playerTowers.GetUpgrades();
 
         var upgrades = GetMergetArray(charecterUpgrades, defaultUpgrades);
+        upgrades = GetMergetArray(upgrades, towersUpgrades);
 
         for (int i = 0; i < _countVariantsUpgrades; i++)
         {

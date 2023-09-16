@@ -2,8 +2,15 @@ using UnityEngine;
 
 public class DefaultSniperTower : Tower
 {
-    public override void UpdateTower()
+    protected override void UpgradeLevelOne()
     {
-        throw new System.NotImplementedException();
+    }
+
+    protected override void UpgradeLevelThree()
+    {
+    }
+
+    protected override void UpgradeLevelTwo()
+    {
     }
 }
