@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TowerSpawner : MonoBehaviour
 {
     [SerializeField] private PlacesControler _placeController;
 
     private Tower _tower;
-    private bool _isBuildNow = false;
+    private bool _isBuildingNow = false;
+
+    public event UnityAction<Tower> Build;
 
     private void Update()
     {
-        if(_isBuildNow == false)
+        if(_isBuildingNow == false)
         {
             return;
         }
@@ -27,22 +30,24 @@ public class TowerSpawner : MonoBehaviour
                 {
                     if (towerPlace.Active)
                     {
-                        Instantiate(_tower, hit.transform.position, hit.transform.rotation);
+                        var tower = Instantiate(_tower, hit.transform.position, hit.transform.rotation);
 
-                        _isBuildNow = false;
+                        _isBuildingNow = false;
                         _placeController.gameObject.SetActive(false);
 
                         Time.timeScale = 1;
+
+                        Build?.Invoke(tower);
                     }
                 }
             }
         }
     }
 
-    public void Build(Tower tower)
+    public void StartBuild(Tower tower)
     {
         _tower = tower;
         _placeController.gameObject.SetActive(true);
-        _isBuildNow = true;
+        _isBuildingNow = true;
     }
 }

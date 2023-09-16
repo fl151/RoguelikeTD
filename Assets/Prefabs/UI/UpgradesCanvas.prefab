@@ -253,10 +253,7 @@ MonoBehaviour:
   _mageTowerBuildUpgrades: []
   _warriorTowerBuildUpgrades: []
   _summonerTowerBuildUpgrades: []
-  _mageTowersUpgrades: []
-  _warriorTowersUpgrades: []
-  _summonerTowersUpgrades: []
   _defaultPlayerUpgrades: []
   _defaultTowerBuildUpgrades:
-  - {fileID: 11400000, guid: 1727f44efef8135459e0cc58358b6c91, type: 2}
-  _defaultTowersUpgrades: []
+  - {fileID: 11400000, guid: 7a1a15a39cf567041bbb162c1ebc32da, type: 2}
+  - {fileID: 11400000, guid: 1defe1d2e8816454e83c858f586d8c21, type: 2}
