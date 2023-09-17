@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum Charecter
 {
@@ -21,6 +22,8 @@ public class PlayerCharecter : MonoBehaviour
 
     public Charecter Charecter => _charecter;
 
+    public event UnityAction<Charecter> CharecterSeted;
+
     public void SetCharecter(Charecter charecter)
     {
         switch (charecter) {
@@ -36,6 +39,8 @@ public class PlayerCharecter : MonoBehaviour
                 SetSummonerCharecter();
                 break;
         }
+
+        CharecterSeted?.Invoke(charecter);
     }
 
     private void SetMageCharecter()
