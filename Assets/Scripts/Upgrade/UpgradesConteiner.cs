@@ -30,6 +30,8 @@ public class UpgradesConteiner : MonoBehaviour
     {
         var currentUpgrades = _upgrades[(int)branch, (int)charecter];
 
+        if (currentUpgrades == null) return null;
+
         Upgrade[] upgrades = new Upgrade[currentUpgrades.Length];
 
         for (int i = 0; i < currentUpgrades.Length; i++)

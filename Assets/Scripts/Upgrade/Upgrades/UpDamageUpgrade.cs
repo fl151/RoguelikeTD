@@ -1,10 +1,10 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "UpDamageUpgrade", menuName = "Upgrade/UpDamage", order = 51)]
-public class UpDamageUpgrade : Upgrade
+public class UpDamageUpgrade : PlayerUpgrade
 {
     public override void Realize()
     {
-        UpgradesRealizator.Instance.UpDamage();
+        UpgradesRealizator.Instance.UpgradePlayer(this);
     }
 }
