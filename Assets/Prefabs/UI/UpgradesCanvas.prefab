@@ -235,6 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _panelParent: {fileID: 2270607136297784791}
   _buttonUpgradePrefab: {fileID: 6145821765596990887, guid: 4eb8c1131b03d9641b45bfc2e45df59a, type: 3}
+  _playerTowers: {fileID: 0}
 --- !u!114 &3798281778477409431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,7 +254,8 @@ MonoBehaviour:
   _mageTowerBuildUpgrades: []
   _warriorTowerBuildUpgrades: []
   _summonerTowerBuildUpgrades: []
-  _defaultPlayerUpgrades: []
+  _defaultPlayerUpgrades:
+  - {fileID: 11400000, guid: 2dfb4265ea8107146958e38296c4bd97, type: 2}
   _defaultTowerBuildUpgrades:
   - {fileID: 11400000, guid: 7a1a15a39cf567041bbb162c1ebc32da, type: 2}
   - {fileID: 11400000, guid: 1defe1d2e8816454e83c858f586d8c21, type: 2}
