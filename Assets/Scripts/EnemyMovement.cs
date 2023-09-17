@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        MoveMage player = FindObjectOfType<MoveMage>();
+        PlayerMovement player = FindObjectOfType<PlayerMovement>();
 
         if (player != null)
         {

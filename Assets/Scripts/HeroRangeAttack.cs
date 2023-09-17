@@ -2,19 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeroAttack : MonoBehaviour
+public class HeroRangeAttack : MonoBehaviour
 {
-    [SerializeField] private GameObject _hero;
     [SerializeField] private GameObject _attackPrefab;
     [SerializeField] private float _attackRange = 5f;
-    [SerializeField] private Transform _attackPoint;
     [SerializeField] private float _attackCooldown = 2f;
+
+    private Transform _attackPoint;
 
     private float _lastAttackTime = 0f;
 
     private void Update()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(_hero.transform.position, _attackRange);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _attackRange);
 
         GameObject nearestEnemy = FindNearestEnemy(hitColliders);
 
@@ -28,7 +28,12 @@ public class HeroAttack : MonoBehaviour
         }
     }
 
-    GameObject FindNearestEnemy(Collider[] colliders)
+    public void SetAttackPoint(Transform point)
+    {
+        _attackPoint = point;
+    }
+
+    private GameObject FindNearestEnemy(Collider[] colliders)
     {
         GameObject nearestEnemy = null;
         float nearestDistance = float.MaxValue;
@@ -39,7 +44,7 @@ public class HeroAttack : MonoBehaviour
 
             if (enemy != null && collider.gameObject.activeSelf)
             {
-                float distance = Vector3.Distance(_hero.transform.position, collider.transform.position);
+                float distance = Vector3.Distance(transform.position, collider.transform.position);
 
                 if (distance < nearestDistance)
                 {
@@ -52,10 +57,8 @@ public class HeroAttack : MonoBehaviour
         return nearestEnemy;
     }
 
-    void AttackEnemy(GameObject enemy)
+    private void AttackEnemy(GameObject enemy)
     {
-        float distance = Vector3.Distance(_hero.transform.position, enemy.transform.position);
-
         GameObject attack = Instantiate(_attackPrefab, _attackPoint.position, Quaternion.identity);
         attack.GetComponent<Bullet>().SetTarget(enemy);
     }
