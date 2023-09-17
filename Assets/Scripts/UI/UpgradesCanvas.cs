@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Canvas), typeof(UpgradesConteiner))]
@@ -12,21 +10,34 @@ public class UpgradesCanvas : MonoBehaviour
     [SerializeField] private PlayerTowers _playerTowers;
 
     private UpgradesConteiner _conteiner;
+    private PlayerCharecter _playerCharecter;
 
     private UpgradeView[] _currentViews;
+
+    private Charecter _charecter;
 
     private void Awake()
     {
         _conteiner = GetComponent<UpgradesConteiner>();
-
+        _playerCharecter = _playerTowers.GetComponent<PlayerCharecter>();
         _currentViews = new UpgradeView[_countVariantsUpgrades];
+    }
+
+    private void OnEnable()
+    {
+        _playerCharecter.CharecterSeted += SetCharecter;
+    }
+
+    private void OnDisable()
+    {
+        _playerCharecter.CharecterSeted -= SetCharecter;
     }
 
     public void Fill(UpgradeBranch branch)
     {
         DestroyOldViews();
 
-        var charecterUpgrades = _conteiner.GetCharecterUpgrades(branch, Charecter.Mage);
+        var charecterUpgrades = _conteiner.GetCharecterUpgrades(branch, _charecter);
         var defaultUpgrades = _conteiner.GetDefaultUpgrades(branch);
         var towersUpgrades = _playerTowers.GetUpgrades();
 
@@ -71,5 +82,10 @@ public class UpgradesCanvas : MonoBehaviour
         for (int i = 0; i < _currentViews.Length; i++)
             if (_currentViews[i] != null)
                 Destroy(_currentViews[i].gameObject);
+    }
+
+    private void SetCharecter(Charecter charecter)
+    {
+        _charecter = charecter;
     }
 }
