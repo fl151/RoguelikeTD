@@ -39,10 +39,17 @@ public class UpgradesCanvas : MonoBehaviour
     {
         DestroyOldViews();
 
-        var playerUpgrades = _playerUpgrades.ValidPlayerUpgrades;
-        var towersUpgrades = _playerTowers.GetUpgrades();
+        Upgrade[] upgrades = new Upgrade[0];
 
-        var upgrades = GetMergetArray(playerUpgrades, towersUpgrades);
+        switch (branch) {
+            case UpgradeBranch.Player:
+                upgrades = _playerUpgrades.ValidPlayerUpgrades;
+                break;
+
+            case UpgradeBranch.Towers:
+                upgrades = GetTowersUpgrades();
+                break;
+        }
 
         for (int i = 0; i < _countVariantsUpgrades; i++)
         {
@@ -51,6 +58,18 @@ public class UpgradesCanvas : MonoBehaviour
 
             _currentViews[i] = view;
         }
+    }
+
+    private Upgrade[] GetTowersUpgrades()
+    {
+        var towerUpgrades = _playerTowers.GetUpgrades();
+        var towerBuildUpgrades = GetMergetArray(
+            _conteiner.GetCharecterUpgrades(UpgradeBranch.Towers, _charecter),
+            _conteiner.GetDefaultUpgrades(UpgradeBranch.Towers));
+
+        var upgrades = GetMergetArray(towerUpgrades, towerBuildUpgrades);
+
+        return upgrades;
     }
 
     private Upgrade GetRandomUpgrade(Upgrade[] upgradeVariants)
