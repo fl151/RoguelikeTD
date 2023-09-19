@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(PlayerTowers))]
 public class TowerSpawner : MonoBehaviour
 {
     [SerializeField] private PlacesControler _placeController;
@@ -10,7 +11,14 @@ public class TowerSpawner : MonoBehaviour
     private Tower _tower;
     private bool _isBuildingNow = false;
 
+    private PlayerTowers _playerTowers;
+
     public event UnityAction<Tower> Build;
+
+    private void Awake()
+    {
+        _playerTowers = GetComponent<PlayerTowers>();
+    }
 
     private void Update()
     {
@@ -31,6 +39,10 @@ public class TowerSpawner : MonoBehaviour
                     if (towerPlace.Active)
                     {
                         var tower = Instantiate(_tower, hit.transform.position, hit.transform.rotation);
+
+                        int level = _playerTowers.GetCurrentTowerLevel(tower);
+
+                        tower.UpLevel(level);
 
                         _isBuildingNow = false;
                         _placeController.gameObject.SetActive(false);

@@ -427,11 +427,11 @@ PrefabInstance:
     - target: {fileID: 9118001787568041824, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
       propertyPath: _meeleAttack
       value: 
-      objectReference: {fileID: 1444157292}
+      objectReference: {fileID: 1444157299}
     - target: {fileID: 9118001787568041824, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
       propertyPath: _rangeAttack
       value: 
-      objectReference: {fileID: 1444157293}
+      objectReference: {fileID: 1444157298}
     - target: {fileID: 9118001787568041824, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
       propertyPath: _warriorModel
       value: 
@@ -776,6 +776,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507205088}
   m_CullTransparentMesh: 1
+--- !u!1 &594077833 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4334727355438604196, guid: 8dfcaeb56a1da34458baf89c12039114, type: 3}
+  m_PrefabInstance: {fileID: 1510577301}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,9 +1043,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3798281778477409430, guid: 31187e548341e1045a692eea99ce31cb, type: 3}
+      propertyPath: _errorUI
+      value: 
+      objectReference: {fileID: 887362944}
+    - target: {fileID: 3798281778477409430, guid: 31187e548341e1045a692eea99ce31cb, type: 3}
       propertyPath: _playerTowers
       value: 
       objectReference: {fileID: 1444157285}
+    - target: {fileID: 7962020909466349075, guid: 31187e548341e1045a692eea99ce31cb, type: 3}
+      propertyPath: _chooseBranchCanvas
+      value: 
+      objectReference: {fileID: 594077833}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31187e548341e1045a692eea99ce31cb, type: 3}
 --- !u!114 &887362943 stripped
@@ -1054,6 +1067,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1da66b12a1aea4944a33df3650f80174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &887362944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3175853548578126637, guid: 31187e548341e1045a692eea99ce31cb, type: 3}
+  m_PrefabInstance: {fileID: 887362942}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &911924882
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +1104,7 @@ MonoBehaviour:
   _enemmyPrefab: {fileID: 3857370222514970627, guid: 26f31415b05093f4395a2e29437d712b, type: 3}
   _spawnPiont: {fileID: 911924884}
   _spawnInterval: 2
-  _maxEnemys: 5
+  _maxEnemys: 25
 --- !u!4 &911924884
 Transform:
   m_ObjectHideFlags: 0
@@ -1227,62 +1245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12cdf15514f9c0946902b92d352f15ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1444157292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1444157284}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77a453fb18cdfbf43b758fa713f18081, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackRange: 5
-  _attackCooldown: 2
---- !u!114 &1444157293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1444157284}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f57301852697e14db69af4655a7bf38, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackPrefab: {fileID: 132819866326406661, guid: 28ce7a174a31dd7439049bce8981da5b, type: 3}
-  _attackRange: 5
-  _attackCooldown: 2
---- !u!114 &1444157294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1444157284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f45f5d89c17b82148a6497b8b2fbec1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rotateSpeed: 500
---- !u!136 &1444157295
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1444157284}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.25
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!195 &1444157296
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1292,7 +1254,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1444157284}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Speed: 3.5
   m_Acceleration: 40
   avoidancePriority: 50
@@ -1305,6 +1267,28 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1444157298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1444157293, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
+  m_PrefabInstance: {fileID: 251669743}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444157284}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f57301852697e14db69af4655a7bf38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1444157299 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1444157292, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
+  m_PrefabInstance: {fileID: 251669743}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444157284}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a453fb18cdfbf43b758fa713f18081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1500093346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,7 +1684,7 @@ MonoBehaviour:
   _enemmyPrefab: {fileID: 3857370222514970627, guid: 26f31415b05093f4395a2e29437d712b, type: 3}
   _spawnPiont: {fileID: 1767220885}
   _spawnInterval: 2
-  _maxEnemys: 5
+  _maxEnemys: 25
 --- !u!4 &1767220885
 Transform:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Canvas), typeof(UpgradesConteiner))]
@@ -8,6 +9,7 @@ public class UpgradesCanvas : MonoBehaviour
     [SerializeField] private Transform _panelParent;
     [SerializeField] private UpgradeView _buttonUpgradePrefab;
     [SerializeField] private PlayerTowers _playerTowers;
+    [SerializeField] private GameObject _errorUI;
 
     private UpgradesConteiner _conteiner;
     private PlayerCharecter _playerCharecter;
@@ -28,6 +30,8 @@ public class UpgradesCanvas : MonoBehaviour
     private void OnEnable()
     {
         _playerCharecter.CharecterSeted += SetCharecter;
+
+        _errorUI.SetActive(false);
     }
 
     private void OnDisable()
@@ -51,12 +55,26 @@ public class UpgradesCanvas : MonoBehaviour
                 break;
         }
 
-        for (int i = 0; i < _countVariantsUpgrades; i++)
+        if(upgrades.Length == 0)
         {
-            var view =  Instantiate(_buttonUpgradePrefab, _panelParent);
-            view.Fill(GetRandomUpgrade(upgrades));
+            _errorUI.SetActive(true);
+        }
+        else
+        {
+            var upgradesList = ConverToList(upgrades);
 
-            _currentViews[i] = view;
+            for (int i = 0; i < _countVariantsUpgrades; i++)
+            {
+                if (upgradesList.Count == 0) return;
+
+                var view = Instantiate(_buttonUpgradePrefab, _panelParent);
+                var upgrade = GetRandomUpgrade(upgradesList);
+                view.Fill(upgrade);
+
+                upgradesList.Remove(upgrade);
+
+                _currentViews[i] = view;
+            }
         }
     }
 
@@ -72,11 +90,11 @@ public class UpgradesCanvas : MonoBehaviour
         return upgrades;
     }
 
-    private Upgrade GetRandomUpgrade(Upgrade[] upgradeVariants)
+    private Upgrade GetRandomUpgrade(List<Upgrade> upgradeVariants)
     {
-        if (upgradeVariants.Length == 0) return null;
+        if (upgradeVariants.Count == 0) return null;
 
-        int index = Random.Range(0, upgradeVariants.Length);
+        int index = Random.Range(0, upgradeVariants.Count);
 
         return upgradeVariants[index];
     }
@@ -108,5 +126,17 @@ public class UpgradesCanvas : MonoBehaviour
     private void SetCharecter(Charecter charecter)
     {
         _charecter = charecter;
+    }
+
+    private List<Upgrade> ConverToList(Upgrade[] upgrades)
+    {
+        List<Upgrade> upgradesList = new List<Upgrade>();
+
+        foreach (var upgrade in upgrades)
+        {
+            upgradesList.Add(upgrade);
+        }
+
+        return upgradesList;
     }
 }
