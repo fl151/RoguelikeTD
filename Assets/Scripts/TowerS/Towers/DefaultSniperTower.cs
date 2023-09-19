@@ -6,11 +6,12 @@ public class DefaultSniperTower : Tower
     {
     }
 
-    protected override void UpgradeLevelThree()
+    protected override void UpgradeLevelTwo()
     {
     }
 
-    protected override void UpgradeLevelTwo()
+    protected override void UpgradeLevelThree()
     {
+        base.UpgradeLevelThree();
     }
 }

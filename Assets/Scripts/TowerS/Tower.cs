@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Tower : MonoBehaviour
 {
     [SerializeField] private Upgrade _towerUpgrade;
     [SerializeField] private ParticleSystem _upgradeEffect;
 
-    protected int _currentLevel = 0;
+    [SerializeField] protected int _currentLevel = 0;
 
     private ParticleSystem _effect;
 
+    public event UnityAction<Upgrade> MaxLevel;
+
     public Upgrade TowerUpgrade => _towerUpgrade;
+    public int CurrentLevel => _currentLevel;
 
     private void Awake()
     {
@@ -45,11 +49,22 @@ public abstract class Tower : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void UpLevel(int level)
+    {
+        for (int i = 0; i < level - _currentLevel; i++)
+        {
+            UpdateTower();
+        }
+    }
+
     protected abstract void UpgradeLevelOne();
 
     protected abstract void UpgradeLevelTwo();
 
-    protected abstract void UpgradeLevelThree();
+    protected virtual void UpgradeLevelThree()
+    {
+        MaxLevel?.Invoke(_towerUpgrade);
+    }
 
     private void PlayEffect()
     {

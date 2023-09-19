@@ -5,7 +5,7 @@ public abstract class Skill : MonoBehaviour
 {
     [SerializeField] protected PlayerUpgrade _upgrade;
 
-    [SerializeField] protected int _currentLevel = 0;
+    protected int _currentLevel = 0;
 
     public Upgrade Upgrade => _upgrade;
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerTowers : MonoBehaviour
 {
@@ -17,11 +18,18 @@ public class PlayerTowers : MonoBehaviour
     private void OnDisable()
     {
         _spawner.Build -= AddTower;
+
+        foreach (var tower in _towers)
+        {
+            tower.MaxLevel -= RemoveTowerFromList;
+        }
     }
 
     public void AddTower(Tower tower)
     {
         _towers.Add(tower);
+
+        tower.MaxLevel += RemoveTowerFromList;
 
         if (_upgrades.Contains(tower.TowerUpgrade) == false)
             _upgrades.Add(tower.TowerUpgrade);
@@ -46,5 +54,37 @@ public class PlayerTowers : MonoBehaviour
         }
 
         return upgrades;
+    }
+
+    public int GetCurrentTowerLevel(Tower tower)
+    {
+        int level = 0;
+
+        if (_upgrades.Contains(tower.TowerUpgrade))
+        {
+            var result = from Tower resultTower in _towers
+                         select resultTower.CurrentLevel;
+
+            level = result.First();
+        }
+
+        return level;   
+    }
+
+    private void RemoveTowerFromList(Upgrade upgrade)
+    {
+        _upgrades.Remove(upgrade);
+
+        var towers = new List<Tower>();
+
+        foreach (var tower in _towers)
+        {
+            if (tower.TowerUpgrade != upgrade)
+                towers.Add(tower);
+            else
+                tower.MaxLevel -= RemoveTowerFromList;
+        }
+
+        _towers = towers;
     }
 }
