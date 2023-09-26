@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 1444157293}
   - component: {fileID: 1444157294}
   - component: {fileID: 1444157296}
+  - component: {fileID: 1847249323383107864}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -220,6 +221,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1847249323383107864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9118001787568041855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2c889e82777af4eb229e1ba88de957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  slider: {fileID: 4353603558953238430}
 --- !u!1001 &2478514974251709747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -618,3 +633,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6578374562695499059, guid: 26825041591c80241a0153e544493456, type: 3}
   m_PrefabInstance: {fileID: 8491032065433742222}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4353603558953238430 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5313455859528471568, guid: 26825041591c80241a0153e544493456, type: 3}
+  m_PrefabInstance: {fileID: 8491032065433742222}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
