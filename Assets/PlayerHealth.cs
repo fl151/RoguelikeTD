@@ -1,26 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float maxHealth = 100f;
-    private float currentHealth;
+    public float maxHealth = 100f;    
+    public Slider slider;    
 
-    void Start()
+    private void Update()
     {
-        currentHealth = maxHealth;
+        slider.value = maxHealth;
     }
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+        maxHealth -= damage;           
 
-        if (currentHealth <= 0)
+        if (maxHealth <= 0)
         {
             Die();
         }
-    }
+    }   
+
 
     void Die()
     {
