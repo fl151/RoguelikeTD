@@ -487,7 +487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3798281778477409426
 RectTransform:
   m_ObjectHideFlags: 0
@@ -586,7 +586,7 @@ MonoBehaviour:
   _panelParent: {fileID: 2270607136297784791}
   _buttonUpgradePrefab: {fileID: 6145821765596990887, guid: 4eb8c1131b03d9641b45bfc2e45df59a, type: 3}
   _playerTowers: {fileID: 0}
-  _errorUI: {fileID: 0}
+  _errorUI: {fileID: 3175853548578126637}
 --- !u!114 &3798281778477409431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,7 +599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1da66b12a1aea4944a33df3650f80174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _magePlayerUpgrades: []
+  _magePlayerUpgrades:
+  - {fileID: 11400000, guid: 60416534b507a6b48bc01f4958315200, type: 2}
   _warriorPlayerUpgrades: []
   _summonerPlayerUpgrades: []
   _mageTowerBuildUpgrades: []
