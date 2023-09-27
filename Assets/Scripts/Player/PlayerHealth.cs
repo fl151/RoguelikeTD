@@ -3,10 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(PlayerArmor))]
 public class PlayerHealth : MonoBehaviour
 {
-    public float maxHealth = 100f;    
-    public Slider slider;    
+    public float maxHealth = 100f;
+
+    public Slider slider;
+
+    private PlayerArmor _playerArmor;
+
+    private void Awake()
+    {
+        _playerArmor = GetComponent<PlayerArmor>();
+    }
 
     private void Update()
     {
@@ -15,7 +24,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        maxHealth -= damage;           
+        if (damage < 0) return;
+
+        maxHealth -= damage * (1 - _playerArmor.Armor);           
 
         if (maxHealth <= 0)
         {
