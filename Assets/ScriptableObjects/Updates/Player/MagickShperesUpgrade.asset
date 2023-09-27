@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9700f3de814a89546ab45510a6033c48, type: 3}
-  m_Name: Upgrade
+  m_Script: {fileID: 11500000, guid: 52f424394974d764eb7004d8ef586d4f, type: 3}
+  m_Name: MagickShperesUpgrade
   m_EditorClassIdentifier: 
-  _title: UpDamage
+  _title: MagickSpheres
   _sprite: {fileID: 0}
+  _skillPrefab: {fileID: 5784752641266855453, guid: b3f30fb4f94c71c4ca66a860579a1ad2, type: 3}

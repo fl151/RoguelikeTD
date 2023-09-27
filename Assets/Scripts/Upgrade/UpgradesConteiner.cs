@@ -28,6 +28,8 @@ public class UpgradesConteiner : MonoBehaviour
 
     public Upgrade[] GetCharecterUpgrades(UpgradeBranch branch, Charecter charecter)
     {
+        Awake();
+
         var currentUpgrades = _upgrades[(int)branch, (int)charecter];
 
         if (currentUpgrades == null) return null;
