@@ -1,26 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerStats))]
 public class HeroRangeAttack : MonoBehaviour
 {
-    [SerializeField] private GameObject _attackPrefab;
-    [SerializeField] private float _attackRange = 5f;
-    [SerializeField] private float _attackCooldown = 2f;
+    [SerializeField] private Bullet _bulletPrefab;
 
     private Transform _attackPoint;
+    private PlayerStats _player;
 
     private float _lastAttackTime = 0f;
 
+    private void Awake()
+    {
+        _player = GetComponent<PlayerStats>();
+    }
+
     private void Update()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _attackRange);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _player.AttackRange);
 
         GameObject nearestEnemy = FindNearestEnemy(hitColliders);
 
         if (nearestEnemy != null)
         {
-            if (Time.time - _lastAttackTime >= _attackCooldown)
+            if (Time.time - _lastAttackTime >= 1 / _player.AttackSpeed)
             {
                 AttackEnemy(nearestEnemy);
                 _lastAttackTime = Time.time;
@@ -59,7 +62,8 @@ public class HeroRangeAttack : MonoBehaviour
 
     private void AttackEnemy(GameObject enemy)
     {
-        GameObject attack = Instantiate(_attackPrefab, _attackPoint.position, Quaternion.identity);
-        attack.GetComponent<Bullet>().SetTarget(enemy);
+        Bullet bullet = Instantiate(_bulletPrefab, _attackPoint.position, Quaternion.identity);
+        bullet.SetTarget(enemy);
+        bullet.SetDamage(_player.Damage);
     }
 }

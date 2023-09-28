@@ -1,25 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(PlayerStats))]
 public class HeroMeeleAttack : MonoBehaviour
 {
-    [SerializeField] private float _attackRange = 5f;
-    [SerializeField] private float _attackCooldown = 2f;
-
     private float _lastAttackTime = 0f;
+
+    private PlayerStats _player;
 
     public event UnityAction Attack;
     public event UnityAction NotAttack;
 
+    private void Awake()
+    {
+        _player = GetComponent<PlayerStats>();
+    }
+    
     private void Update()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _attackRange);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _player.AttackRange);
 
         if (hitColliders.Length > 0)
         {
-            if (Time.time - _lastAttackTime >= _attackCooldown)
+            if (Time.time - _lastAttackTime >= 1 / _player.AttackSpeed)
             {
                 Attack?.Invoke();
                 _lastAttackTime = Time.time;

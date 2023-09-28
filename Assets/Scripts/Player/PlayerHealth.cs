@@ -1,34 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(PlayerArmor))]
+[RequireComponent(typeof(PlayerStats))]
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 100f;
-
     [SerializeField] private Slider slider;
 
-    private PlayerArmor _playerArmor;
+    private float _currentHealth;
+
+    private PlayerStats _playerStats;
 
     private void Awake()
     {
-        _playerArmor = GetComponent<PlayerArmor>();
+        _playerStats = GetComponent<PlayerStats>();
+
+        _currentHealth = _playerStats.Health;
     }
 
     private void Update()
     {
-        slider.value = maxHealth;
+        slider.value = _currentHealth;
     }
 
     public void TakeDamage(float damage)
     {
         if (damage < 0) return;
 
-        maxHealth -= damage * (1 - _playerArmor.Armor);
+        _currentHealth -= damage * (1 - _playerStats.Armor);
 
-        if (maxHealth <= 0)
+        if (_currentHealth <= 0)
         {
             Die();
         }
