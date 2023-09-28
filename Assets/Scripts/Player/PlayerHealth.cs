@@ -6,9 +6,9 @@ using UnityEngine.UI;
 [RequireComponent(typeof(PlayerArmor))]
 public class PlayerHealth : MonoBehaviour
 {
-    public float maxHealth = 100f;
+    [SerializeField] private float maxHealth = 100f;
 
-    public Slider slider;
+    [SerializeField] private Slider slider;
 
     private PlayerArmor _playerArmor;
 
@@ -26,13 +26,13 @@ public class PlayerHealth : MonoBehaviour
     {
         if (damage < 0) return;
 
-        maxHealth -= damage * (1 - _playerArmor.Armor);           
+        maxHealth -= damage * (1 - _playerArmor.Armor);
 
         if (maxHealth <= 0)
         {
             Die();
         }
-    }   
+    }
 
 
     void Die()
