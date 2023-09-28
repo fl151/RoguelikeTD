@@ -4,11 +4,11 @@ public class UpArmorSkill : Skill
     private const float _armorBonus2 = 0.25f;
     private const float _armorBonus3 = 0.25f;
 
-    private PlayerArmor _player;
+    private PlayerStats _player;
 
     protected override void UpgradeLevelOne()
     {
-        _player = GetComponentInParent<PlayerArmor>();
+        _player = GetComponentInParent<PlayerStats>();
 
         _player.AddArmor(_armorBonus1);
     }

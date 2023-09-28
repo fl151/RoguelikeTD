@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UpgradesRealizator : MonoBehaviour
@@ -15,8 +13,6 @@ public class UpgradesRealizator : MonoBehaviour
     {
         if (Instance == null)
         {
-            transform.parent = null;
-            DontDestroyOnLoad(gameObject);
             Instance = this;
         }
         else

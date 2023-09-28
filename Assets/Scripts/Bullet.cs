@@ -1,16 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private float _damage = 100f;
+    [SerializeField] private float _damage;
 
     private GameObject target;
 
     public void SetTarget(GameObject newTarget)
     {
         target = newTarget;
+    }
+
+    public void SetDamage(float value)
+    {
+        _damage = value;
     }
 
     private void Update()
