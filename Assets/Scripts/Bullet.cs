@@ -24,6 +24,7 @@ public class Bullet : MonoBehaviour
             transform.Translate(direction * Time.deltaTime);
 
             float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+
             if (distanceToTarget < 0.1f)
             {
                 AttackTarget();

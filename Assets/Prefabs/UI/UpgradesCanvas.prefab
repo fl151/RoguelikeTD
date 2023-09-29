@@ -609,6 +609,7 @@ MonoBehaviour:
   _defaultPlayerUpgrades:
   - {fileID: 11400000, guid: 2dfb4265ea8107146958e38296c4bd97, type: 2}
   - {fileID: 11400000, guid: d7ae2045b2c83dd499b064ccd49527ce, type: 2}
+  - {fileID: 11400000, guid: ecb522db46b80c14cab72427f4892ccb, type: 2}
   _defaultTowerBuildUpgrades:
   - {fileID: 11400000, guid: 7a1a15a39cf567041bbb162c1ebc32da, type: 2}
   - {fileID: 11400000, guid: 1defe1d2e8816454e83c858f586d8c21, type: 2}
