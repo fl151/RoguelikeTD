@@ -10,6 +10,8 @@ public class HeroRangeAttack : MonoBehaviour
 
     private float _lastAttackTime = 0f;
 
+    private GameObject _currentEnemy;
+
     private void Awake()
     {
         _player = GetComponent<PlayerStats>();
@@ -17,16 +19,19 @@ public class HeroRangeAttack : MonoBehaviour
 
     private void Update()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _player.AttackRange);
-
-        GameObject nearestEnemy = FindNearestEnemy(hitColliders);
-
-        if (nearestEnemy != null)
+        if(_currentEnemy == null)
         {
-            if (Time.time - _lastAttackTime >= 1 / _player.AttackSpeed)
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, _player.AttackRange);
+
+            _currentEnemy = FindNearestEnemy(hitColliders);
+
+            if (_currentEnemy != null)
             {
-                AttackEnemy(nearestEnemy);
-                _lastAttackTime = Time.time;
+                if (Time.time - _lastAttackTime >= 1 / _player.AttackSpeed)
+                {
+                    AttackEnemy(_currentEnemy);
+                    _lastAttackTime = Time.time;
+                }
             }
         }
     }

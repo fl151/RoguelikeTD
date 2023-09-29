@@ -286,8 +286,9 @@ GameObject:
   - component: {fileID: -7944493675459786833}
   - component: {fileID: 7908599964948289626}
   - component: {fileID: 4207014217720635843}
-  - component: {fileID: 9071722407738279347}
-  - component: {fileID: 4372558807095722442}
+  - component: {fileID: 7386377105209726132}
+  - component: {fileID: 457020132484019236}
+  - component: {fileID: 5634799908308233841}
   m_Layer: 0
   m_Name: Helper
   m_TagString: Untagged
@@ -304,8 +305,8 @@ Transform:
   m_GameObject: {fileID: 1845742921716089003}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5520308758976535029}
   - {fileID: 8625540651245984353}
@@ -388,7 +389,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &9071722407738279347
+--- !u!114 &7386377105209726132
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -397,26 +398,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 1845742921716089003}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6177b1090c50b6b4bb86cd8931aadd1b, type: 3}
+  m_Script: {fileID: 11500000, guid: c1219a2ae2a3587419ecc17f90f3edfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 2
-  damage: 5
-  attackCooldown: 1
---- !u!114 &4372558807095722442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845742921716089003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 186881f39115ad54e82e0f190bcae759, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
   slider: {fileID: 3789185148504853447}
+--- !u!114 &457020132484019236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845742921716089003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f48760b9aa453d647a7ff9180e5d50f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5634799908308233841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845742921716089003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52cf9874f6fb2cd409b191570141c836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _damage: 30
+  _attackRange: 10
+  _attackSpeed: 1
 --- !u!1 &2003476178909396414
 GameObject:
   m_ObjectHideFlags: 0
