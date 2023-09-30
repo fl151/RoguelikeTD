@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,17 +8,19 @@ public class HelperHealth : MonoBehaviour
 
     private HelperStats _stats;
     private float _currentHealth;
+    private float _maxHealth;
 
     private void Awake()
     {
         _stats = GetComponent<HelperStats>();
 
         _currentHealth = _stats.MaxHealth;
+        _maxHealth = _stats.MaxHealth;
     }
 
     private void Update()
     {
-        slider.value = _currentHealth;
+        slider.value = _currentHealth / _maxHealth;
     }
 
     public void TakeDamage(float damage)
