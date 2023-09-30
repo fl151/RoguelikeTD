@@ -11,8 +11,6 @@ public class HelperMovement : MonoBehaviour
     
     private float _cooldownTimer = 0f;
 
-    private float _agrRange = 10f;
-
     private void Awake()
     {
         _stats = GetComponent<HelperStats>();
@@ -28,7 +26,7 @@ public class HelperMovement : MonoBehaviour
     {
         if (_enemy == null)
         {
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, _agrRange);
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, _stats.AttackRange);
 
             var enemyGameObject = FindNearestEnemy(hitColliders);
 

@@ -17,13 +17,47 @@ public class SummonSkill : Skill
 
     private List<GameObject> _helpers = new List<GameObject>();
 
+    private float _currentHelpersDamage;
+    private float _currentHelpersAttackSpeed;
+    private float _currentHelpersHealth; 
+
     public void SpawnHelper(Vector3 position)
     {
         var helper = Instantiate(_helperPrafab, transform);
         helper.transform.parent = null;
         helper.transform.position = position;
 
+        helper.GetComponent<HelperStats>().SetStats(_currentHelpersDamage, _currentHelpersAttackSpeed, _currentHelpersHealth);
+
         _helpers.Add(helper);
+    }
+
+    public void AddStats(float damage, float attackSpeed, float health)
+    {
+        _currentHelpersDamage += damage;
+        _currentHelpersAttackSpeed += attackSpeed;
+        _currentHelpersHealth += health;
+
+        UpdateHelpersStats();
+    }
+
+    private void Awake()
+    {
+        var stats = _helperPrafab.GetComponent<HelperStats>();
+
+        _currentHelpersDamage = stats.Damage;
+        _currentHelpersHealth = stats.MaxHealth;
+        _currentHelpersAttackSpeed = stats.AttackSpeed;
+    }
+
+    private void Update()
+    {
+        if (_isColldawnFinished)
+        {
+            _isColldawnFinished = false;
+
+            StartCoroutine(SpawnHelpers());
+        }
     }
 
     protected override void UpgradeLevelOne()
@@ -43,16 +77,6 @@ public class SummonSkill : Skill
         base.UpgradeLevelThree();
     }
 
-    private void Update()
-    {
-        if (_isColldawnFinished)
-        {
-            _isColldawnFinished = false;
-
-            StartCoroutine(SpawnHelpers());
-        }
-    }
-
     private IEnumerator SpawnHelpers()
     {
         yield return new WaitForSeconds(_cooldawn);
@@ -63,5 +87,21 @@ public class SummonSkill : Skill
         }
         
         _isColldawnFinished = true;
+    }
+
+    private void UpdateHelpersStats()
+    {
+        foreach (var helper in _helpers)
+        {
+            if(helper == null)
+            {
+                _helpers.Remove(helper);
+            }
+            else
+            {
+                helper.GetComponent<HelperStats>().AddStats(_currentHelpersDamage, _currentHelpersAttackSpeed);
+            }
+
+        }
     }
 }
