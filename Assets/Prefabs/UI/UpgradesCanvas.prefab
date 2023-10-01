@@ -601,6 +601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _magePlayerUpgrades:
   - {fileID: 11400000, guid: 60416534b507a6b48bc01f4958315200, type: 2}
+  - {fileID: 11400000, guid: 63764e7ad951f584e90765d5430a9d95, type: 2}
   _warriorPlayerUpgrades: []
   _summonerPlayerUpgrades:
   - {fileID: 11400000, guid: c66779b617bcc5543a8945a8e2622ffe, type: 2}
