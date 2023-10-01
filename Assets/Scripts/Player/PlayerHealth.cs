@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(PlayerStats))]
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : Health
 {
     [SerializeField] private Slider slider;
 
@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
         slider.value = _currentHealth;
     }
 
-    public void TakeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
         if (damage < 0) return;
 

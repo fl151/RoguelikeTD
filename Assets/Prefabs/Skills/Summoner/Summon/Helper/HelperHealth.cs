@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(HelperStats))]
-public class HelperHealth : MonoBehaviour
+public class HelperHealth : Health
 {
     [SerializeField] private Slider slider;
 
@@ -23,7 +23,7 @@ public class HelperHealth : MonoBehaviour
         slider.value = _currentHealth / _maxHealth;
     }
 
-    public void TakeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
         _currentHealth -= damage;
 

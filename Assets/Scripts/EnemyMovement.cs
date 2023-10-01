@@ -5,49 +5,80 @@ public class EnemyMovement : MonoBehaviour
 {
     private NavMeshAgent myAgent;
     private Animator animator;
-    private PlayerMovement player;
+    private Health _target;
     public float attackRange = 2f;
     public float damage = 10f;
     public float attackCooldown = 2f;
     private float cooldownTimer = 0f;
 
+    private float _agrRange = 100f;
 
     private void Start()
     {
         myAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        player = FindObjectOfType<PlayerMovement>();
     }
 
     private void Update()
     {
-        if (player != null)
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _agrRange);
+
+        var enemyGameObject = FindNearestTarget(hitColliders);
+
+        if (enemyGameObject != null)
+            _target = enemyGameObject.GetComponent<Health>();
+
+        if(_target != null)
         {
-            float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+            float distanceToTarget = Vector3.Distance(transform.position, _target.transform.position);
 
-
-            if (cooldownTimer <= 0f && distanceToPlayer <= attackRange)
+            if (cooldownTimer <= 0f && distanceToTarget <= attackRange)
             {
                 myAgent.isStopped = true;
                 animator.SetTrigger("isAttack");
 
-                PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
-                if (playerHealth != null)
+                Health targetHealth = _target.GetComponent<Health>();
+
+                if (targetHealth != null)
                 {
-                    playerHealth.TakeDamage(damage);
+                    targetHealth.TakeDamage(damage);
                 }
 
-                myAgent.isStopped = false;
                 cooldownTimer = attackCooldown;
             }
             else
             {
                 myAgent.isStopped = false;
-                myAgent.destination = player.transform.position;
+                myAgent.destination = _target.transform.position;
                 animator.ResetTrigger("isAttack");
             }
-
-            cooldownTimer -= Time.deltaTime;
         }
+
+        cooldownTimer -= Time.deltaTime;
+
+    }
+
+    private GameObject FindNearestTarget(Collider[] colliders)
+    {
+        GameObject nearestTarget = null;
+        float nearestDistance = float.MaxValue;
+
+        foreach (Collider collider in colliders)
+        {
+            Health target = collider.GetComponent<Health>();
+
+            if (target != null && collider.gameObject.activeSelf)
+            {
+                float distance = Vector3.Distance(transform.position, collider.transform.position);
+
+                if (distance < nearestDistance)
+                {
+                    nearestDistance = distance;
+                    nearestTarget = collider.gameObject;
+                }
+            }
+        }
+
+        return nearestTarget;
     }
 }
