@@ -19,19 +19,18 @@ public class HeroRangeAttack : MonoBehaviour
 
     private void Update()
     {
-        if(_currentEnemy == null)
+        if (_currentEnemy == null)
         {
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, _player.AttackRange);
 
-            _currentEnemy = FindNearestEnemy(hitColliders);
-
-            if (_currentEnemy != null)
+            _currentEnemy = FindNearestEnemy(hitColliders);            
+        }
+        else
+        {
+            if (Time.time - _lastAttackTime >= 1 / _player.AttackSpeed)
             {
-                if (Time.time - _lastAttackTime >= 1 / _player.AttackSpeed)
-                {
-                    AttackEnemy(_currentEnemy);
-                    _lastAttackTime = Time.time;
-                }
+                AttackEnemy(_currentEnemy);
+                _lastAttackTime = Time.time;
             }
         }
     }

@@ -21,7 +21,7 @@ public class EnemyHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             _animator.SetTrigger("isDie");
-            Destroy(gameObject, 1);
+            Destroy(gameObject,0.5f);
         }
     }    
 }
