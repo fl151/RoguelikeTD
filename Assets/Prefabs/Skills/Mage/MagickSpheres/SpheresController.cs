@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpheresController : MonoBehaviour
@@ -9,23 +7,15 @@ public class SpheresController : MonoBehaviour
     [SerializeField] private float _range = 10;
     [SerializeField] private int _countSpheres = 3;
 
-    private Transform _target;
-
     private MagickSphere[] _spheres;
 
     private void Update()
     {
-        if (_target == null) Destroy(gameObject);
-
-        transform.position = _target.position;
         transform.Rotate(0, _rotateSpeed * Time.deltaTime, 0);
     }
 
-    public void Init(Transform target)
+    public void Init()
     {
-        transform.parent = null;
-        _target = target;
-
         SpawnSpheres();
     }
 

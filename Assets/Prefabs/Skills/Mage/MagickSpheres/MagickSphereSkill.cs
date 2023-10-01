@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MagickSphereSkill : Skill
@@ -13,7 +11,7 @@ public class MagickSphereSkill : Skill
     protected override void UpgradeLevelOne()
     {
         _spheres.gameObject.SetActive(true);
-        _spheres.Init(transform);
+        _spheres.Init();
         _spheres.SetDamage(_damage1);
         _spheres.SetEffect(0);
     }
