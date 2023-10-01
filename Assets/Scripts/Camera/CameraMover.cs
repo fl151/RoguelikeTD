@@ -15,6 +15,8 @@ public class CameraMover : MonoBehaviour
 
     private void Update()
     {
+        if (_target == null) return;
+
         transform.position = Vector3.Lerp(transform.position, _target.transform.position + _cameraLocalPosition, 0.02f);
     }
 }

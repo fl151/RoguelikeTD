@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class FireGrorund : MonoBehaviour
 {
+    private const float _defaultSphereRadius = 4.5f;
+
     [SerializeField] private ParticleSystem _effectPrefab;
-    [SerializeField] private Collider[] _colliders;
 
     private ParticleSystem _effect;
 
-    private int _countHits;
-    private float _delayBetweenHits;
+    private int _countHits = 3;
+    private float _delayBetweenHits = 1f;
     private float _delayBetweenAttacks = 5;
 
-    [SerializeField] private float _totalDamage;
+    private float _totalDamage;
+
+    private float _scale;
 
     private void Awake()
     {
         _effect = Instantiate(_effectPrefab, transform);
         _effect.Stop();
-
-        _countHits = _colliders.Length;
-        _delayBetweenHits = 3 / _countHits;
     }
 
     private void Start()
@@ -43,36 +43,41 @@ public class FireGrorund : MonoBehaviour
         _totalDamage = totalDamage;
     }
 
+    public void SetScale(float scale)
+    {
+        _scale = scale;
+
+        transform.localScale = new Vector3(_scale, _scale, _scale);
+    }
+
     private IEnumerator PlayAttack()
     {
         while (true)
         {
             yield return new WaitForSeconds(_delayBetweenAttacks / 2);
+            _effect.Play();
 
             for (int i = 0; i < _countHits; i++)
             {
-                if(_colliders.Length > i && _colliders[i] != null)
-                {
-                    yield return new WaitForSeconds(_delayBetweenHits);
-                    StartAttackAOE(i);
-
-                    yield return new WaitForFixedUpdate();
-                    FinishAOEAttack(i);
-                }
+                yield return new WaitForSeconds(_delayBetweenHits); 
+                AttackAOE();
             }
 
             yield return new WaitForSeconds(_delayBetweenAttacks / 2);
         }
     }
 
-    private void StartAttackAOE(int index)
+    private void AttackAOE()
     {
-        _colliders[index].enabled = true;
-        _effect.Play();
-    }
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _defaultSphereRadius * _scale);
 
-    private void FinishAOEAttack(int index)
-    {
-        _colliders[index].enabled = false;
+        foreach (var collider in hitColliders)
+        {
+            if(collider.TryGetComponent(out EnemyHealth enemy))
+            {
+                Debug.Log(enemy);
+                enemy.TakeDamage(_totalDamage / _countHits);
+            }
+        }
     }
 }

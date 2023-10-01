@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
     private NavMeshAgent myAgent;
     private Animator animator;
     private Health _target;
-    public float attackRange = 2f;
+    private float attackRange = 1;
     public float damage = 10f;
     public float attackCooldown = 2f;
     private float cooldownTimer = 0f;
@@ -55,7 +55,6 @@ public class EnemyMovement : MonoBehaviour
         }
 
         cooldownTimer -= Time.deltaTime;
-
     }
 
     private GameObject FindNearestTarget(Collider[] colliders)

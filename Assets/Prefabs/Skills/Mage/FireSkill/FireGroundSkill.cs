@@ -19,21 +19,22 @@ public class FireGroundSkill : Skill
         _fireGround.gameObject.SetActive(true);
 
         _fireGround.SetDamage(_totalDamage1);
-        _fireGround.transform.localScale = new Vector3(_scale1, _scale1, _scale1);
+
+        _fireGround.SetScale(_scale1);
     }
 
     protected override void UpgradeLevelTwo()
     {
         _fireGround.SetDamage(_totalDamage2);
 
-        _fireGround.transform.localScale = new Vector3(_scale2, _scale2, _scale2);
+        _fireGround.SetScale(_scale2);
     }
 
     protected override void UpgradeLevelThree()
     {
         _fireGround.SetDamage(_totalDamage3);
 
-        _fireGround.transform.localScale = new Vector3(_scale3, _scale3, _scale3);
+        _fireGround.SetScale(_scale3);
 
         base.UpgradeLevelThree();
     }

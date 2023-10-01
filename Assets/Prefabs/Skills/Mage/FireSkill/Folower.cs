@@ -13,7 +13,7 @@ public class Folower : MonoBehaviour
 
     private void Update()
     {
-        if (_target == null) Destroy(gameObject);
+        if (_target == null) return;
 
         transform.position = _target.position;
     }
