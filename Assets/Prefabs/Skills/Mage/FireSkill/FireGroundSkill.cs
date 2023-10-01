@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FireGroundSkill : Skill
@@ -19,21 +17,18 @@ public class FireGroundSkill : Skill
         _fireGround.gameObject.SetActive(true);
 
         _fireGround.SetDamage(_totalDamage1);
-
         _fireGround.SetScale(_scale1);
     }
 
     protected override void UpgradeLevelTwo()
     {
         _fireGround.SetDamage(_totalDamage2);
-
         _fireGround.SetScale(_scale2);
     }
 
     protected override void UpgradeLevelThree()
     {
         _fireGround.SetDamage(_totalDamage3);
-
         _fireGround.SetScale(_scale3);
 
         base.UpgradeLevelThree();

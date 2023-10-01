@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FireGrorund : MonoBehaviour
@@ -11,11 +10,10 @@ public class FireGrorund : MonoBehaviour
     private ParticleSystem _effect;
 
     private int _countHits = 3;
-    private float _delayBetweenHits = 1f;
+    private float _delayBetweenHits = 1f; // Анимация длится 3 секунды
     private float _delayBetweenAttacks = 5;
 
     private float _totalDamage;
-
     private float _scale;
 
     private void Awake()
@@ -52,9 +50,11 @@ public class FireGrorund : MonoBehaviour
 
     private IEnumerator PlayAttack()
     {
+        var halfDelay = new WaitForSeconds(_delayBetweenAttacks / 2);
+
         while (true)
         {
-            yield return new WaitForSeconds(_delayBetweenAttacks / 2);
+            yield return halfDelay;
             _effect.Play();
 
             for (int i = 0; i < _countHits; i++)
@@ -63,7 +63,7 @@ public class FireGrorund : MonoBehaviour
                 AttackAOE();
             }
 
-            yield return new WaitForSeconds(_delayBetweenAttacks / 2);
+            yield return halfDelay;
         }
     }
 
