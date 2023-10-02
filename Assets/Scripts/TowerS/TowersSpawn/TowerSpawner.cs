@@ -40,16 +40,16 @@ public class TowerSpawner : MonoBehaviour
                     {
                         var tower = Instantiate(_tower, hit.transform.position, hit.transform.rotation);
 
-                        int level = _playerTowers.GetCurrentTowerLevel(tower);
-
-                        tower.UpLevel(level);
-
                         _isBuildingNow = false;
                         _placeController.gameObject.SetActive(false);
 
                         Time.timeScale = 1;
 
                         Build?.Invoke(tower);
+
+                        int level = _playerTowers.GetCurrentTowerLevel(tower);
+
+                        tower.UpLevel(level);
                     }
                 }
             }

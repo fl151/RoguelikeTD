@@ -392,6 +392,10 @@ PrefabInstance:
       propertyPath: _startUpgradeCanvas
       value: 
       objectReference: {fileID: 31316667}
+    - target: {fileID: 1444157293, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
+      propertyPath: _bulletPrefab
+      value: 
+      objectReference: {fileID: 3463326547131851740, guid: 28ce7a174a31dd7439049bce8981da5b, type: 3}
     - target: {fileID: 92717486984118601, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

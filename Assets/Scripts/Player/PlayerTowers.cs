@@ -8,6 +8,7 @@ public class PlayerTowers : MonoBehaviour
     [SerializeField] private TowerSpawner _spawner;
 
     private List<Tower> _towers = new List<Tower>();
+    private List<Tower> _uniqueTowers = new List<Tower>();
     private List<Upgrade> _upgrades = new List<Upgrade>();
 
     private void OnEnable()
@@ -33,6 +34,9 @@ public class PlayerTowers : MonoBehaviour
 
         if (_upgrades.Contains(tower.TowerUpgrade) == false)
             _upgrades.Add(tower.TowerUpgrade);
+
+        if (ContainsSameTower(tower) == false)
+            _uniqueTowers.Add(tower);
     }
 
     public void UpLevelTowers(Upgrade upgrade)
@@ -60,12 +64,9 @@ public class PlayerTowers : MonoBehaviour
     {
         int level = 0;
 
-        if (_upgrades.Contains(tower.TowerUpgrade))
+        if (ContainsSameTower(tower))
         {
-            var result = from Tower resultTower in _towers
-                         select resultTower.CurrentLevel;
-
-            level = result.First();
+            level = GetSameTower(tower).CurrentLevel;
         }
 
         return level;   
@@ -86,5 +87,27 @@ public class PlayerTowers : MonoBehaviour
         }
 
         _towers = towers;
+    }
+
+    private bool ContainsSameTower(Tower tower)
+    {
+        foreach (var myTower in _uniqueTowers)
+        {
+            if (myTower.TowerUpgrade == tower.TowerUpgrade)
+                return true;
+        }
+
+        return false;
+    }
+
+    private Tower GetSameTower(Tower tower)
+    {
+        foreach (var myTower in _uniqueTowers)
+        {
+            if (myTower.TowerUpgrade == tower.TowerUpgrade)
+                return myTower;
+        }
+
+        return null;
     }
 }
