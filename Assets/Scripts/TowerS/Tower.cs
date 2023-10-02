@@ -51,7 +51,9 @@ public abstract class Tower : MonoBehaviour
 
     public void UpLevel(int level)
     {
-        for (int i = 0; i < level - _currentLevel; i++)
+        int levelRange = level - _currentLevel;
+
+        for (int i = 0; i < levelRange; i++)
         {
             UpdateTower();
         }

@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerStats))]
 public class HeroRangeAttack : MonoBehaviour
 {
-    [SerializeField] private Bullet _bulletPrefab;
+    [SerializeField] private TargetBullet _bulletPrefab;
 
     private Transform _attackPoint;
     private PlayerStats _player;
@@ -66,7 +66,7 @@ public class HeroRangeAttack : MonoBehaviour
 
     private void AttackEnemy(GameObject enemy)
     {
-        Bullet bullet = Instantiate(_bulletPrefab, _attackPoint.position, Quaternion.identity);
+        TargetBullet bullet = Instantiate(_bulletPrefab, _attackPoint.position, Quaternion.identity);
         bullet.SetTarget(enemy);
         bullet.SetDamage(_player.Damage);
     }
