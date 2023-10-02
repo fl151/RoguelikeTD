@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,18 +18,13 @@ public class EnemyMovement : MonoBehaviour
     {
         myAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+
+        StartCoroutine(FindTargetCoroutine());
     }
 
     private void Update()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _agrRange);
-
-        var enemyGameObject = FindNearestTarget(hitColliders);
-
-        if (enemyGameObject != null)
-            _target = enemyGameObject.GetComponent<Health>();
-
-        if(_target != null)
+        if (_target != null)
         {
             float distanceToTarget = Vector3.Distance(transform.position, _target.transform.position);
 
@@ -52,6 +48,10 @@ public class EnemyMovement : MonoBehaviour
                 myAgent.destination = _target.transform.position;
                 animator.ResetTrigger("isAttack");
             }
+        }
+        else
+        {
+            FindNewTarget();
         }
 
         cooldownTimer -= Time.deltaTime;
@@ -79,5 +79,27 @@ public class EnemyMovement : MonoBehaviour
         }
 
         return nearestTarget;
+    }
+
+    private IEnumerator FindTargetCoroutine()
+    {
+        var delay = new WaitForSeconds(3f);
+
+        while (true)
+        {
+            FindNewTarget();
+
+            yield return delay;
+        }
+    }
+
+    private void FindNewTarget()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _agrRange);
+
+        var enemyGameObject = FindNearestTarget(hitColliders);
+
+        if (enemyGameObject != null)
+            _target = enemyGameObject.GetComponent<Health>();
     }
 }
