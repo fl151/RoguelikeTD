@@ -25,16 +25,7 @@ public class FireGrorund : MonoBehaviour
     private void Start()
     {
         StartCoroutine(PlayAttack());
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.TryGetComponent(out EnemyHealth enemyHealth))
-        {
-            enemyHealth.TakeDamage(_totalDamage / _countHits);
-            Debug.Log(enemyHealth);
-        }
-    }
+    }    
 
     public void SetDamage(float totalDamage)
     {
@@ -74,8 +65,7 @@ public class FireGrorund : MonoBehaviour
         foreach (var collider in hitColliders)
         {
             if(collider.TryGetComponent(out EnemyHealth enemy))
-            {
-                Debug.Log(enemy);
+            {               
                 enemy.TakeDamage(_totalDamage / _countHits);
             }
         }
