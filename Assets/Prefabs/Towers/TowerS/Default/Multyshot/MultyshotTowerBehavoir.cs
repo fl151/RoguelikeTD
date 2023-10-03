@@ -2,20 +2,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+[RequireComponent(typeof(BulletPool))]
 public class MultyshotTowerBehavoir : MonoBehaviour
 {
+    private const float _attackRange = 7.5f;
+
     [SerializeField] private float _damage;
     [SerializeField] private float _attackSpeed;
     [SerializeField] private int _countAttacks;
-    [SerializeField] private TargetBullet _bulletPrefab;
-
     [SerializeField] private Transform _shotPoint;
 
-    private float _attackRange = 7.5f;
+    private BulletPool _bulletPool;
+    private float _lastAttackTime = 0;
 
     private List<GameObject> _currentEnemys = new List<GameObject>();
 
-    private float _lastAttackTime = 0;
+    private void Awake()
+    {
+        _bulletPool = GetComponent<BulletPool>();
+    }
 
     public void SetStats(float damage, float attackSpeed, int countAttacks)
     {
@@ -57,9 +62,20 @@ public class MultyshotTowerBehavoir : MonoBehaviour
     {
         foreach (var enemy in enemyes)
         {
-            TargetBullet bullet = Instantiate(_bulletPrefab, _shotPoint.position, Quaternion.identity);
-            bullet.SetTarget(enemy);
-            bullet.SetDamage(_damage);
+            AttackEnemy(enemy);
+        }
+    }
+
+    private void AttackEnemy(GameObject enemy)
+    {
+        if (_bulletPool.TryGetBullet(out Bullet bullet))
+        {
+            var targetBullet = bullet as TargetBullet;
+
+            targetBullet.gameObject.SetActive(true);
+            targetBullet.transform.position = _shotPoint.position;
+            targetBullet.SetTarget(enemy);
+            targetBullet.SetDamage(_damage);
         }
     }
 
