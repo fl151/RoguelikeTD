@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BulletPool))]
 public class SniperTowerBehavoir : MonoBehaviour
 {
     [SerializeField] private float _damage;
     [SerializeField] private float _attackSpeed;
     [SerializeField] private float _attackRange;
-    [SerializeField] private TargetBullet _bulletPrefab;
 
     [SerializeField] private Transform _shotPoint;
+
+    private BulletPool _bulletPool;
 
     private GameObject _currentEnemy;
 
@@ -20,6 +22,11 @@ public class SniperTowerBehavoir : MonoBehaviour
         _damage = damage;
         _attackSpeed = attackSpeed;
         _attackRange = attackRange;
+    }
+
+    private void Awake()
+    {
+        _bulletPool = GetComponent<BulletPool>();
     }
 
     private void Update()
@@ -64,8 +71,14 @@ public class SniperTowerBehavoir : MonoBehaviour
 
     private void AttackEnemy(GameObject enemy)
     {
-        TargetBullet bullet = Instantiate(_bulletPrefab, _shotPoint.position, Quaternion.identity);
-        bullet.SetTarget(enemy);
-        bullet.SetDamage(_damage);
+        if(_bulletPool.TryGetBullet(out Bullet bullet))
+        {
+            var targetBullet = bullet as TargetBullet;
+
+            targetBullet.gameObject.SetActive(true);
+            targetBullet.transform.position = _shotPoint.position;
+            targetBullet.SetTarget(enemy);
+            targetBullet.SetDamage(_damage);
+        }  
     }
 }

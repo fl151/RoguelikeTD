@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TargetBullet : MonoBehaviour
+public class TargetBullet : Bullet
 {
     private float _damage;
 
@@ -48,6 +48,6 @@ public class TargetBullet : MonoBehaviour
             enemy.TakeDamage(_damage);
         }
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
