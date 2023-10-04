@@ -10,7 +10,6 @@ public class SniperTowerBehavoir : MonoBehaviour
     [SerializeField] private Transform _shotPoint;
 
     private BulletPool _bulletPool;
-
     private GameObject _currentEnemy;
 
     private float _lastAttackTime = 0;

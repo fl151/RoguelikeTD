@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class IceDebuff : MonoBehaviour
@@ -51,7 +50,6 @@ public class IceDebuff : MonoBehaviour
     private void FinishEffect()
     {
         _skin.material = _oldMaterial;
-
         _movement.MakeNormalSpeed();
 
         Destroy(gameObject);
