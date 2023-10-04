@@ -75,8 +75,7 @@ public class SniperTowerBehavoir : MonoBehaviour
 
             targetBullet.gameObject.SetActive(true);
             targetBullet.transform.position = _shotPoint.position;
-            targetBullet.SetTarget(enemy);
-            targetBullet.SetDamage(_damage);
+            targetBullet.Init(enemy, _damage);
         }  
     }
 }

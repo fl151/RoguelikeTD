@@ -6,14 +6,10 @@ public class TargetBullet : Bullet
 
     private GameObject _target;
 
-    public void SetTarget(GameObject newTarget)
+    public void Init(GameObject target, float damage)
     {
-        _target = newTarget;
-    }
-
-    public void SetDamage(float value)
-    {
-        _damage = value;
+        _target = target;
+        _damage = damage;
     }
 
     private void Update()
@@ -25,7 +21,7 @@ public class TargetBullet : Bullet
         }
         else
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
