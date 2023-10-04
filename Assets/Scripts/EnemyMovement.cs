@@ -14,10 +14,13 @@ public class EnemyMovement : MonoBehaviour
 
     private float _agrRange = 100f;
 
+    private float _defaultSpeed;
+
     private void Start()
     {
         myAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        _defaultSpeed = myAgent.speed;
 
         StartCoroutine(FindTargetCoroutine());
     }
@@ -55,6 +58,16 @@ public class EnemyMovement : MonoBehaviour
         }
 
         cooldownTimer -= Time.deltaTime;
+    }
+
+    public void MakeSlow(float slowCoefficient)
+    {
+        myAgent.speed = _defaultSpeed * (1 - slowCoefficient);
+    }
+
+    public void MakeNormalSpeed()
+    {
+        myAgent.speed = _defaultSpeed;
     }
 
     private GameObject FindNearestTarget(Collider[] colliders)

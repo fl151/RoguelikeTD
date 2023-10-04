@@ -11,6 +11,7 @@ public class IceDebuff : MonoBehaviour
 
     private Material _oldMaterial;
     private SkinnedMeshRenderer _skin;
+    private EnemyMovement _movement;
 
     private void Start()
     {
@@ -42,11 +43,16 @@ public class IceDebuff : MonoBehaviour
 
         _oldMaterial = _skin.material;
         _skin.material = _iceMaterial;
+
+        _movement = transform.parent.GetComponent<EnemyMovement>();
+        _movement.MakeSlow(_slowCoeff);
     }
 
     private void FinishEffect()
     {
         _skin.material = _oldMaterial;
+
+        _movement.MakeNormalSpeed();
 
         Destroy(gameObject);
     }
