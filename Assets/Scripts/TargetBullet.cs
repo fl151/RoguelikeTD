@@ -17,7 +17,7 @@ public class TargetBullet : Bullet
         if (_target != null)
         {
             Vector3 direction = (_target.transform.position - transform.position).normalized * 10;
-            transform.Translate(direction * Time.deltaTime);
+            transform.position += direction * Time.deltaTime;
         }
         else
         {
