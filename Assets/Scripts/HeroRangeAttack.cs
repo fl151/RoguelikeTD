@@ -73,8 +73,7 @@ public class HeroRangeAttack : MonoBehaviour
 
             targetBullet.gameObject.SetActive(true);
             targetBullet.transform.position = _attackPoint.position;
-            targetBullet.SetTarget(enemy);
-            targetBullet.SetDamage(_player.Damage);
+            targetBullet.Init(enemy, _player.Damage);
         }
     }
 }
