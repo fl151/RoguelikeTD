@@ -4,7 +4,7 @@ public class Folower : MonoBehaviour
 {
     private Transform _target;
 
-    private void Awake()
+    private void OnEnable()
     {
         _target = transform.parent;
 
