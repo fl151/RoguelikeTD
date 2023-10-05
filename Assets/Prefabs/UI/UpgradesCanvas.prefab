@@ -608,6 +608,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3f45d996868a5e849bee5813b07f1c8b, type: 2}
   _mageTowerBuildUpgrades:
   - {fileID: 11400000, guid: 33249f92e4b668943adbdc4c2b142b8b, type: 2}
+  - {fileID: 11400000, guid: 85dc4557feed5b64595ea429999cb8b9, type: 2}
   _warriorTowerBuildUpgrades: []
   _summonerTowerBuildUpgrades: []
   _defaultPlayerUpgrades:
