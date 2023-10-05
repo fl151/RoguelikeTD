@@ -1018,6 +1018,14 @@ PrefabInstance:
       propertyPath: _playerTowers
       value: 
       objectReference: {fileID: 1444157285}
+    - target: {fileID: 3798281778477409431, guid: 31187e548341e1045a692eea99ce31cb, type: 3}
+      propertyPath: _mageTowerBuildUpgrades.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798281778477409431, guid: 31187e548341e1045a692eea99ce31cb, type: 3}
+      propertyPath: _mageTowerBuildUpgrades.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 85dc4557feed5b64595ea429999cb8b9, type: 2}
     - target: {fileID: 7962020909466349075, guid: 31187e548341e1045a692eea99ce31cb, type: 3}
       propertyPath: _chooseBranchCanvas
       value: 
