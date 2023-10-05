@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 8876237369464603691, guid: 8d8e374a85bb28b41b31f7b9c554ad17, type: 3}
-  _count: 4
+  _count: 5
   _conteiner: {fileID: 1507030280465849058}
 --- !u!1 &2824590972899971314
 GameObject:

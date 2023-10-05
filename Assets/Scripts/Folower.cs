@@ -4,7 +4,9 @@ public class Folower : MonoBehaviour
 {
     private Transform _target;
 
-    private void Awake()
+    public bool IsTargetActive => _target.gameObject.activeSelf;
+
+    private void OnEnable()
     {
         _target = transform.parent;
 
