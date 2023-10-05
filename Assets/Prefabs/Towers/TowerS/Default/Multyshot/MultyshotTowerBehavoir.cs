@@ -47,6 +47,8 @@ public class MultyshotTowerBehavoir : MonoBehaviour
             {
                 var newEnemy = TakeRandomEnemy(enemyesList);
 
+                if (_currentEnemys.Contains(newEnemy)) break;
+
                 _currentEnemys.Add(newEnemy);
             }
         }

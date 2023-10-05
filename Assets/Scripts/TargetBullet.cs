@@ -6,6 +6,8 @@ public class TargetBullet : Bullet
 
     private GameObject _target;
 
+    public GameObject Target => _target;
+
     public void Init(GameObject target, float damage)
     {
         _target = target;
@@ -17,7 +19,7 @@ public class TargetBullet : Bullet
         if (_target != null)
         {
             Vector3 direction = (_target.transform.position - transform.position).normalized * 10;
-            transform.Translate(direction * Time.deltaTime);
+            transform.position += direction * Time.deltaTime;
         }
         else
         {
