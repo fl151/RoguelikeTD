@@ -6,6 +6,8 @@ public class TargetBullet : Bullet
 
     private GameObject _target;
 
+    public GameObject Target => _target;
+
     public void Init(GameObject target, float damage)
     {
         _target = target;
