@@ -36,9 +36,7 @@ public class ExplosionBullet : PointBullet
         _cosAngle = (point.x - transform.position.x) / _L;
 
         _Vy = Mathf.Sqrt(2 * _g * (_maxY - transform.position.y));
-
         _t1 = Mathf.Sqrt(2 * _g * (_maxY - transform.position.y)) / _g;
-
         _t2 = Mathf.Sqrt(2 * _maxY / _g);
 
         _vHorisontal = _L / (_t1 + _t2);
