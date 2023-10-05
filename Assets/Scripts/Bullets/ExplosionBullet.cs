@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ExplosionBullet : PointBullet
 {
-    private const float _g = 9.8f;
+    private const float _g = 15f;
+
+    [SerializeField] private Explosion _explosionEffect;
 
     private float _damage;
     private float _radius;
@@ -44,27 +47,43 @@ public class ExplosionBullet : PointBullet
         _Vx = _vHorisontal * _cosAngle;
         _Vz = _vHorisontal * _sinAngle;
 
-        StartCoroutine(Explose(_t1 + _t2));
+        StartCoroutine(ExploseAfterTime(_t1 + _t2));
     }
 
     private void Update()
     {
-        Vector3 direction = new Vector3(_Vx, _Vy, _Vz);
+        var direction = new Vector3(_Vx, _Vy, _Vz);
 
         transform.position += direction * Time.deltaTime;
 
         _Vy -= _g * Time.deltaTime;
     }
 
-    private void Explosion()
+    private IEnumerator ExploseAfterTime(float flyTime)
     {
+        yield return new WaitForSeconds(flyTime);
+
+        Explosion effect = Instantiate(_explosionEffect, null);
+        effect.transform.position = transform.position;
+
+        Damage();
+
+        yield return new WaitForSeconds(0.5f);
+
         gameObject.SetActive(false);
     }
 
-    private IEnumerator Explose(float time)
+    private void Damage()
     {
-        yield return new WaitForSeconds(time);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _radius);
 
-        Explosion();
+        var enemyes = from hit in hitColliders
+                      where hit.TryGetComponent(out EnemyHealth enemy)
+                      select hit.GetComponent<EnemyHealth>();
+
+        foreach (var enemy in enemyes)
+        {
+            enemy.TakeDamage(_damage);
+        }
     }
 }

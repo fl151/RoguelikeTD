@@ -4,10 +4,11 @@ using System.Linq;
 
 public class FireTowerBehavoir : MonoBehaviour
 {
+    private const float _explosionRadius = 1;
+
     [SerializeField] private float _damage;
     [SerializeField] private float _attackSpeed;
     [SerializeField] private float _attackRange;
-    [SerializeField] private float _explosionRadius;
     [SerializeField] private float _maxY;
 
     [SerializeField] private Transform _shotPoint;
@@ -16,12 +17,11 @@ public class FireTowerBehavoir : MonoBehaviour
 
     private float _lastAttackTime = 0;
 
-    public void SetStats(float damage, float attackSpeed, float attackRange, float explosionRadius)
+    public void SetStats(float damage, float attackSpeed, float attackRange)
     {
         _damage = damage;
         _attackSpeed = attackSpeed;
         _attackRange = attackRange;
-        _explosionRadius = explosionRadius;
     }
 
     private void Awake()
