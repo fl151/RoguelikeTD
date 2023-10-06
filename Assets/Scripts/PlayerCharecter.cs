@@ -15,8 +15,7 @@ public class PlayerCharecter : MonoBehaviour
     [SerializeField] private GameObject _summonerModel;
 
     [SerializeField] private HeroRangeAttack _rangeAttack;
-    [SerializeField] private HeroMeeleAttack _meeleAttack;
-    
+    [SerializeField] private HeroMeeleAttack _meeleAttack; 
 
     private Charecter _charecter;
 
