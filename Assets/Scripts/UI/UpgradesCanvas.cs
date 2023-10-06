@@ -17,8 +17,6 @@ public class UpgradesCanvas : MonoBehaviour
 
     private UpgradeView[] _currentViews;
 
-    private Charecter _charecter;
-
     private void Awake()
     {
         _conteiner = GetComponent<UpgradesConteiner>();
@@ -29,14 +27,7 @@ public class UpgradesCanvas : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerCharecter.CharecterSeted += SetCharecter;
-
         _errorUI.SetActive(false);
-    }
-
-    private void OnDisable()
-    {
-        _playerCharecter.CharecterSeted -= SetCharecter;
     }
 
     public void Fill(UpgradeBranch branch)
@@ -82,7 +73,7 @@ public class UpgradesCanvas : MonoBehaviour
     {
         var towerUpgrades = _playerTowers.GetUpgrades();
         var towerBuildUpgrades = GetMergetArray(
-            _conteiner.GetCharecterUpgrades(UpgradeBranch.Towers, _charecter),
+            _conteiner.GetCharecterUpgrades(UpgradeBranch.Towers, _playerCharecter.Charecter),
             _conteiner.GetDefaultUpgrades(UpgradeBranch.Towers));
 
         var upgrades = GetMergetArray(towerUpgrades, towerBuildUpgrades);
@@ -121,11 +112,6 @@ public class UpgradesCanvas : MonoBehaviour
         for (int i = 0; i < _currentViews.Length; i++)
             if (_currentViews[i] != null)
                 Destroy(_currentViews[i].gameObject);
-    }
-
-    private void SetCharecter(Charecter charecter)
-    {
-        _charecter = charecter;
     }
 
     private List<Upgrade> ConverToList(Upgrade[] upgrades)

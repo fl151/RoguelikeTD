@@ -31,22 +31,24 @@ public class IceTowerBahavoir : MonoBehaviour
 
     private void Update()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _attackRange);
-
-        var enemyes = from hit in hitColliders
-                      where hit.TryGetComponent(out EnemyHealth enemy)
-                      select hit.gameObject;
-
-        _currentEnemy = GetRandomEnemy(enemyes.ToArray());
-
-        if (_currentEnemy != null)
+        if (Time.time - _lastAttackTime >= 1 / _attackSpeed)
         {
-            if (Time.time - _lastAttackTime >= 1 / _attackSpeed)
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, _attackRange);
+
+            var enemyes = from hit in hitColliders
+                          where hit.TryGetComponent(out EnemyHealth enemy)
+                          select hit.gameObject;
+
+            _currentEnemy = GetRandomEnemy(enemyes.ToArray());
+
+            if (_currentEnemy != null)
             {
                 AttackEnemy(_currentEnemy);
                 _lastAttackTime = Time.time;
             }
         }
+
+
     }
 
     private GameObject GetRandomEnemy(GameObject[] enemyes)
