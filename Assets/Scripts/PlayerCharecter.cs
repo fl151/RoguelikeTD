@@ -40,6 +40,8 @@ public class PlayerCharecter : MonoBehaviour
                 break;
         }
 
+        _charecter = charecter;
+
         CharecterSeted?.Invoke(charecter);
     }
 

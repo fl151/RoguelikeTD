@@ -31,33 +31,37 @@ public class MultyshotTowerBehavoir : MonoBehaviour
 
     private void Update()
     {
-        RemoveDiedEnemyes();
-
-        if (_currentEnemys.Count() < _countAttacks)
+        if(Time.time - _lastAttackTime >= 1 / _attackSpeed)
         {
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, _attackRange);
+            RemoveDiedEnemyes();
 
-            var enemyes = from hit in hitColliders
-                          where hit.TryGetComponent(out EnemyHealth enemy)
-                          select hit.gameObject;
-
-            var enemyesList = enemyes.ToList();
-
-            while (enemyesList.Count() != 0 && _currentEnemys.Count() < _countAttacks)
+            if (_currentEnemys.Count() < _countAttacks)
             {
-                var newEnemy = TakeRandomEnemy(enemyesList);
+                Collider[] hitColliders = Physics.OverlapSphere(transform.position, _attackRange);
 
-                if (_currentEnemys.Contains(newEnemy)) break;
+                var enemyes = from hit in hitColliders
+                              where hit.TryGetComponent(out EnemyHealth enemy)
+                              select hit.gameObject;
 
-                _currentEnemys.Add(newEnemy);
+                var enemyesList = enemyes.ToList();
+
+                while (enemyesList.Count() != 0 && _currentEnemys.Count() < _countAttacks)
+                {
+                    var newEnemy = TakeRandomEnemy(enemyesList);
+
+                    if (_currentEnemys.Contains(newEnemy)) break;
+
+                    _currentEnemys.Add(newEnemy);
+                }
+            }
+
+            if (_currentEnemys.Count() != 0)
+            {
+                AttackEnemys(_currentEnemys);
+                _lastAttackTime = Time.time;
             }
         }
-
-        if (_currentEnemys.Count() != 0 && Time.time - _lastAttackTime >= 1 / _attackSpeed)
-        {
-            AttackEnemys(_currentEnemys);
-            _lastAttackTime = Time.time;
-        }
+        
     }
 
     private void AttackEnemys(List<GameObject> enemyes)
