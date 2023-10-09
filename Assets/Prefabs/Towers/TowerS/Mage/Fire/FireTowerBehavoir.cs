@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+[RequireComponent(typeof(ObjectPool))]
 public class FireTowerBehavoir : MonoBehaviour
 {
     private const float _explosionRadius = 1;
@@ -13,7 +14,7 @@ public class FireTowerBehavoir : MonoBehaviour
 
     [SerializeField] private Transform _shotPoint;
 
-    private BulletPool _bulletPool;
+    private ObjectPool _bulletPool;
 
     private float _lastAttackTime = 0;
 
@@ -26,7 +27,7 @@ public class FireTowerBehavoir : MonoBehaviour
 
     private void Awake()
     {
-        _bulletPool = GetComponent<BulletPool>();
+        _bulletPool = GetComponent<ObjectPool>();
     }
 
     private void Update()
@@ -56,9 +57,9 @@ public class FireTowerBehavoir : MonoBehaviour
 
     private void AttackPoint(Vector3 point)
     {
-        if (_bulletPool.TryGetBullet(out Bullet bullet))
+        if (_bulletPool.TryGetObject(out GameObject bullet))
         {
-            var explosionBullet = bullet as ExplosionBullet;
+            var explosionBullet = bullet.GetComponent<ExplosionBullet>();
 
             explosionBullet.gameObject.SetActive(true);
             explosionBullet.transform.position = _shotPoint.position;

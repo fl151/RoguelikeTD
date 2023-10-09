@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-[RequireComponent(typeof(BulletPool))]
+[RequireComponent(typeof(ObjectPool))]
 public class MultyshotTowerBehavoir : MonoBehaviour
 {
     private const float _attackRange = 7.5f;
@@ -12,14 +12,14 @@ public class MultyshotTowerBehavoir : MonoBehaviour
     [SerializeField] private int _countAttacks;
     [SerializeField] private Transform _shotPoint;
 
-    private BulletPool _bulletPool;
+    private ObjectPool _bulletPool;
     private float _lastAttackTime = 0;
 
     private List<GameObject> _currentEnemys = new List<GameObject>();
 
     private void Awake()
     {
-        _bulletPool = GetComponent<BulletPool>();
+        _bulletPool = GetComponent<ObjectPool>();
     }
 
     public void SetStats(float damage, float attackSpeed, int countAttacks)
@@ -74,9 +74,9 @@ public class MultyshotTowerBehavoir : MonoBehaviour
 
     private void AttackEnemy(GameObject enemy)
     {
-        if (_bulletPool.TryGetBullet(out Bullet bullet))
+        if (_bulletPool.TryGetObject(out GameObject bullet))
         {
-            var targetBullet = bullet as TargetBullet;
+            var targetBullet = bullet.GetComponent<TargetBullet>();
 
             targetBullet.gameObject.SetActive(true);
             targetBullet.transform.position = _shotPoint.position;

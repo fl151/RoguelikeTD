@@ -1,21 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(BuffHelpersTowerBehavoir))]
 public class SummBuffTower : Tower
 {
+    private const float _damageBonus1 = 2;
+    private const float _damageBonus2 = 3;
+    private const float _damageBonus3 = 5;
+
+    private BuffHelpersTowerBehavoir _tower;
+
     protected override void UpgradeLevelOne()
     {
-        throw new System.NotImplementedException();
-    }
-
-    protected override void UpgradeLevelThree()
-    {
-        throw new System.NotImplementedException();
+        _tower = GetComponent<BuffHelpersTowerBehavoir>();
+        _tower.SetDamageBonus(_damageBonus1);
     }
 
     protected override void UpgradeLevelTwo()
     {
-        throw new System.NotImplementedException();
+        _tower.SetDamageBonus(_damageBonus2);
+    }
+
+    protected override void UpgradeLevelThree()
+    {
+        _tower.SetDamageBonus(_damageBonus3);
+
+        base.UpgradeLevelThree();
     }
 }

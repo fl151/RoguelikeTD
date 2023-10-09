@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb1029f9cb3078d409048dcb569cb451, type: 3}
-  m_Name: UpLevelSummonerBuffTowerUpgrade
+  m_Script: {fileID: 11500000, guid: f7767d27b5b88fe4a8b22eec6c7b0651, type: 3}
+  m_Name: BuildBuffHelpersTowerUpgrade
   m_EditorClassIdentifier: 
-  _title: Up Level Buff Towers
+  _title: Build Buff Tower
   _sprite: {fileID: 0}
+  _prefab: {fileID: 6627438037667885413, guid: 95fb2d45a8d120947bc810a1e2703ade, type: 3}

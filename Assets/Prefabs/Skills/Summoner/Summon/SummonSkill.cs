@@ -19,7 +19,9 @@ public class SummonSkill : Skill
 
     private float _currentHelpersDamage;
     private float _currentHelpersAttackSpeed;
-    private float _currentHelpersHealth; 
+    private float _currentHelpersHealth;
+
+    public static SummonSkill Instance;
 
     public void SpawnHelper(Vector3 position)
     {
@@ -43,6 +45,15 @@ public class SummonSkill : Skill
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
         var stats = _helperPrafab.GetComponent<HelperStats>();
 
         _currentHelpersDamage = stats.Damage;
@@ -79,13 +90,15 @@ public class SummonSkill : Skill
 
     private IEnumerator SpawnHelpers()
     {
-        yield return new WaitForSeconds(_cooldawn);
+        yield return new WaitForSeconds(_cooldawn * 0.2f);
 
         for (int i = 0; i < _countHelpersPerSpawn; i++)
         {
             SpawnHelper(transform.position);
         }
-        
+
+        yield return new WaitForSeconds(_cooldawn * 0.8f);
+
         _isColldawnFinished = true;
     }
 
@@ -99,7 +112,7 @@ public class SummonSkill : Skill
             }
             else
             {
-                helper.GetComponent<HelperStats>().AddStats(_currentHelpersDamage, _currentHelpersAttackSpeed);
+                helper.GetComponent<HelperStats>().SetStats(_currentHelpersDamage, _currentHelpersAttackSpeed);
             }
 
         }

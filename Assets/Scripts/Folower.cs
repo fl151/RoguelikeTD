@@ -13,13 +13,12 @@ public class Folower : MonoBehaviour
         _target = transform.parent;
         _startDistanse = transform.position - _target.position;
 
-        transform.parent = null;
+        transform.SetParent(null, false);
     }
 
     private void Update()
     {
-        if (_target == null) return;
-
-        transform.position = _target.position + _startDistanse;
+        if (_target == null) Destroy(gameObject);
+        else transform.position = _target.position + _startDistanse;
     }
 }

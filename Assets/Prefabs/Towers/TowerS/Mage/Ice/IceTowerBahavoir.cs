@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Linq;
 
-[RequireComponent(typeof(BulletPool))]
+[RequireComponent(typeof(ObjectPool))]
 public class IceTowerBahavoir : MonoBehaviour
 {
     private const float _attackRange = 7.5f;
@@ -12,7 +12,7 @@ public class IceTowerBahavoir : MonoBehaviour
 
     [SerializeField] private Transform _shotPoint;
 
-    private BulletPool _bulletPool;
+    private ObjectPool _bulletPool;
     private GameObject _currentEnemy;
 
     private float _lastAttackTime = 0;
@@ -26,7 +26,7 @@ public class IceTowerBahavoir : MonoBehaviour
 
     private void Awake()
     {
-        _bulletPool = GetComponent<BulletPool>();
+        _bulletPool = GetComponent<ObjectPool>();
     }
 
     private void Update()
@@ -62,9 +62,9 @@ public class IceTowerBahavoir : MonoBehaviour
 
     private void AttackEnemy(GameObject enemy)
     {
-        if (_bulletPool.TryGetBullet(out Bullet bullet))
+        if (_bulletPool.TryGetObject(out GameObject bullet))
         {
-            var targetBullet = bullet as IceBullet;
+            var targetBullet = bullet.GetComponent<IceBullet>();
 
             targetBullet.gameObject.SetActive(true);
             targetBullet.transform.position = _shotPoint.position;

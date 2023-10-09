@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(BulletPool))]
+[RequireComponent(typeof(ObjectPool))]
 public class SniperTowerBehavoir : MonoBehaviour
 {
     [SerializeField] private float _damage;
@@ -9,7 +9,7 @@ public class SniperTowerBehavoir : MonoBehaviour
 
     [SerializeField] private Transform _shotPoint;
 
-    private BulletPool _bulletPool;
+    private ObjectPool _bulletPool;
     private GameObject _currentEnemy;
 
     private float _lastAttackTime = 0;
@@ -23,7 +23,7 @@ public class SniperTowerBehavoir : MonoBehaviour
 
     private void Awake()
     {
-        _bulletPool = GetComponent<BulletPool>();
+        _bulletPool = GetComponent<ObjectPool>();
     }
 
     private void Update()
@@ -68,9 +68,9 @@ public class SniperTowerBehavoir : MonoBehaviour
 
     private void AttackEnemy(GameObject enemy)
     {
-        if(_bulletPool.TryGetBullet(out Bullet bullet))
+        if(_bulletPool.TryGetObject(out GameObject bullet))
         {
-            var targetBullet = bullet as TargetBullet;
+            var targetBullet = bullet.GetComponent<TargetBullet>();
 
             targetBullet.gameObject.SetActive(true);
             targetBullet.transform.position = _shotPoint.position;
