@@ -3,6 +3,8 @@ using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private const int _layerMask = 1 << 6;
+
     [SerializeField] private float _rotateSpeed = 500f;
 
     private NavMeshAgent _navMeshAgent;
@@ -24,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask))
             {
                 _navMeshAgent.SetDestination(hit.point);
                 _isRuning = true;
