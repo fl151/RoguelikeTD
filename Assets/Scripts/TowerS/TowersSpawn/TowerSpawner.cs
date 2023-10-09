@@ -6,6 +6,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(PlayerTowers))]
 public class TowerSpawner : MonoBehaviour
 {
+    private const int _layerMask = 1 << 3;
+
     [SerializeField] private PlacesControler _placeController;
 
     private Tower _tower;
@@ -22,7 +24,7 @@ public class TowerSpawner : MonoBehaviour
 
     private void Update()
     {
-        if(_isBuildingNow == false)
+        if (_isBuildingNow == false)
         {
             return;
         }
@@ -32,7 +34,7 @@ public class TowerSpawner : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, _layerMask))
             {
                 if (hit.collider.gameObject.TryGetComponent(out TowerPlace towerPlace))
                 {

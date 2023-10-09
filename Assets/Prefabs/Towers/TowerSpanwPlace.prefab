@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6826075213992247705}
   - component: {fileID: 4313363971464640245}
   - component: {fileID: 3559183195526767174}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TowerSpanwPlace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 7935576305617684303}
   - component: {fileID: 8506236636923952503}
   - component: {fileID: 6318394183543825549}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
