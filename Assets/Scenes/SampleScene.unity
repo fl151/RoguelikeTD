@@ -392,10 +392,26 @@ PrefabInstance:
       propertyPath: _startUpgradeCanvas
       value: 
       objectReference: {fileID: 31316667}
+    - target: {fileID: 7741187039464298, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
+      propertyPath: _count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7741187039464298, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
+      propertyPath: _prefab
+      value: 
+      objectReference: {fileID: 132819866326406661, guid: 28ce7a174a31dd7439049bce8981da5b, type: 3}
+    - target: {fileID: 7741187039464298, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
+      propertyPath: _conteiner
+      value: 
+      objectReference: {fileID: 2027504352}
     - target: {fileID: 92717486984118601, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 570237229162162895, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 963194227}
     - target: {fileID: 1289987007582271484, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -460,7 +476,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1377913989137057648, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
 --- !u!114 &298081598 stripped
 MonoBehaviour:
@@ -1002,6 +1019,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3798281778477409427, guid: 31187e548341e1045a692eea99ce31cb, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 963194227}
     - target: {fileID: 3798281778477409428, guid: 31187e548341e1045a692eea99ce31cb, type: 3}
       propertyPath: m_Name
       value: UpgradesCanvas
@@ -1439,6 +1460,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4334727355438604201, guid: 8dfcaeb56a1da34458baf89c12039114, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 963194227}
     - target: {fileID: 4334727356438686744, guid: 8dfcaeb56a1da34458baf89c12039114, type: 3}
       propertyPath: _upgradesCanvas
       value: 
@@ -1499,6 +1524,10 @@ PrefabInstance:
     - target: {fileID: 4569359985809908988, guid: 11e4b1f6dd1635d478225c4bb7caaf4e, type: 3}
       propertyPath: m_Name
       value: Terrain 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569359985809908988, guid: 11e4b1f6dd1635d478225c4bb7caaf4e, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11e4b1f6dd1635d478225c4bb7caaf4e, type: 3}

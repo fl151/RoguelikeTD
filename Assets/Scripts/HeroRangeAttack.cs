@@ -1,12 +1,12 @@
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerStats))]
-[RequireComponent(typeof(BulletPool))]
+[RequireComponent(typeof(ObjectPool))]
 public class HeroRangeAttack : MonoBehaviour
 {
     private Transform _attackPoint;
     private PlayerStats _player;
-    private BulletPool _bulletPool;
+    private ObjectPool _bulletPool;
 
     private float _lastAttackTime = 0f;
 
@@ -15,7 +15,7 @@ public class HeroRangeAttack : MonoBehaviour
     private void Awake()
     {
         _player = GetComponent<PlayerStats>();
-        _bulletPool = GetComponent<BulletPool>();
+        _bulletPool = GetComponent<ObjectPool>();
     }
 
     private void Update()
@@ -67,9 +67,9 @@ public class HeroRangeAttack : MonoBehaviour
 
     private void AttackEnemy(GameObject enemy)
     {
-        if (_bulletPool.TryGetBullet(out Bullet bullet))
+        if (_bulletPool.TryGetObject(out GameObject bullet))
         {
-            var targetBullet = bullet as TargetBullet;
+            var targetBullet = bullet.GetComponent<TargetBullet>();
 
             targetBullet.gameObject.SetActive(true);
             targetBullet.transform.position = _attackPoint.position;
