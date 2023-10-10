@@ -1,24 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(EnemyStats))]
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private float currentHealth;
+    [SerializeField] private float _maxHealth;
+    [SerializeField] private float _currentHealth;
     private Animator _animator;
+
+    private EnemyStats _stats;
+
+    private void Awake()
+    {
+        _stats = GetComponent<EnemyStats>();
+    }
 
     void Start()
     {
-        currentHealth = maxHealth;
+        _maxHealth = _stats.MaxHealth;
+
+        _currentHealth = _maxHealth;
         _animator = GetComponent<Animator>();
     }
 
     public void TakeDamage(float damage)
     {
-        currentHealth -= damage;
+        _currentHealth -= damage;
 
-        if (currentHealth <= 0)
+        if (_currentHealth <= 0)
         {
             _animator.SetTrigger("isDie");
             Destroy(gameObject,0.5f);

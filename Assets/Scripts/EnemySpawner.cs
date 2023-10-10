@@ -1,36 +1,60 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemmyPrefab;
-    [SerializeField] private Transform _spawnPiont;
+    [SerializeField] private EnemyStats _enemmyPrefab;
+    [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private float _spawnInterval = 2f;
     [SerializeField] private int _maxEnemys = 5;
 
     private int _currentEnemyCount = 0;
-    private float _spawnTimer = 0f;
+    private float _lastSpawn = 0f;
+
+    private int _difficulty = 0;
+
+    public event UnityAction DifficultyUp;
 
     private void Update()
     {
-        if (_currentEnemyCount<_maxEnemys)
+        if (_currentEnemyCount < _maxEnemys)
         {
-            _spawnTimer += Time.deltaTime;
-            if (_spawnTimer>=_spawnInterval)
+            if (Time.time - _lastSpawn >= _spawnInterval)
             {
                 SpawnEnemy();
-                _spawnTimer=0f;
+
+                if(_currentEnemyCount % 10 == 0)
+                {
+                    UpDifficulty();
+                }
+
+                _lastSpawn = Time.time;
             }
         }
     }
 
     private void SpawnEnemy()
     {
-        if (_enemmyPrefab!=null&&_spawnPiont!=null)
+        if (_enemmyPrefab != null)
         {
-            GameObject newEnemy = Instantiate(_enemmyPrefab, _spawnPiont.position, Quaternion.identity);
+            var position = GetRandomSpawnPoint(_spawnPoints).position;
+
+            EnemyStats newEnemy = Instantiate(_enemmyPrefab, position, Quaternion.identity);
+            newEnemy.Init(this, _difficulty);
             _currentEnemyCount++;
         }
+    }
+
+    private Transform GetRandomSpawnPoint(Transform[] spanwPoints)
+    {
+        if (spanwPoints.Length == 0) return null;
+
+        return spanwPoints[Random.Range(0, spanwPoints.Length)];
+    }
+
+    private void UpDifficulty()
+    {
+        _difficulty++;
+        DifficultyUp?.Invoke();
     }
 }

@@ -2,25 +2,41 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(EnemyStats))]
 public class EnemyMovement : MonoBehaviour
 {
+    private const float attackRange = 1;
+    private const float _agrRange = 100f;
+
     private NavMeshAgent myAgent;
     private Animator animator;
     private Health _target;
-    private float attackRange = 1;
-    public float damage = 10f;
-    public float attackCooldown = 2f;
     private float cooldownTimer = 0f;
 
-    private float _agrRange = 100f;
+    [SerializeField] private float _damage = 10f;
+    [SerializeField] private float _attackCooldown = 2f;
 
     private float _defaultSpeed;
+
+    private EnemyStats _stats;
+
+    private void Awake()
+    {
+        _stats = GetComponent<EnemyStats>();
+    }
+
+    private void OnEnable()
+    {
+        _stats.StatsChanged += OnStatsChanged;
+    }
 
     private void Start()
     {
         myAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         _defaultSpeed = myAgent.speed;
+
+        OnStatsChanged();
 
         StartCoroutine(FindTargetCoroutine());
     }
@@ -40,10 +56,10 @@ public class EnemyMovement : MonoBehaviour
 
                 if (targetHealth != null)
                 {
-                    targetHealth.TakeDamage(damage);
+                    targetHealth.TakeDamage(_damage);
                 }
 
-                cooldownTimer = attackCooldown;
+                cooldownTimer = _attackCooldown;
             }
             else
             {
@@ -60,6 +76,11 @@ public class EnemyMovement : MonoBehaviour
         cooldownTimer -= Time.deltaTime;
     }
 
+    private void OnDisable()
+    {
+        _stats.StatsChanged -= OnStatsChanged;
+    }
+
     public void MakeSlow(float slowCoefficient)
     {
         myAgent.speed = _defaultSpeed * (1 - slowCoefficient);
@@ -68,6 +89,12 @@ public class EnemyMovement : MonoBehaviour
     public void MakeNormalSpeed()
     {
         myAgent.speed = _defaultSpeed;
+    }
+
+    private void OnStatsChanged()
+    {
+        _damage = _stats.Damage;
+        _attackCooldown = _stats.AttackCooldown;
     }
 
     private GameObject FindNearestTarget(Collider[] colliders)
