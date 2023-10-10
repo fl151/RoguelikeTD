@@ -193,6 +193,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 9114415665733883595}
     m_Modifications:
     - target: {fileID: 2140854298081857732, guid: 7ba892263bec55a45b3073eb74e7dc9a, type: 3}
+      propertyPath: startDelay.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140854298081857732, guid: 7ba892263bec55a45b3073eb74e7dc9a, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.5
       objectReference: {fileID: 0}
@@ -219,6 +223,10 @@ PrefabInstance:
     - target: {fileID: 2140854298265806256, guid: 7ba892263bec55a45b3073eb74e7dc9a, type: 3}
       propertyPath: moveWithTransform
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140854298265806256, guid: 7ba892263bec55a45b3073eb74e7dc9a, type: 3}
+      propertyPath: startDelay.scalar
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2140854298265806256, guid: 7ba892263bec55a45b3073eb74e7dc9a, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
@@ -249,6 +257,10 @@ PrefabInstance:
       value: 0.0734917
       objectReference: {fileID: 0}
     - target: {fileID: 2140854298828979717, guid: 7ba892263bec55a45b3073eb74e7dc9a, type: 3}
+      propertyPath: startDelay.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140854298828979717, guid: 7ba892263bec55a45b3073eb74e7dc9a, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 0.7
       objectReference: {fileID: 0}
@@ -259,6 +271,10 @@ PrefabInstance:
     - target: {fileID: 2140854298884001467, guid: 7ba892263bec55a45b3073eb74e7dc9a, type: 3}
       propertyPath: moveWithTransform
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2140854298884001467, guid: 7ba892263bec55a45b3073eb74e7dc9a, type: 3}
+      propertyPath: startDelay.scalar
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2140854298884001467, guid: 7ba892263bec55a45b3073eb74e7dc9a, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
