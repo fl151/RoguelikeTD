@@ -26,13 +26,13 @@ public class EnemyStats : MonoBehaviour
             OnDifficultyUp();
         }
 
-        _spawner.DifficultyUp += OnDifficultyUp;
+        //_spawner.DifficultyUp += OnDifficultyUp;
     }
 
-    private void OnDisable()
-    {
-        _spawner.DifficultyUp -= OnDifficultyUp;
-    }
+    //private void OnDisable()
+    //{
+    //    _spawner.DifficultyUp -= OnDifficultyUp;
+    //}
 
     private void OnDifficultyUp()
     {
