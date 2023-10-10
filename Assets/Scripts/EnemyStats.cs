@@ -27,6 +27,10 @@ public class EnemyStats : MonoBehaviour
         }
 
         //_spawner.DifficultyUp += OnDifficultyUp;
+
+
+        // Если нужно чтобы усилялись все враги при
+        //повышении сложности то раскоментировать подписку и отписку
     }
 
     //private void OnDisable()
