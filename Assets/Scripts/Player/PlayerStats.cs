@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] private float _damage;
     [SerializeField] private float _attackSpeed;
     [SerializeField] private float _attackRange;
+    [SerializeField] private float _attackRangeMeele;
 
     public event UnityAction StatsChanged;
 
@@ -16,6 +17,7 @@ public class PlayerStats : MonoBehaviour
     public float Damage => _damage;
     public float AttackSpeed => _attackSpeed;
     public float AttackRange => _attackRange;
+    public float AttackRangeMeele => _attackRangeMeele;
 
     public void AddDamage(float value)
     {

@@ -1,12 +1,19 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(PlayerStats))]
 public class HeroMeeleAttack : MonoBehaviour
 {
+    private const int _enemyLayerIndex = 1 << 8;
+
     private float _lastAttackTime = 0f;
 
     private PlayerStats _player;
+    private PlayerMovement _movement;
+
+    private Vector3 _center;
+    private Vector3 _size;
 
     public event UnityAction Attack;
     public event UnityAction NotAttack;
@@ -14,23 +21,41 @@ public class HeroMeeleAttack : MonoBehaviour
     private void Awake()
     {
         _player = GetComponent<PlayerStats>();
+        _movement = GetComponentInParent<PlayerMovement>();
     }
-    
+
     private void Update()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _player.AttackRange);
+        if (Time.time - _lastAttackTime >= 1 / _player.AttackSpeed)
+        {
+            TryAttack();
+        }
+    }
+
+    private void TryAttack()
+    {
+        Vector3 point = transform.position + _movement.LookDirection.normalized * _player.AttackRangeMeele / 2;
+        var size = new Vector3(_player.AttackRangeMeele, 1, 3);
+
+        var hitColliders = Physics.OverlapBox(point, size / 2, Quaternion.LookRotation(_movement.LookDirection), _enemyLayerIndex);
 
         if (hitColliders.Length > 0)
         {
-            if (Time.time - _lastAttackTime >= 1 / _player.AttackSpeed)
-            {
-                Attack?.Invoke();
-                _lastAttackTime = Time.time;
-            }
+            Attack?.Invoke();
+
+            StartCoroutine(AttackAfterDeley(0.05f, hitColliders));
+            _lastAttackTime = Time.time;
         }
-        else
+    }
+
+    private IEnumerator AttackAfterDeley(float delay, Collider[] colliders)
+    {
+        yield return new WaitForSeconds(delay);
+
+        foreach (var collider in colliders)
         {
-            NotAttack?.Invoke();
+            if (collider != null)
+                collider.GetComponent<EnemyHealth>().TakeDamage(_player.Damage);
         }
     }
 }

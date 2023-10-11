@@ -199,7 +199,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 963194227}
-  m_PlaneDistance: 4
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -424,6 +424,10 @@ PrefabInstance:
       propertyPath: _conteiner
       value: 
       objectReference: {fileID: 2027504352}
+    - target: {fileID: 3566790397378140713, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
+      propertyPath: _attackRangeMeele
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3629030888527742153, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
       propertyPath: _conteiner
       value: 
@@ -1054,6 +1058,14 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 3798281778477409427, guid: 31187e548341e1045a692eea99ce31cb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3798281778477409427, guid: 31187e548341e1045a692eea99ce31cb, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3798281778477409428, guid: 31187e548341e1045a692eea99ce31cb, type: 3}
       propertyPath: m_Name
       value: UpgradesCanvas
@@ -1447,6 +1459,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 4334727355438604201, guid: 8dfcaeb56a1da34458baf89c12039114, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4334727356438686744, guid: 8dfcaeb56a1da34458baf89c12039114, type: 3}
       propertyPath: _upgradesCanvas
       value: 
