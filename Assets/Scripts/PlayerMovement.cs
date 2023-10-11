@@ -11,6 +11,10 @@ public class PlayerMovement : MonoBehaviour
 
     private bool _isRuning = false;
 
+    private Vector3 _lookDirection;
+
+    public Vector3 LookDirection => _lookDirection;
+
     public bool IsRuning => _isRuning;
 
     private void Start()
@@ -46,9 +50,9 @@ public class PlayerMovement : MonoBehaviour
         Vector3 targetPosition = hit.point;
         targetPosition.y = transform.position.y;
 
-        Vector3 lookDirection = targetPosition - transform.position;
+        _lookDirection = targetPosition - transform.position;
 
-        Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
+        Quaternion targetRotation = Quaternion.LookRotation(_lookDirection);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _rotateSpeed * Time.deltaTime);
     }
 }

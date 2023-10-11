@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
@@ -20,13 +18,11 @@ public class ModelAnimations : MonoBehaviour
     private void OnEnable()
     {
         _meeleAttack.Attack += OnPlayerAttack;
-        _meeleAttack.Attack += OnPlayerNotAttack;
     }
 
     private void OnDisable()
     {
         _meeleAttack.Attack -= OnPlayerAttack;
-        _meeleAttack.Attack -= OnPlayerNotAttack;
     }
 
     private void Update()
@@ -36,11 +32,6 @@ public class ModelAnimations : MonoBehaviour
 
     private void OnPlayerAttack()
     {
-        _animator.SetTrigger("isAttack");
-    }
-
-    private void OnPlayerNotAttack()
-    {
-        _animator.ResetTrigger("isAttack");
+        
     }
 }

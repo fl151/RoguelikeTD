@@ -1571,109 +1571,69 @@ Transform:
   m_Father: {fileID: 6734911908507232194}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1788926544735547021
+--- !u!1001 &8123908981765777178
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 2974211375622172939}
     m_Modifications:
-    - target: {fileID: 6013990982369288243, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
-      propertyPath: m_Name
-      value: Sword7_Red
-      objectReference: {fileID: 0}
-    - target: {fileID: 6358568393392945801, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
+    - target: {fileID: 3481365353987961630, guid: 85e87b6761df3bb49b02e09fbe3b6afa, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6358568393392945801, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6358568393392945801, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6358568393392945801, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6358568393392945801, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
+    - target: {fileID: 3481365353987961630, guid: 85e87b6761df3bb49b02e09fbe3b6afa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6358568393392945801, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
+    - target: {fileID: 3481365353987961630, guid: 85e87b6761df3bb49b02e09fbe3b6afa, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6358568393392945801, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
+    - target: {fileID: 3481365353987961630, guid: 85e87b6761df3bb49b02e09fbe3b6afa, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.056
       objectReference: {fileID: 0}
-    - target: {fileID: 6358568393392945801, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
+    - target: {fileID: 3481365353987961630, guid: 85e87b6761df3bb49b02e09fbe3b6afa, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.7071049
       objectReference: {fileID: 0}
-    - target: {fileID: 6358568393392945801, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
+    - target: {fileID: 3481365353987961630, guid: 85e87b6761df3bb49b02e09fbe3b6afa, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0.0014727507
       objectReference: {fileID: 0}
-    - target: {fileID: 6358568393392945801, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
+    - target: {fileID: 3481365353987961630, guid: 85e87b6761df3bb49b02e09fbe3b6afa, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0.0014737085
       objectReference: {fileID: 0}
-    - target: {fileID: 6358568393392945801, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
+    - target: {fileID: 3481365353987961630, guid: 85e87b6761df3bb49b02e09fbe3b6afa, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.7071056
       objectReference: {fileID: 0}
-    - target: {fileID: 6358568393392945801, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
+    - target: {fileID: 3481365353987961630, guid: 85e87b6761df3bb49b02e09fbe3b6afa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6358568393392945801, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
+    - target: {fileID: 3481365353987961630, guid: 85e87b6761df3bb49b02e09fbe3b6afa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0.235
       objectReference: {fileID: 0}
-    - target: {fileID: 6358568393392945801, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
+    - target: {fileID: 3481365353987961630, guid: 85e87b6761df3bb49b02e09fbe3b6afa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 4259169347894618532, guid: 85e87b6761df3bb49b02e09fbe3b6afa, type: 3}
+      propertyPath: m_Name
+      value: Sword7_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659036366835774661, guid: 85e87b6761df3bb49b02e09fbe3b6afa, type: 3}
+      propertyPath: _attackTransform
+      value: 
+      objectReference: {fileID: 6911166909485289542}
     m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 85e87b6761df3bb49b02e09fbe3b6afa, type: 3}
 --- !u!4 &4678579709331428356 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6358568393392945801, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
-  m_PrefabInstance: {fileID: 1788926544735547021}
+  m_CorrespondingSourceObject: {fileID: 3481365353987961630, guid: 85e87b6761df3bb49b02e09fbe3b6afa, type: 3}
+  m_PrefabInstance: {fileID: 8123908981765777178}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5451176175130676926 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6013990982369288243, guid: 0029002b2fada3d4497680a36b12ae3e, type: 3}
-  m_PrefabInstance: {fileID: 1788926544735547021}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &1005167761647089488
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5451176175130676926}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.23355716
-  m_Height: 1.8165444
-  m_Direction: 1
-  m_Center: {x: -0.00074166583, y: 0.6486704, z: -0.00021985221}
---- !u!114 &3230288636061045727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5451176175130676926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aed728d6d3a96c4c97bc7104c3d191c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damagee: 100

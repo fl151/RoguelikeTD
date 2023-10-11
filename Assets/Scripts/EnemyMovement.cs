@@ -8,13 +8,13 @@ public class EnemyMovement : MonoBehaviour
     private const float attackRange = 1;
     private const float _agrRange = 100f;
 
+    [SerializeField] private float _damage = 10f;
+    [SerializeField] private float _attackCooldown = 2f;
+
     private NavMeshAgent myAgent;
     private Animator animator;
     private Health _target;
     private float cooldownTimer = 0f;
-
-    [SerializeField] private float _damage = 10f;
-    [SerializeField] private float _attackCooldown = 2f;
 
     private float _defaultSpeed;
 
@@ -56,7 +56,7 @@ public class EnemyMovement : MonoBehaviour
 
                 if (targetHealth != null)
                 {
-                    targetHealth.TakeDamage(_damage);
+                    StartCoroutine(Attack(targetHealth));
                 }
 
                 cooldownTimer = _attackCooldown;
@@ -141,5 +141,12 @@ public class EnemyMovement : MonoBehaviour
 
         if (enemyGameObject != null)
             _target = enemyGameObject.GetComponent<Health>();
+    }
+
+    private IEnumerator Attack(Health targetHealth)
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        targetHealth.TakeDamage(_damage);
     }
 }
