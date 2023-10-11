@@ -48,15 +48,15 @@ public class Sword : MonoBehaviour
     private IEnumerator BackAfterDelay()
     {
         var time = Time.time;
-        float rotationSpeed = 1000;
+        float rotationSpeedAround = 1000;
 
         transform.RotateAround(transform.parent.position + Vector3.up * 0.5f, Vector3.up, 90);
 
-        while (Time.time - time < 180 / rotationSpeed)
+        while (Time.time - time < 180 / rotationSpeedAround)
         {
             yield return new WaitForEndOfFrame();
 
-            transform.RotateAround(_attackTransform.position + Vector3.up * 0.5f, Vector3.up, -rotationSpeed * Time.deltaTime);
+            transform.RotateAround(_attackTransform.position + Vector3.up * 0.5f, Vector3.up, -rotationSpeedAround * Time.deltaTime);
         }
 
         transform.parent = _parent;

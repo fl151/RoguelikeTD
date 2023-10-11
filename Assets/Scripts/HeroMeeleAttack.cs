@@ -12,9 +12,6 @@ public class HeroMeeleAttack : MonoBehaviour
     private PlayerStats _player;
     private PlayerMovement _movement;
 
-    private Vector3 _center;
-    private Vector3 _size;
-
     public event UnityAction Attack;
     public event UnityAction NotAttack;
 
@@ -26,7 +23,7 @@ public class HeroMeeleAttack : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time - _lastAttackTime >= 1 / _player.AttackSpeed)
+        if (Time.time - _lastAttackTime >= 1 / _player.AttackSpeed * 1.75f)
         {
             TryAttack();
         }
@@ -35,7 +32,7 @@ public class HeroMeeleAttack : MonoBehaviour
     private void TryAttack()
     {
         Vector3 point = transform.position + _movement.LookDirection.normalized * _player.AttackRangeMeele / 2;
-        var size = new Vector3(_player.AttackRangeMeele, 1, 3);
+        var size = new Vector3(2, 1, _player.AttackRangeMeele);
 
         var hitColliders = Physics.OverlapBox(point, size / 2, Quaternion.LookRotation(_movement.LookDirection), _enemyLayerIndex);
 

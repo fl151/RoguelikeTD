@@ -426,7 +426,7 @@ PrefabInstance:
       objectReference: {fileID: 2027504352}
     - target: {fileID: 3566790397378140713, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
       propertyPath: _attackRangeMeele
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3629030888527742153, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
       propertyPath: _conteiner
