@@ -19,10 +19,12 @@ public class EnemyMovement : MonoBehaviour
     private float _defaultSpeed;
 
     private EnemyStats _stats;
+    private EnemyHealth _health;
 
     private void Awake()
     {
         _stats = GetComponent<EnemyStats>();
+        _health = GetComponent<EnemyHealth>();
     }
 
     private void OnEnable()
@@ -147,6 +149,7 @@ public class EnemyMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
 
-        targetHealth.TakeDamage(_damage);
+        if (_health.IsAlive)
+            targetHealth.TakeDamage(_damage);
     }
 }
