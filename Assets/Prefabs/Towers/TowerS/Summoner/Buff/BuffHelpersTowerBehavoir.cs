@@ -21,8 +21,11 @@ public class BuffHelpersTowerBehavoir : MonoBehaviour
     {
         if (other.TryGetComponent(out HelperStats helper))
         {
-            helper.AddDamageBonus(_damageBonus);
-            _helpers.Add(helper);
+            if(_helpers.Contains(helper) == false)
+            {
+                helper.AddDamageBonus(_damageBonus);
+                _helpers.Add(helper);
+            }
         }
     }
 

@@ -13,7 +13,7 @@ public class PlayerStats : MonoBehaviour
     public event UnityAction StatsChanged;
 
     public float Health => _health;
-    public float Armor => Mathf.Clamp01(_armor);
+    public float Armor => Mathf.Clamp(_armor, 0, 0.95f); // броня может защищать до 95 процентов урона
     public float Damage => _damage;
     public float AttackSpeed => _attackSpeed;
     public float AttackRange => _attackRange;
@@ -25,7 +25,7 @@ public class PlayerStats : MonoBehaviour
         {
             _damage += value;
             StatsChanged?.Invoke();
-        }
+        } 
     }
     
     public void AddArmor(float value)
@@ -36,7 +36,25 @@ public class PlayerStats : MonoBehaviour
             StatsChanged?.Invoke();
         }
     }
-    
+
+    public void RemoveDamage(float value)
+    {
+        if (value > 0)
+        {
+            _damage -= value;
+            StatsChanged?.Invoke();
+        }
+    }
+
+    public void RemoveArmor(float value)
+    {
+        if (value > 0)
+        {
+            _armor -= value;
+            StatsChanged?.Invoke();
+        }
+    }
+
     public void AddAttackSpeed(float value)
     {
         if (value > 0)
