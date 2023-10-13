@@ -8,8 +8,8 @@ public class WarriorBuffTower : Tower
     private const float _damage3 = 20;
 
     private const float _armor1 = 0.3f;
-    private const float _armor2 = 0.5f;
-    private const float _armor3 = 0.7f;
+    private const float _armor2 = 0.4f;
+    private const float _armor3 = 0.5f;
 
     private WarriorBuffTowerBehavoir _tower;
 

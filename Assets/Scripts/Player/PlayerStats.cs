@@ -13,7 +13,7 @@ public class PlayerStats : MonoBehaviour
     public event UnityAction StatsChanged;
 
     public float Health => _health;
-    public float Armor => Mathf.Clamp(_armor, 0, 0.95f);
+    public float Armor => Mathf.Clamp(_armor, 0, 0.95f); // броня может защищать до 95 процентов урона
     public float Damage => _damage;
     public float AttackSpeed => _attackSpeed;
     public float AttackRange => _attackRange;
