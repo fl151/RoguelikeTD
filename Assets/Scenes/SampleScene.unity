@@ -1058,14 +1058,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 963194227}
-    - target: {fileID: 3798281778477409427, guid: 31187e548341e1045a692eea99ce31cb, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3798281778477409427, guid: 31187e548341e1045a692eea99ce31cb, type: 3}
-      propertyPath: m_PlaneDistance
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3798281778477409428, guid: 31187e548341e1045a692eea99ce31cb, type: 3}
       propertyPath: m_Name
       value: UpgradesCanvas

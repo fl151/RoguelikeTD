@@ -15,23 +15,9 @@ public class ModelAnimations : MonoBehaviour
         _meeleAttack = _player.GetComponent<HeroMeeleAttack>();
     }
 
-    private void OnEnable()
-    {
-        _meeleAttack.Attack += OnPlayerAttack;
-    }
-
-    private void OnDisable()
-    {
-        _meeleAttack.Attack -= OnPlayerAttack;
-    }
-
     private void Update()
     {
         _animator.SetBool(Animator.StringToHash("isRun"), _player.IsRuning);
     }
 
-    private void OnPlayerAttack()
-    {
-        
-    }
 }
