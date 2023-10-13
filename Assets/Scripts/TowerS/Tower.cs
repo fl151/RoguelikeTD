@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,7 +7,7 @@ public abstract class Tower : MonoBehaviour
     [SerializeField] private Upgrade _towerUpgrade;
     [SerializeField] private ParticleSystem _upgradeEffect;
 
-    [SerializeField] protected int _currentLevel = 0;
+    protected int _currentLevel = 0;
 
     private ParticleSystem _effect;
 
