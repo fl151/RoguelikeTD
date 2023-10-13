@@ -9,11 +9,15 @@ public class HeroMeeleAttack : MonoBehaviour
 
     private float _lastAttackTime = 0f;
 
+    private float _attackRangeCoef = 1;
+
     private PlayerStats _player;
     private PlayerMovement _movement;
 
     public event UnityAction Attack;
     public event UnityAction NotAttack;
+
+    public float AttackRangeCoefficient => _attackRangeCoef;
 
     private void Awake()
     {
@@ -29,10 +33,17 @@ public class HeroMeeleAttack : MonoBehaviour
         }
     }
 
+    public void SetAttackRangeCoefficient(float attackRangeCoefficient)
+    {
+        _attackRangeCoef = attackRangeCoefficient;
+    }
+
     private void TryAttack()
     {
-        Vector3 point = transform.position + _movement.LookDirection.normalized * _player.AttackRangeMeele / 2;
-        var size = new Vector3(2, 1, _player.AttackRangeMeele);
+        float attackRange = _player.AttackRangeMeele * _attackRangeCoef;
+
+        Vector3 point = transform.position + _movement.LookDirection.normalized * attackRange / 2;
+        var size = new Vector3(attackRange * 1.5f, 1, attackRange);
 
         var hitColliders = Physics.OverlapBox(point, size / 2, Quaternion.LookRotation(_movement.LookDirection), _enemyLayerIndex);
 

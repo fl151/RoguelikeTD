@@ -521,7 +521,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 0}
-  m_PlaneDistance: 4
+  m_PlaneDistance: 1
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -529,7 +529,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &3798281778477409424
 MonoBehaviour:
@@ -602,7 +602,8 @@ MonoBehaviour:
   _magePlayerUpgrades:
   - {fileID: 11400000, guid: 60416534b507a6b48bc01f4958315200, type: 2}
   - {fileID: 11400000, guid: 63764e7ad951f584e90765d5430a9d95, type: 2}
-  _warriorPlayerUpgrades: []
+  _warriorPlayerUpgrades:
+  - {fileID: 11400000, guid: 46a3b6257b7878f439d6843850c8434c, type: 2}
   _summonerPlayerUpgrades:
   - {fileID: 11400000, guid: c66779b617bcc5543a8945a8e2622ffe, type: 2}
   - {fileID: 11400000, guid: 3f45d996868a5e849bee5813b07f1c8b, type: 2}
