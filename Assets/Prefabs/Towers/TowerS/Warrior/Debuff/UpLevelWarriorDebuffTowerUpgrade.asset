@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1029f9cb3078d409048dcb569cb451, type: 3}
   m_Name: UpLevelWarriorDebuffTowerUpgrade
   m_EditorClassIdentifier: 
-  _title: Up Level Warrior Debuff Towers
+  _title: Up Level Debuff Towers
   _sprite: {fileID: 0}
