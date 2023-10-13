@@ -604,6 +604,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 63764e7ad951f584e90765d5430a9d95, type: 2}
   _warriorPlayerUpgrades:
   - {fileID: 11400000, guid: 46a3b6257b7878f439d6843850c8434c, type: 2}
+  - {fileID: 11400000, guid: 7a996e299bbf1c94d8662a7a18362695, type: 2}
   _summonerPlayerUpgrades:
   - {fileID: 11400000, guid: c66779b617bcc5543a8945a8e2622ffe, type: 2}
   - {fileID: 11400000, guid: 3f45d996868a5e849bee5813b07f1c8b, type: 2}

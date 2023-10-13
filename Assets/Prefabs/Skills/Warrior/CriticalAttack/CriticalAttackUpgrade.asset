@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a35986c50c15da44a1917075e2cab45, type: 3}
+  m_Name: CriticalAttackUpgrade
+  m_EditorClassIdentifier: 
+  _title: Critical Attack
+  _sprite: {fileID: 0}
+  _skillPrefab: {fileID: -5906810345336559865, guid: d15fb77cd41aa984d8804c3d7561aef6, type: 3}

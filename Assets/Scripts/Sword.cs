@@ -1,10 +1,10 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
 public class Sword : MonoBehaviour
 {
     [SerializeField] private Transform _attackTransform;
+    [SerializeField] private ParticleSystem _criticalEffect;
 
     private HeroMeeleAttack _player;
     private PlayerMovement _playerMovement;
@@ -36,12 +36,23 @@ public class Sword : MonoBehaviour
         _player.Attack -= OnAttack;
     }
 
-    private void OnAttack()
+    private void OnAttack(bool isCritical)
     {
         transform.parent = _attackTransform;
         transform.position = _attackTransform.position + Vector3.up * 0.5f + _playerMovement.LookDirection.normalized * 0.5f;
         transform.localRotation = Quaternion.Euler(-90, 135, 90);
         transform.localScale *= _player.AttackRangeCoefficient;
+
+        if (isCritical)
+        {
+            ParticleSystem effect = Instantiate(_criticalEffect, null);
+
+            effect.transform.position = transform.position;
+            effect.transform.rotation = Quaternion.LookRotation(_playerMovement.LookDirection);
+            effect.transform.localScale = transform.localScale * 0.4f;
+
+            Destroy(effect.gameObject, 0.5f);
+        }
 
         StartCoroutine(BackAfterDelay());
     }
