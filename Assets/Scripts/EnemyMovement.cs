@@ -93,6 +93,32 @@ public class EnemyMovement : MonoBehaviour
         myAgent.speed = _defaultSpeed;
     }
 
+    public void AddSlow(float slowSpeed)
+    {
+        float minSpeed = 0.2f * _defaultSpeed;
+
+        if(myAgent.speed - slowSpeed >= minSpeed)
+        {
+            myAgent.speed -= slowSpeed;
+        }
+        else
+        {
+            myAgent.speed = minSpeed;
+        }
+    }
+
+    public void RemoveSlow(float slowSpeed)
+    {
+        if (myAgent.speed + slowSpeed <= _defaultSpeed)
+        {
+            myAgent.speed += slowSpeed;
+        }
+        else
+        {
+            myAgent.speed = _defaultSpeed;
+        }
+    }
+
     private void OnStatsChanged()
     {
         _damage = _stats.Damage;
