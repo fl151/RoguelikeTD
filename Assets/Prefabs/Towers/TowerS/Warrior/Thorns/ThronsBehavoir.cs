@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class ThronsBehavoir : MonoBehaviour
 {
-    [SerializeField] private float _damage = 5;
-    [SerializeField] private float _slowCoef = 0.5f;
+    private const float _damageDelay = 1f;
+    private const float _radius = 0.5f;
 
-    private HashSet<EnemyStats> _enemyes = new HashSet<EnemyStats>();
+    [SerializeField] private float _damage = 5;
+    [Range(0, 1)]
+    [SerializeField] private float _slowCoef = 0.2f;
+
+    private HashSet<EnemyMovement> _enemyes = new HashSet<EnemyMovement>();
+
+    private void Start()
+    {
+        StartCoroutine(DamageCoroutine());
+    }
 
     public void SetStats(float damage, float slowCoef)
     {
@@ -22,11 +31,11 @@ public class ThronsBehavoir : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out EnemyStats enemy))
+        if (other.TryGetComponent(out EnemyMovement enemy))
         {
             if (_enemyes.Contains(enemy) == false)
             {
-                //enemy.AddDamageBonus(_damageBonus);
+                enemy.AddSlow(_slowCoef);
                 _enemyes.Add(enemy);
             }
         }
@@ -34,9 +43,9 @@ public class ThronsBehavoir : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent(out EnemyStats enemy))
+        if (other.TryGetComponent(out EnemyMovement enemy))
         {
-            //enemy.RemoveDamageBonus(_damageBonus);
+            enemy.RemoveSlow(_slowCoef);
             _enemyes.Remove(enemy);
         }
     }
@@ -45,7 +54,7 @@ public class ThronsBehavoir : MonoBehaviour
     {
         foreach (var enemy in _enemyes)
         {
-            //enemy.RemoveDamageBonus(value);
+            enemy.RemoveSlow(slowCoef);
         }
     }
 
@@ -53,7 +62,29 @@ public class ThronsBehavoir : MonoBehaviour
     {
         foreach (var enemy in _enemyes)
         {
-            //helper.AddDamageBonus(value);
+            enemy.AddSlow(slowCoef);
+        }
+    }
+
+    private IEnumerator DamageCoroutine()
+    {
+        var halfDelay = new WaitForSeconds(_damageDelay / 2);
+
+        while (true)
+        {
+            yield return halfDelay;
+
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, _radius);
+
+            foreach (var collider in hitColliders)
+            {
+                if (collider.TryGetComponent(out EnemyHealth enemy))
+                {
+                    enemy.TakeDamage(_damage);
+                }
+            }
+
+            yield return halfDelay;
         }
     }
 }

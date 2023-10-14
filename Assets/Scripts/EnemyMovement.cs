@@ -98,25 +98,17 @@ public class EnemyMovement : MonoBehaviour
         float minSpeed = 0.2f * _defaultSpeed;
 
         if(myAgent.speed - slowSpeed >= minSpeed)
-        {
             myAgent.speed -= slowSpeed;
-        }
         else
-        {
             myAgent.speed = minSpeed;
-        }
     }
 
     public void RemoveSlow(float slowSpeed)
     {
         if (myAgent.speed + slowSpeed <= _defaultSpeed)
-        {
             myAgent.speed += slowSpeed;
-        }
         else
-        {
             myAgent.speed = _defaultSpeed;
-        }
     }
 
     private void OnStatsChanged()
