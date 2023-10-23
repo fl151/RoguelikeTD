@@ -28,8 +28,15 @@ public class HeroRangeAttack : MonoBehaviour
         {
             if (Time.time - _lastAttackTime >= 1 / _player.AttackSpeed)
             {
-                AttackEnemy(_currentEnemy);
-                _lastAttackTime = Time.time;
+                if (IsEnemyCorrect())
+                {
+                    AttackEnemy(_currentEnemy);
+                    _lastAttackTime = Time.time;
+                }
+                else
+                {
+                    _currentEnemy = null;
+                }                
             }
         }
     }
@@ -77,5 +84,24 @@ public class HeroRangeAttack : MonoBehaviour
         targetBullet.gameObject.SetActive(true);
         targetBullet.transform.position = _attackPoint.position;
         targetBullet.Init(enemy, _player.Damage);
+    }
+
+    private bool IsEnemyCorrect()
+    {
+        float distance = Vector3.Distance(transform.position, _currentEnemy.transform.position);
+
+        if (distance > _player.AttackRange)
+        {
+            _currentEnemy = null;
+            return false;
+        }
+
+        if(_currentEnemy.activeSelf == false)
+        {
+            _currentEnemy = null;
+            return false;
+        }
+
+        return true;
     }
 }

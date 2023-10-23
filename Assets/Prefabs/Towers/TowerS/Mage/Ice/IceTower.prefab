@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1032854213664628685}
   - component: {fileID: 2627018177677813309}
   - component: {fileID: -5407474113841822939}
-  - component: {fileID: 6203703717468027526}
+  - component: {fileID: 404057634963007602}
   m_Layer: 0
   m_Name: IceTower
   m_TagString: Untagged
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towerUpgrade: {fileID: 11400000, guid: f287f6e728f10a94f9e19e8d53f0434e, type: 2}
   _upgradeEffect: {fileID: 6810471105834413002, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
---- !u!114 &6203703717468027526
+--- !u!114 &404057634963007602
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,11 +123,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1551990940330497872}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4e12806a51ec9d4d8d7b2a010d6d659, type: 3}
+  m_Script: {fileID: 11500000, guid: d170412eec648c14f8180bac5a93d41d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 15
-  _attackSpeed: 0.7
+  _attackSpeed: 0.5
   _slowCoefficient: 0.1
   _shotPoint: {fileID: 8435145910487120178}
   _bulletPrefab: {fileID: 8876237369464603691, guid: 8d8e374a85bb28b41b31f7b9c554ad17, type: 3}

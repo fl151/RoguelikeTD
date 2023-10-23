@@ -67,9 +67,19 @@ public class MultyshotTowerBehavoir : MonoBehaviour
 
     private void AttackEnemys(List<GameObject> enemyes)
     {
+        var incorrectEnemyes = new List<GameObject>();
+
         foreach (var enemy in enemyes)
         {
-            AttackEnemy(enemy);
+            if (IsEnemyCorrect(enemy))
+                AttackEnemy(enemy);
+            else
+                incorrectEnemyes.Add(enemy);
+        }
+
+        foreach (var incorrectEnemy in incorrectEnemyes)
+        {
+            _currentEnemys.Remove(incorrectEnemy);
         }
     }
 
@@ -98,5 +108,22 @@ public class MultyshotTowerBehavoir : MonoBehaviour
         {
             if (_currentEnemys[i] == null) _currentEnemys.RemoveAt(i);
         }
+    }
+
+    private bool IsEnemyCorrect(GameObject enemy)
+    {
+        float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+        if (distance > _attackRange)
+        {
+            return false;
+        }
+
+        if (enemy.activeSelf == false)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

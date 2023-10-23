@@ -8,7 +8,6 @@ public class IceDebuff : MonoBehaviour
     [SerializeField] private float _slowCoeff;
     [SerializeField] private Material _iceMaterial;
 
-    private Material _oldMaterial;
     private SkinnedMeshRenderer _skin;
     private EnemyMovement _movement;
 
@@ -40,8 +39,7 @@ public class IceDebuff : MonoBehaviour
     {
         _skin = transform.parent.GetComponentInChildren<SkinnedMeshRenderer>();
 
-        _oldMaterial = _skin.material;
-        _skin.material = _iceMaterial;
+        _skin.material.color = Color.blue;
 
         _movement = transform.parent.GetComponent<EnemyMovement>();
         _movement.MakeSlow(_slowCoeff);
@@ -49,7 +47,7 @@ public class IceDebuff : MonoBehaviour
 
     private void FinishEffect()
     {
-        _skin.material = _oldMaterial;
+        _skin.material.color = Color.white;
         _movement.MakeNormalSpeed();
 
         Destroy(gameObject);

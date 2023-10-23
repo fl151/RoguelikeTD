@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Linq;
 
-public class IceTowerBahavoir : MonoBehaviour
+public class IceTowerBehavoir : MonoBehaviour
 {
     private const float _attackRange = 7.5f;
 
@@ -45,12 +45,17 @@ public class IceTowerBahavoir : MonoBehaviour
 
             if (_currentEnemy != null)
             {
-                AttackEnemy(_currentEnemy);
-                _lastAttackTime = Time.time;
+                if (IsEnemyCorrect(_currentEnemy))
+                {
+                    AttackEnemy(_currentEnemy);
+                    _lastAttackTime = Time.time;
+                }
+                else
+                {
+                    _currentEnemy = null;
+                }
             }
         }
-
-
     }
 
     private GameObject GetRandomEnemy(GameObject[] enemyes)
@@ -69,5 +74,22 @@ public class IceTowerBahavoir : MonoBehaviour
         iceBullet.transform.position = _shotPoint.position;
         iceBullet.Init(enemy, _damage);
         iceBullet.SetSlowCoefficient(_slowCoefficient);
+    }
+
+    private bool IsEnemyCorrect(GameObject enemy)
+    {
+        float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+        if (distance > _attackRange)
+        {
+            return false;
+        }
+
+        if (enemy.activeSelf == false)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

@@ -40,8 +40,15 @@ public class SniperTowerBehavoir : MonoBehaviour
         {
             if (Time.time - _lastAttackTime >= 1 / _attackSpeed)
             {
-                AttackEnemy(_currentEnemy);
-                _lastAttackTime = Time.time;
+                if (IsEnemyCorrect(_currentEnemy))
+                {
+                    AttackEnemy(_currentEnemy);
+                    _lastAttackTime = Time.time;
+                }
+                else
+                {
+                    _currentEnemy = null;
+                }
             }
         }
     }
@@ -74,5 +81,22 @@ public class SniperTowerBehavoir : MonoBehaviour
 
         targetBullet.transform.position = _shotPoint.position;
         targetBullet.Init(enemy, _damage);
+    }
+
+    private bool IsEnemyCorrect(GameObject enemy)
+    {
+        float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+        if (distance > _attackRange)
+        {
+            return false;
+        }
+
+        if (enemy.activeSelf == false)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

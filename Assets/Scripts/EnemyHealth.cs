@@ -30,6 +30,12 @@ public class EnemyHealth : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
+    private void OnEnable()
+    {
+        _isAlive = true;
+        _skin.material.color = Color.white;
+    }
+
     public void TakeDamage(float damage)
     {
         _currentHealth -= damage;
@@ -40,20 +46,25 @@ public class EnemyHealth : MonoBehaviour
         {
             _animator.SetTrigger("isDie");
             _isAlive = false;
-            Destroy(gameObject, 0.5f);
+            StartCoroutine(Die());
         }
     }
 
     private IEnumerator PlayDamageEffect()
     {
         Color oldColor = _skin.material.color;
-        Material oldMaterial = _skin.material;
 
         _skin.material.color = Color.red;
 
         yield return new WaitForSeconds(0.1f);
 
-        if (oldMaterial == _skin.material)
-            _skin.material.color = oldColor;
+        _skin.material.color = oldColor;
+    }
+
+    private IEnumerator Die()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        gameObject.SetActive(false);
     }
 }
