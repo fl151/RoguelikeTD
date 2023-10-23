@@ -5,7 +5,7 @@ public class HeroRangeAttack : MonoBehaviour
 {
     private Transform _attackPoint;
     private PlayerStats _player;
-    private ObjectPool _bulletPool;
+    private ObjectPool<TargetBullet> _bulletPool;
 
     private float _lastAttackTime = 0f;
 
@@ -22,7 +22,7 @@ public class HeroRangeAttack : MonoBehaviour
         {
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, _player.AttackRange);
 
-            _currentEnemy = FindNearestEnemy(hitColliders);            
+            _currentEnemy = FindNearestEnemy(hitColliders);
         }
         else
         {
@@ -39,7 +39,7 @@ public class HeroRangeAttack : MonoBehaviour
         _attackPoint = point;
     }
 
-    public void SetBulletPool(ObjectPool pool)
+    public void SetBulletPool(ObjectPool<TargetBullet> pool)
     {
         _bulletPool = pool;
     }
@@ -72,13 +72,10 @@ public class HeroRangeAttack : MonoBehaviour
     {
         if (_bulletPool == null) return;
 
-        if (_bulletPool.TryGetObject(out GameObject bullet))
-        {
-            var targetBullet = bullet.GetComponent<TargetBullet>();
+        var targetBullet = _bulletPool.GetFreeElement();
 
-            targetBullet.gameObject.SetActive(true);
-            targetBullet.transform.position = _attackPoint.position;
-            targetBullet.Init(enemy, _player.Damage);
-        }
+        targetBullet.gameObject.SetActive(true);
+        targetBullet.transform.position = _attackPoint.position;
+        targetBullet.Init(enemy, _player.Damage);
     }
 }

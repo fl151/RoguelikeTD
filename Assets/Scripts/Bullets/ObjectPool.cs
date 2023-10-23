@@ -1,30 +1,77 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
-public class ObjectPool : MonoBehaviour
+public class ObjectPool<T> where T : MonoBehaviour
 {
-    [SerializeField] private GameObject _prefab;
-    [SerializeField] private int _count;
-    [SerializeField] private Transform _conteiner;
+    private T _prefab;
+    private Transform _conteiner;
+    private bool _autoExpand;
 
-    private List<GameObject> _objects = new List<GameObject>();
+    private List<T> _objects;
 
-    private void Awake()
+    public ObjectPool(T prefab, int count, bool autoExpand)
     {
-        for (int i = 0; i < _count; i++)
+        _prefab = prefab;
+        _conteiner = null;
+        _autoExpand = autoExpand;
+
+        InitPool(count);
+    }
+
+    public ObjectPool(T prefab, int count, Transform conteiner, bool autoExpand)
+    {
+        _prefab = prefab;
+        _conteiner = conteiner;
+        _autoExpand = autoExpand;
+
+        InitPool(count);
+    }
+
+    public bool HasFreeElement(out T element)
+    {
+        foreach (var obj in _objects)
         {
-            GameObject obj = Instantiate(_prefab, _conteiner);
-            obj.gameObject.SetActive(false);
-
-            _objects.Add(obj);
+            if (obj.gameObject.activeSelf == false)
+            {
+                element = obj;
+                element.gameObject.SetActive(true);
+                return true;
+            }
         }
+
+        element = null;
+        return false;
     }
 
-    public bool TryGetObject(out GameObject obj)
+    public T GetFreeElement()
     {
-        obj = _objects.First(p => p.gameObject.activeSelf == false);
+        if(HasFreeElement(out var element))
+            return element;
 
-        return obj != null;
+        if (_autoExpand)
+            return CreateObject(true);
+
+        throw new Exception($"no element in pool {typeof(T)}");
     }
+
+    private void InitPool(int count)
+    {
+        _objects = new List<T>();
+
+        for (int i = 0; i < count; i++)
+            CreateObject();
+    }
+
+    private T CreateObject(bool isActive = false)
+    {
+        T obj = UnityEngine.Object.Instantiate(_prefab, _conteiner);
+        obj.gameObject.SetActive(isActive);
+        _objects.Add(obj);
+
+        return obj;
+    }
+
+    
 }

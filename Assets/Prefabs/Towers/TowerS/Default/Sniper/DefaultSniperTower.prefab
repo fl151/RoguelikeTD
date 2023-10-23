@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3782654864629920328}
   - component: {fileID: 3442026008501521810}
   - component: {fileID: -4613037073775947404}
-  - component: {fileID: 1712228738538617261}
   m_Layer: 0
   m_Name: DefaultSniperTower
   m_TagString: Untagged
@@ -115,7 +114,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towerUpgrade: {fileID: 11400000, guid: 2bca0dfd6b96b2c40bf5fb15d87ae144, type: 2}
   _upgradeEffect: {fileID: 6810471105834413002, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
-  _currentLevel: 0
 --- !u!114 &-4613037073775947404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,21 +130,7 @@ MonoBehaviour:
   _attackSpeed: 0.25
   _attackRange: 5
   _shotPoint: {fileID: 567275797649464712}
---- !u!114 &1712228738538617261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5260786097954316573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f9aca4ff9d832489c4dedcca8c47ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefab: {fileID: 8214265779784431770, guid: 24a88176d6785c04a970bf503be9f8d9, type: 3}
-  _count: 4
-  _conteiner: {fileID: 3542010239525885748}
+  _prefab: {fileID: 4336417059742116786, guid: 24a88176d6785c04a970bf503be9f8d9, type: 3}
 --- !u!1 &6446770003644818850
 GameObject:
   m_ObjectHideFlags: 0
