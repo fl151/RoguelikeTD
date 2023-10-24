@@ -16,7 +16,7 @@ public class TargetBullet : Bullet
 
     private void Update()
     {
-        if (_target != null)
+        if (_target.activeSelf)
         {
             Vector3 direction = (_target.transform.position - transform.position).normalized * 10;
             transform.position += direction * Time.deltaTime;

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1675375365293368428}
   - component: {fileID: 2003947660493010089}
   - component: {fileID: 2867555937439070495}
-  - component: {fileID: 8705374979823382444}
   m_Layer: 0
   m_Name: FireTower
   m_TagString: Untagged
@@ -53,6 +52,8 @@ MonoBehaviour:
   _attackRange: 4
   _maxY: 2
   _shotPoint: {fileID: 4833440410218306516}
+  _bulletPrefab: {fileID: 6075884128167620951, guid: 5c870f17488055b42bc04f11dd365ab7, type: 3}
+  _countBullets: 3
 --- !u!114 &2867555937439070495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,22 +68,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towerUpgrade: {fileID: 11400000, guid: 00636f85abdec64478572f87a7a25dfa, type: 2}
   _upgradeEffect: {fileID: 6810471105834413002, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
-  _currentLevel: 0
---- !u!114 &8705374979823382444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077699879050670735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f9aca4ff9d832489c4dedcca8c47ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefab: {fileID: 7091595533429441307, guid: 5c870f17488055b42bc04f11dd365ab7, type: 3}
-  _count: 3
-  _conteiner: {fileID: 1675375365293368428}
 --- !u!1 &2227686861349255101
 GameObject:
   m_ObjectHideFlags: 0

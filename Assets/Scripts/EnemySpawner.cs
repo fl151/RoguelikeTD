@@ -13,7 +13,14 @@ public class EnemySpawner : MonoBehaviour
 
     private int _difficulty = 0;
 
+    private ObjectPool<EnemyStats> _enemyPool;
+
     public event UnityAction DifficultyUp;
+
+    private void Awake()
+    {
+        _enemyPool = new ObjectPool<EnemyStats>(_enemmyPrefab, 10, transform, true);
+    }
 
     private void Update()
     {
@@ -23,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 SpawnEnemy();
 
-                if(_currentEnemyCount % 10 == 0)
+                if (_currentEnemyCount % 10 == 0)
                 {
                     UpDifficulty();
                 }
@@ -35,14 +42,13 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        if (_enemmyPrefab != null)
-        {
-            var position = GetRandomSpawnPoint(_spawnPoints).position;
+        var position = GetRandomSpawnPoint(_spawnPoints).position;
 
-            EnemyStats newEnemy = Instantiate(_enemmyPrefab, position, Quaternion.identity);
-            newEnemy.Init(this, _difficulty);
-            _currentEnemyCount++;
-        }
+        EnemyStats enemy = _enemyPool.GetFreeElement();
+
+        enemy.transform.position = position;
+        enemy.Init(this, _difficulty);
+        _currentEnemyCount++;
     }
 
     private Transform GetRandomSpawnPoint(Transform[] spanwPoints)

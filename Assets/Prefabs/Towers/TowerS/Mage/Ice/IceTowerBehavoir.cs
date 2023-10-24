@@ -1,8 +1,7 @@
 using UnityEngine;
 using System.Linq;
 
-[RequireComponent(typeof(ObjectPool))]
-public class IceTowerBahavoir : MonoBehaviour
+public class IceTowerBehavoir : MonoBehaviour
 {
     private const float _attackRange = 7.5f;
 
@@ -12,7 +11,10 @@ public class IceTowerBahavoir : MonoBehaviour
 
     [SerializeField] private Transform _shotPoint;
 
-    private ObjectPool _bulletPool;
+    [SerializeField] private IceBullet _bulletPrefab;
+    [SerializeField] private int _countBullets = 3;
+
+    private ObjectPool<IceBullet> _bulletPool;
     private GameObject _currentEnemy;
 
     private float _lastAttackTime = 0;
@@ -26,7 +28,7 @@ public class IceTowerBahavoir : MonoBehaviour
 
     private void Awake()
     {
-        _bulletPool = GetComponent<ObjectPool>();
+        _bulletPool = new ObjectPool<IceBullet>(_bulletPrefab, _countBullets, transform, true);
     }
 
     private void Update()
@@ -43,12 +45,17 @@ public class IceTowerBahavoir : MonoBehaviour
 
             if (_currentEnemy != null)
             {
-                AttackEnemy(_currentEnemy);
-                _lastAttackTime = Time.time;
+                if (IsEnemyCorrect(_currentEnemy))
+                {
+                    AttackEnemy(_currentEnemy);
+                    _lastAttackTime = Time.time;
+                }
+                else
+                {
+                    _currentEnemy = null;
+                }
             }
         }
-
-
     }
 
     private GameObject GetRandomEnemy(GameObject[] enemyes)
@@ -62,14 +69,27 @@ public class IceTowerBahavoir : MonoBehaviour
 
     private void AttackEnemy(GameObject enemy)
     {
-        if (_bulletPool.TryGetObject(out GameObject bullet))
-        {
-            var targetBullet = bullet.GetComponent<IceBullet>();
+        var iceBullet = _bulletPool.GetFreeElement();
 
-            targetBullet.gameObject.SetActive(true);
-            targetBullet.transform.position = _shotPoint.position;
-            targetBullet.Init(enemy, _damage);
-            targetBullet.SetSlowCoefficient(_slowCoefficient);
+        iceBullet.transform.position = _shotPoint.position;
+        iceBullet.Init(enemy, _damage);
+        iceBullet.SetSlowCoefficient(_slowCoefficient);
+    }
+
+    private bool IsEnemyCorrect(GameObject enemy)
+    {
+        float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+        if (distance > _attackRange)
+        {
+            return false;
         }
+
+        if (enemy.activeSelf == false)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

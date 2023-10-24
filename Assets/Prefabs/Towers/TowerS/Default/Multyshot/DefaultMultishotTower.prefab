@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6124560455741519318}
   - component: {fileID: 5847040415527719156}
   - component: {fileID: -5024563892449944073}
-  - component: {fileID: 7312778843506186729}
   m_Layer: 0
   m_Name: DefaultMultishotTower
   m_TagString: Untagged
@@ -115,7 +114,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towerUpgrade: {fileID: 11400000, guid: 9ff7a0d1ef0e4724594141a2a8210cc7, type: 2}
   _upgradeEffect: {fileID: 6810471105834413002, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
-  _currentLevel: 0
 --- !u!114 &-5024563892449944073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,21 +130,8 @@ MonoBehaviour:
   _attackSpeed: 0.5
   _countAttacks: 1
   _shotPoint: {fileID: 7069759765323496815}
---- !u!114 &7312778843506186729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5560783195710521968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f9aca4ff9d832489c4dedcca8c47ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefab: {fileID: 6845097727422890800, guid: 1ee09420d0462ef4982c784d0e8b687b, type: 3}
-  _count: 10
-  _conteiner: {fileID: 3039716617436232308}
+  _bulletPrefab: {fileID: 8750632407963787569, guid: 1ee09420d0462ef4982c784d0e8b687b, type: 3}
+  _countBullets: 8
 --- !u!1 &8616971662269371584
 GameObject:
   m_ObjectHideFlags: 0

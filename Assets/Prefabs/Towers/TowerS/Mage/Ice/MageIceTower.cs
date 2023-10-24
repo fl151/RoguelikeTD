@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(IceTowerBahavoir))]
+[RequireComponent(typeof(IceTowerBehavoir))]
 public class MageIceTower : Tower
 {
     private const float _damage1 = 30;
@@ -15,11 +15,11 @@ public class MageIceTower : Tower
     private const float _slowCoefficient2 = 0.5f;
     private const float _slowCoefficient3 = 0.7f;
 
-    private IceTowerBahavoir _tower;
+    private IceTowerBehavoir _tower;
 
     protected override void UpgradeLevelOne()
     {
-        _tower = GetComponent<IceTowerBahavoir>();
+        _tower = GetComponent<IceTowerBehavoir>();
         _tower.SetStats(_damage1, _attackSpeed1, _slowCoefficient1);
     }
 

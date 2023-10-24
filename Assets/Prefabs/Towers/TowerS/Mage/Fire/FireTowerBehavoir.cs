@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-[RequireComponent(typeof(ObjectPool))]
 public class FireTowerBehavoir : MonoBehaviour
 {
     private const float _explosionRadius = 1;
@@ -14,7 +13,10 @@ public class FireTowerBehavoir : MonoBehaviour
 
     [SerializeField] private Transform _shotPoint;
 
-    private ObjectPool _bulletPool;
+    [SerializeField] private ExplosionBullet _bulletPrefab;
+    [SerializeField] private int _countBullets = 3;
+
+    private ObjectPool<ExplosionBullet> _bulletPool;
 
     private float _lastAttackTime = 0;
 
@@ -27,7 +29,7 @@ public class FireTowerBehavoir : MonoBehaviour
 
     private void Awake()
     {
-        _bulletPool = GetComponent<ObjectPool>();
+        _bulletPool = new ObjectPool<ExplosionBullet>(_bulletPrefab, _countBullets, transform, true);
     }
 
     private void Update()
@@ -40,7 +42,7 @@ public class FireTowerBehavoir : MonoBehaviour
                           where hit.TryGetComponent(out EnemyHealth enemy)
                           select hit.gameObject;
 
-            if(enemyes.Count() != 0)
+            if (enemyes.Count() != 0)
             {
                 AttackPoint(GetRandomEnemyPosition(enemyes.ToList()));
                 _lastAttackTime = Time.time;
@@ -57,14 +59,10 @@ public class FireTowerBehavoir : MonoBehaviour
 
     private void AttackPoint(Vector3 point)
     {
-        if (_bulletPool.TryGetObject(out GameObject bullet))
-        {
-            var explosionBullet = bullet.GetComponent<ExplosionBullet>();
+        var explosionBullet = _bulletPool.GetFreeElement();
 
-            explosionBullet.gameObject.SetActive(true);
-            explosionBullet.transform.position = _shotPoint.position;
-            explosionBullet.SetStats(_damage, _explosionRadius, _maxY);
-            explosionBullet.SetTargetPoint(point);
-        }
+        explosionBullet.transform.position = _shotPoint.position;
+        explosionBullet.SetStats(_damage, _explosionRadius, _maxY);
+        explosionBullet.SetTargetPoint(point);
     }
 }

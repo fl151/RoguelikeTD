@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(ObjectPool))]
 public class SniperTowerBehavoir : MonoBehaviour
 {
     [SerializeField] private float _damage;
@@ -9,7 +8,10 @@ public class SniperTowerBehavoir : MonoBehaviour
 
     [SerializeField] private Transform _shotPoint;
 
-    private ObjectPool _bulletPool;
+    [SerializeField] private TargetBullet _prefab;
+    [SerializeField] private int _countBullets = 3;
+
+    private ObjectPool<TargetBullet> _bulletPool;
     private GameObject _currentEnemy;
 
     private float _lastAttackTime = 0;
@@ -23,7 +25,7 @@ public class SniperTowerBehavoir : MonoBehaviour
 
     private void Awake()
     {
-        _bulletPool = GetComponent<ObjectPool>();
+        _bulletPool = new ObjectPool<TargetBullet>(_prefab, _countBullets, transform, true);
     }
 
     private void Update()
@@ -38,8 +40,15 @@ public class SniperTowerBehavoir : MonoBehaviour
         {
             if (Time.time - _lastAttackTime >= 1 / _attackSpeed)
             {
-                AttackEnemy(_currentEnemy);
-                _lastAttackTime = Time.time;
+                if (IsEnemyCorrect(_currentEnemy))
+                {
+                    AttackEnemy(_currentEnemy);
+                    _lastAttackTime = Time.time;
+                }
+                else
+                {
+                    _currentEnemy = null;
+                }
             }
         }
     }
@@ -68,13 +77,26 @@ public class SniperTowerBehavoir : MonoBehaviour
 
     private void AttackEnemy(GameObject enemy)
     {
-        if(_bulletPool.TryGetObject(out GameObject bullet))
-        {
-            var targetBullet = bullet.GetComponent<TargetBullet>();
+        var targetBullet = _bulletPool.GetFreeElement();
 
-            targetBullet.gameObject.SetActive(true);
-            targetBullet.transform.position = _shotPoint.position;
-            targetBullet.Init(enemy, _damage);
-        }  
+        targetBullet.transform.position = _shotPoint.position;
+        targetBullet.Init(enemy, _damage);
+    }
+
+    private bool IsEnemyCorrect(GameObject enemy)
+    {
+        float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+        if (distance > _attackRange)
+        {
+            return false;
+        }
+
+        if (enemy.activeSelf == false)
+        {
+            return false;
+        }
+
+        return true;
     }
 }

@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-[RequireComponent(typeof(ObjectPool))]
 public class MultyshotTowerBehavoir : MonoBehaviour
 {
     private const float _attackRange = 7.5f;
@@ -11,15 +10,17 @@ public class MultyshotTowerBehavoir : MonoBehaviour
     [SerializeField] private float _attackSpeed;
     [SerializeField] private int _countAttacks;
     [SerializeField] private Transform _shotPoint;
+    [SerializeField] private TargetBullet _bulletPrefab;
+    [SerializeField] private int _countBullets = 8;
 
-    private ObjectPool _bulletPool;
+    private ObjectPool<TargetBullet> _bulletPool;
     private float _lastAttackTime = 0;
 
     private List<GameObject> _currentEnemys = new List<GameObject>();
 
     private void Awake()
     {
-        _bulletPool = GetComponent<ObjectPool>();
+        _bulletPool = new ObjectPool<TargetBullet>(_bulletPrefab, _countBullets, transform, true);
     }
 
     public void SetStats(float damage, float attackSpeed, int countAttacks)
@@ -31,7 +32,7 @@ public class MultyshotTowerBehavoir : MonoBehaviour
 
     private void Update()
     {
-        if(Time.time - _lastAttackTime >= 1 / _attackSpeed)
+        if (Time.time - _lastAttackTime >= 1 / _attackSpeed)
         {
             RemoveDiedEnemyes();
 
@@ -61,27 +62,33 @@ public class MultyshotTowerBehavoir : MonoBehaviour
                 _lastAttackTime = Time.time;
             }
         }
-        
+
     }
 
     private void AttackEnemys(List<GameObject> enemyes)
     {
+        var incorrectEnemyes = new List<GameObject>();
+
         foreach (var enemy in enemyes)
         {
-            AttackEnemy(enemy);
+            if (IsEnemyCorrect(enemy))
+                AttackEnemy(enemy);
+            else
+                incorrectEnemyes.Add(enemy);
+        }
+
+        foreach (var incorrectEnemy in incorrectEnemyes)
+        {
+            _currentEnemys.Remove(incorrectEnemy);
         }
     }
 
     private void AttackEnemy(GameObject enemy)
     {
-        if (_bulletPool.TryGetObject(out GameObject bullet))
-        {
-            var targetBullet = bullet.GetComponent<TargetBullet>();
+        var targetBullet = _bulletPool.GetFreeElement();
 
-            targetBullet.gameObject.SetActive(true);
-            targetBullet.transform.position = _shotPoint.position;
-            targetBullet.Init(enemy, _damage);
-        }
+        targetBullet.transform.position = _shotPoint.position;
+        targetBullet.Init(enemy, _damage);
     }
 
     private GameObject TakeRandomEnemy(List<GameObject> enemyes)
@@ -101,5 +108,22 @@ public class MultyshotTowerBehavoir : MonoBehaviour
         {
             if (_currentEnemys[i] == null) _currentEnemys.RemoveAt(i);
         }
+    }
+
+    private bool IsEnemyCorrect(GameObject enemy)
+    {
+        float distance = Vector3.Distance(transform.position, enemy.transform.position);
+
+        if (distance > _attackRange)
+        {
+            return false;
+        }
+
+        if (enemy.activeSelf == false)
+        {
+            return false;
+        }
+
+        return true;
     }
 }
