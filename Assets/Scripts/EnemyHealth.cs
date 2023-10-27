@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(EnemyStats))]
 public class EnemyHealth : MonoBehaviour
@@ -12,6 +13,8 @@ public class EnemyHealth : MonoBehaviour
     private SkinnedMeshRenderer _skin;
 
     private bool _isAlive = true;
+
+    public event UnityAction<EnemyHealth> Dead; 
 
     public bool IsAlive => _isAlive;
 
@@ -65,6 +68,7 @@ public class EnemyHealth : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
 
+        Dead?.Invoke(this);
         gameObject.SetActive(false);
     }
 }

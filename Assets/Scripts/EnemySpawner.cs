@@ -7,19 +7,24 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private float _spawnInterval = 2f;
     [SerializeField] private int _maxEnemys = 5;
+    [SerializeField] private Experience _expPrefab;
+    [SerializeField] private float _chanceDrop;
 
     private int _currentEnemyCount = 0;
     private float _lastSpawn = 0f;
 
     private int _difficulty = 0;
+    private ExperienceDroper _expDroper;
 
     private ObjectPool<EnemyStats> _enemyPool;
 
     public event UnityAction DifficultyUp;
+    public event UnityAction<EnemyHealth> EnemySpawned;
 
     private void Awake()
     {
         _enemyPool = new ObjectPool<EnemyStats>(_enemmyPrefab, 10, transform, true);
+        _expDroper = new ExperienceDroper(this, _expPrefab, _chanceDrop, transform);
     }
 
     private void Update()
@@ -48,6 +53,8 @@ public class EnemySpawner : MonoBehaviour
 
         enemy.transform.position = position;
         enemy.Init(this, _difficulty);
+
+        EnemySpawned?.Invoke(enemy.GetComponent<EnemyHealth>());
         _currentEnemyCount++;
     }
 
