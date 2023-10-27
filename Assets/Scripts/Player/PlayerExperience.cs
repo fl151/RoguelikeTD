@@ -26,7 +26,7 @@ public class PlayerExperience : MonoBehaviour
         if (other.TryGetComponent(out Experience exp))
         {
             AddExp(exp.Count);
-            Destroy(exp.gameObject);
+            exp.gameObject.SetActive(false);
         }
     }
 

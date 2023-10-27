@@ -1,19 +1,32 @@
 using UnityEngine;
 
-public class ExperienceDroper : MonoBehaviour
+public class ExperienceDroper
 {
-    [SerializeField] private Experience _expPrefab;
-    [Range(0, 1)]
-    [SerializeField] private float _chanceDrop;
+    private float _chanceDrop;
+    private ObjectPool<Experience> _expPool;
 
-    private int _countLives = -1;
-
-    private void OnDisable()
+    public ExperienceDroper(EnemySpawner spawner, Experience prefab, float chanceDrop, Transform conteiner)
     {
-        _countLives++;
+        spawner.EnemySpawned += OnEnemySpawned;
+        _chanceDrop = Mathf.Clamp01(chanceDrop);
 
-        if (_chanceDrop != 0 && _countLives > 0)
+        _expPool = new ObjectPool<Experience>(prefab, 10, conteiner, true);
+    }
+
+    private void OnEnemySpawned(EnemyHealth enemy)
+    {
+        enemy.Dead += OnEnemyDied;
+    }
+
+    private void OnEnemyDied(EnemyHealth enemy)
+    {
+        if (_chanceDrop != 0)
             if (Random.Range(0f, 1f) <= _chanceDrop)
-                Instantiate(_expPrefab, gameObject.transform.position, new Quaternion());
+            {
+                var exp = _expPool.GetFreeElement();
+                exp.transform.position = enemy.transform.position;
+            }
+
+        enemy.Dead -= OnEnemyDied;
     }
 }
