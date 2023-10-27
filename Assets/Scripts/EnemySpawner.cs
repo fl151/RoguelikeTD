@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
     private void Awake()
     {
         _enemyPool = new ObjectPool<EnemyStats>(_enemmyPrefab, 10, transform, true);
-        _expDroper = new ExperienceDroper(this, _expPrefab, 1, transform);
+        _expDroper = new ExperienceDroper(this, _expPrefab, _chanceDrop, transform);
     }
 
     private void Update()
