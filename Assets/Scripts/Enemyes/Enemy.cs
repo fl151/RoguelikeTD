@@ -3,23 +3,25 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(EnemyStats))]
-public class EnemyMovement : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-    private const float attackRange = 1;
+    private const float _attackRange = 1;
     private const float _agrRange = 100f;
 
     [SerializeField] private float _damage = 10f;
     [SerializeField] private float _attackCooldown = 2f;
 
-    private NavMeshAgent myAgent;
-    private Animator animator;
+    private NavMeshAgent _myAgent;
+    private Animator _animator;
     private Health _target;
-    private float cooldownTimer = 0f;
+    private float _cooldownTimer = 0f;
 
     private float _defaultSpeed;
 
     private EnemyStats _stats;
     private EnemyHealth _health;
+
+    public Health Target => _target;
 
     private void Awake()
     {
@@ -27,18 +29,11 @@ public class EnemyMovement : MonoBehaviour
         _health = GetComponent<EnemyHealth>();
     }
 
-    private void OnEnable()
-    {
-        _stats.StatsChanged += OnStatsChanged;
-    }
-
     private void Start()
     {
-        myAgent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-        _defaultSpeed = myAgent.speed;
-
-        OnStatsChanged();
+        _myAgent = GetComponent<NavMeshAgent>();
+        _animator = GetComponent<Animator>();
+        _defaultSpeed = _myAgent.speed;
 
         StartCoroutine(FindTargetCoroutine());
     }
@@ -49,10 +44,10 @@ public class EnemyMovement : MonoBehaviour
         {
             float distanceToTarget = Vector3.Distance(transform.position, _target.transform.position);
 
-            if (cooldownTimer <= 0f && distanceToTarget <= attackRange)
+            if (_cooldownTimer <= 0f && distanceToTarget <= _attackRange)
             {
-                myAgent.isStopped = true;
-                animator.SetTrigger("isAttack");
+                _myAgent.isStopped = true;
+                _animator.SetTrigger("isAttack");
 
                 Health targetHealth = _target.GetComponent<Health>();
 
@@ -61,13 +56,13 @@ public class EnemyMovement : MonoBehaviour
                     StartCoroutine(Attack(targetHealth));
                 }
 
-                cooldownTimer = _attackCooldown;
+                _cooldownTimer = _attackCooldown;
             }
             else
             {
-                myAgent.isStopped = false;
-                myAgent.destination = _target.transform.position;
-                animator.ResetTrigger("isAttack");
+                _myAgent.isStopped = false;
+                _myAgent.destination = _target.transform.position;
+                _animator.ResetTrigger("isAttack");
             }
         }
         else
@@ -75,46 +70,40 @@ public class EnemyMovement : MonoBehaviour
             FindNewTarget();
         }
 
-        cooldownTimer -= Time.deltaTime;
+        _cooldownTimer -= Time.deltaTime;
     }
 
-    private void OnDisable()
+    public void SetTarget(Health target)
     {
-        _stats.StatsChanged -= OnStatsChanged;
+        _target = target;
     }
 
     public void MakeSlow(float slowCoefficient)
     {
-        myAgent.speed = _defaultSpeed * (1 - slowCoefficient);
+        _myAgent.speed = _defaultSpeed * (1 - slowCoefficient);
     }
 
     public void MakeNormalSpeed()
     {
-        myAgent.speed = _defaultSpeed;
+        _myAgent.speed = _defaultSpeed;
     }
 
     public void AddSlow(float slowSpeed)
     {
         float minSpeed = 0.2f * _defaultSpeed;
 
-        if(myAgent.speed - slowSpeed >= minSpeed)
-            myAgent.speed -= slowSpeed;
+        if(_myAgent.speed - slowSpeed >= minSpeed)
+            _myAgent.speed -= slowSpeed;
         else
-            myAgent.speed = minSpeed;
+            _myAgent.speed = minSpeed;
     }
 
     public void RemoveSlow(float slowSpeed)
     {
-        if (myAgent.speed + slowSpeed <= _defaultSpeed)
-            myAgent.speed += slowSpeed;
+        if (_myAgent.speed + slowSpeed <= _defaultSpeed)
+            _myAgent.speed += slowSpeed;
         else
-            myAgent.speed = _defaultSpeed;
-    }
-
-    private void OnStatsChanged()
-    {
-        _damage = _stats.Damage;
-        _attackCooldown = _stats.AttackCooldown;
+            _myAgent.speed = _defaultSpeed;
     }
 
     private GameObject FindNearestTarget(Collider[] colliders)

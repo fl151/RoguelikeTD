@@ -11,7 +11,7 @@ public class ThronsBehavoir : MonoBehaviour
     [Range(0, 1)]
     [SerializeField] private float _slowCoef = 0.2f;
 
-    private HashSet<EnemyMovement> _enemyes = new HashSet<EnemyMovement>();
+    private HashSet<Enemy> _enemyes = new HashSet<Enemy>();
 
     private void Start()
     {
@@ -31,7 +31,7 @@ public class ThronsBehavoir : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out EnemyMovement enemy))
+        if (other.TryGetComponent(out Enemy enemy))
         {
             if (_enemyes.Contains(enemy) == false)
             {
@@ -43,7 +43,7 @@ public class ThronsBehavoir : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent(out EnemyMovement enemy))
+        if (other.TryGetComponent(out Enemy enemy))
         {
             enemy.RemoveSlow(_slowCoef);
             _enemyes.Remove(enemy);

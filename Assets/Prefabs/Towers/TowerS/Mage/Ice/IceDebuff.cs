@@ -9,7 +9,7 @@ public class IceDebuff : MonoBehaviour
     [SerializeField] private Material _iceMaterial;
 
     private SkinnedMeshRenderer _skin;
-    private EnemyMovement _movement;
+    private Enemy _movement;
 
     private void Start()
     {
@@ -41,7 +41,7 @@ public class IceDebuff : MonoBehaviour
 
         _skin.material.color = Color.blue;
 
-        _movement = transform.parent.GetComponent<EnemyMovement>();
+        _movement = transform.parent.GetComponent<Enemy>();
         _movement.MakeSlow(_slowCoeff);
     }
 
