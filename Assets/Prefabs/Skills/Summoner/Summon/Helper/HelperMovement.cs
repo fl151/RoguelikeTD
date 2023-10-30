@@ -24,6 +24,11 @@ public class HelperMovement : MonoBehaviour
 
     private void Update()
     {
+        if(_enemy != null && _enemy.gameObject.activeSelf == false)
+        {
+            _enemy = null;
+        }
+
         if (_enemy == null)
         {
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, _stats.AttackRange);

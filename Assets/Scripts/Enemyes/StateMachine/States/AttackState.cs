@@ -7,13 +7,13 @@ public class AttackState : IState
     private float _cooldownTimer = 0;
     private EnemyStats _stats;
     private Animator _animator;
-    private Health _target;
+    private Enemy _enemy;
 
-    public AttackState(EnemyStats stats, Animator animator, Health target)
+    public AttackState(Enemy enemy)
     {
-        _stats = stats;
-        _animator = animator;
-        _target = target;
+        _enemy = enemy;
+        _stats = _enemy.Stats;
+        _animator = _enemy.Animator;
     }
 
     public void Start()
@@ -29,16 +29,18 @@ public class AttackState : IState
 
             if (_attackDelay <= 0)
             {
-                _target.TakeDamage(_stats.Damage);
+                _enemy.Target.TakeDamage(_stats.Damage);
                 _attackDelay = _attackDelayTime;
-            }
-
-            _cooldownTimer = _stats.AttackCooldown;
+                _cooldownTimer = _stats.AttackCooldown;
+            }  
         }
 
         _attackDelay -= Time.deltaTime;
         _cooldownTimer -= Time.deltaTime;
     }
 
-    public void Stop(){}
+    public void Stop()
+    {
+        _animator.ResetTrigger("isAttack");
+    }
 }

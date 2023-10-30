@@ -14,22 +14,14 @@ public class EnemyHealth : MonoBehaviour
 
     private bool _isAlive = true;
 
-    public event UnityAction<EnemyHealth> Dead; 
+    public event UnityAction<EnemyHealth> Dead;
 
     public bool IsAlive => _isAlive;
 
     private void Awake()
     {
         _stats = GetComponent<EnemyStats>();
-
         _skin = GetComponentInChildren<SkinnedMeshRenderer>();
-    }
-
-    void Start()
-    {
-        _maxHealth = _stats.MaxHealth;
-
-        _currentHealth = _maxHealth;
         _animator = GetComponent<Animator>();
     }
 
@@ -37,6 +29,13 @@ public class EnemyHealth : MonoBehaviour
     {
         _isAlive = true;
         _skin.material.color = Color.white;
+
+        _stats.Inited += OnStatsInited;
+    }
+
+    private void OnDisable()
+    {
+        _stats.Inited -= OnStatsInited;
     }
 
     public void TakeDamage(float damage)
@@ -70,5 +69,12 @@ public class EnemyHealth : MonoBehaviour
 
         Dead?.Invoke(this);
         gameObject.SetActive(false);
+    }
+
+    private void OnStatsInited()
+    {
+        _maxHealth = _stats.MaxHealth;
+
+        _currentHealth = _maxHealth;
     }
 }

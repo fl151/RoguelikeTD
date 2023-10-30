@@ -8,13 +8,11 @@ public class Enemy : MonoBehaviour
     private const float _attackRange = 1;
     private const float _agrRange = 100f;
 
-    [SerializeField] private float _damage = 10f;
-    [SerializeField] private float _attackCooldown = 2f;
+    [SerializeField] private DefaultEnemyStateMachine _stateMachine;
 
     private NavMeshAgent _myAgent;
     private Animator _animator;
     private Health _target;
-    private float _cooldownTimer = 0f;
 
     private float _defaultSpeed;
 
@@ -22,55 +20,35 @@ public class Enemy : MonoBehaviour
     private EnemyHealth _health;
 
     public Health Target => _target;
+    public float AttackRange => _attackRange;
+    public float AgrRange => _agrRange;
+    public EnemyStats Stats => _stats;
+    public Animator Animator => _animator;
+    public NavMeshAgent Agent => _myAgent;
+    public EnemyHealth Health => _health;
 
     private void Awake()
     {
         _stats = GetComponent<EnemyStats>();
         _health = GetComponent<EnemyHealth>();
-    }
-
-    private void Start()
-    {
         _myAgent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
         _defaultSpeed = _myAgent.speed;
 
+        _stateMachine.Init(this);
+    }
+
+    private void Start()
+    {
         StartCoroutine(FindTargetCoroutine());
     }
 
     private void Update()
     {
-        if (_target != null)
+        if(_target != null && _target.gameObject.activeSelf == false)
         {
-            float distanceToTarget = Vector3.Distance(transform.position, _target.transform.position);
-
-            if (_cooldownTimer <= 0f && distanceToTarget <= _attackRange)
-            {
-                _myAgent.isStopped = true;
-                _animator.SetTrigger("isAttack");
-
-                Health targetHealth = _target.GetComponent<Health>();
-
-                if (targetHealth != null)
-                {
-                    StartCoroutine(Attack(targetHealth));
-                }
-
-                _cooldownTimer = _attackCooldown;
-            }
-            else
-            {
-                _myAgent.isStopped = false;
-                _myAgent.destination = _target.transform.position;
-                _animator.ResetTrigger("isAttack");
-            }
+            _target = null;
         }
-        else
-        {
-            FindNewTarget();
-        }
-
-        _cooldownTimer -= Time.deltaTime;
     }
 
     public void SetTarget(Health target)
@@ -150,13 +128,5 @@ public class Enemy : MonoBehaviour
 
         if (enemyGameObject != null)
             _target = enemyGameObject.GetComponent<Health>();
-    }
-
-    private IEnumerator Attack(Health targetHealth)
-    {
-        yield return new WaitForSeconds(0.2f);
-
-        if (_health.IsAlive)
-            targetHealth.TakeDamage(_damage);
     }
 }

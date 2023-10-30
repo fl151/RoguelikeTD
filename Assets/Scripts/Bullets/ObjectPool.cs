@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 using System;
 
 public class ObjectPool<T> where T : MonoBehaviour
@@ -71,7 +70,5 @@ public class ObjectPool<T> where T : MonoBehaviour
         _objects.Add(obj);
 
         return obj;
-    }
-
-    
+    } 
 }

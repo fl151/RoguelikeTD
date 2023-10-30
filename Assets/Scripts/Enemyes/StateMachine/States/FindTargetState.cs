@@ -6,10 +6,11 @@ public class FindTargetState : IState
     private float _agrRange;
     private Enemy _enemy;
 
-    public FindTargetState(Transform enemyTransform, float agrRange, Enemy enemy)
+    public FindTargetState(Enemy enemy)
     {
-        _enemyTransform = enemyTransform;
-        _agrRange = agrRange;
+        _enemy = enemy;
+        _enemyTransform = _enemy.transform;
+        _agrRange = _enemy.AgrRange;
     }
 
     public void Start(){}
@@ -25,10 +26,10 @@ public class FindTargetState : IState
     {
         Collider[] hitColliders = Physics.OverlapSphere(_enemyTransform.position, _agrRange);
 
-        var enemyGameObject = FindNearestTarget(hitColliders);
+        var target = FindNearestTarget(hitColliders);
 
-        if (enemyGameObject != null)
-            _enemy.SetTarget(enemyGameObject.GetComponent<Health>());
+        if (target != null)
+            _enemy.SetTarget(target.GetComponent<Health>());
     }
 
     private GameObject FindNearestTarget(Collider[] colliders)

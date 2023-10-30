@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.AI;
 
 public class MoveState : IState
@@ -8,10 +5,10 @@ public class MoveState : IState
     private NavMeshAgent _agent;
     private Enemy _enemy;
 
-    public MoveState(NavMeshAgent agent, Enemy enemy)
+    public MoveState(Enemy enemy)
     {
-        _agent = agent;
         _enemy = enemy;
+        _agent = _enemy.Agent;
     }
 
     public void Start()
