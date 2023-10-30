@@ -499,6 +499,7 @@ GameObject:
   - component: {fileID: 218801887641245611}
   - component: {fileID: 3031613034664824536}
   - component: {fileID: 5228218848099580602}
+  - component: {fileID: -3992427007333539723}
   m_Layer: 8
   m_Name: CactusPA
   m_TagString: Untagged
@@ -591,8 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c02d6f7b0df8a469dd748a7fa3e407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 10
-  _attackCooldown: 2
+  _stateMachine: {fileID: 8745600568818551370, guid: e2aafa8770d34a9591b41bedf4e318ba, type: 3}
 --- !u!114 &218801887641245611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,6 +638,18 @@ MonoBehaviour:
   _maxHealth: 100
   _damage: 10
   _attackCooldown: 2
+--- !u!114 &-3992427007333539723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7427070853888570003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a569aa56d865f444cb0ba00c6fbcfc20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7712155012871449178
 GameObject:
   m_ObjectHideFlags: 0

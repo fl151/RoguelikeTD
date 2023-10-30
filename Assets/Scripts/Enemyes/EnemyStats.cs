@@ -16,6 +16,7 @@ public class EnemyStats : MonoBehaviour
     public float AttackCooldown => _attackCooldown;
 
     public event UnityAction StatsChanged;
+    public event UnityAction Inited;
 
     public void Init(EnemySpawner spawner, int difficultyLevel)
     {
@@ -25,6 +26,8 @@ public class EnemyStats : MonoBehaviour
         {
             OnDifficultyUp();
         }
+
+        Inited?.Invoke();
 
         //_spawner.DifficultyUp += OnDifficultyUp;
 

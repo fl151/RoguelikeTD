@@ -6,7 +6,7 @@ public class HelperMovement : MonoBehaviour
 {
     private NavMeshAgent _myAgent;
     private Animator _animator;
-    private EnemyMovement _enemy;
+    private Enemy _enemy;
     private HelperStats _stats;
     
     private float _cooldownTimer = 0f;
@@ -24,6 +24,11 @@ public class HelperMovement : MonoBehaviour
 
     private void Update()
     {
+        if(_enemy != null && _enemy.gameObject.activeSelf == false)
+        {
+            _enemy = null;
+        }
+
         if (_enemy == null)
         {
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, _stats.AttackRange);
@@ -31,7 +36,7 @@ public class HelperMovement : MonoBehaviour
             var enemyGameObject = FindNearestEnemy(hitColliders);
 
             if (enemyGameObject != null)
-                _enemy = enemyGameObject.GetComponent<EnemyMovement>();
+                _enemy = enemyGameObject.GetComponent<Enemy>();
         }
         else
         {
