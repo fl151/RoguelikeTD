@@ -6,7 +6,8 @@ public class HelperStats : MonoBehaviour
     [SerializeField] private float _maxHealth = 25;
     [SerializeField] private float _damage = 30;
     [SerializeField] private float _damageBonus = 0;
-    [SerializeField] private float _attackRange = 10;
+    [SerializeField] private float _attackRange = 1.5f;
+    [SerializeField] private float _agrRange = 10;
     [SerializeField] private float _attackSpeed = 1;
 
     [SerializeField] ParticleSystem _addStatsEffect;
@@ -15,6 +16,7 @@ public class HelperStats : MonoBehaviour
 
     public float Damage => _damage + _damageBonus;
     public float AttackRange => _attackRange;
+    public float AgrRange => _agrRange;
     public float AttackSpeed => _attackSpeed;
     public float MaxHealth => _maxHealth;
 
