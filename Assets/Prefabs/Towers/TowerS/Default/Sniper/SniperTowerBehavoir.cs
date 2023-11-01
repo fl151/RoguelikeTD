@@ -16,6 +16,8 @@ public class SniperTowerBehavoir : MonoBehaviour
 
     private float _lastAttackTime = 0;
 
+    public GameObject Target => _currentEnemy;
+
     public void SetStats(float damage, float attackSpeed, float attackRange)
     {
         _damage = damage;
