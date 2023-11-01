@@ -13,7 +13,10 @@ public class HelperHealth : Health
     private void Awake()
     {
         _stats = GetComponent<HelperStats>();
+    }
 
+    private void OnEnable()
+    {
         _currentHealth = _stats.MaxHealth;
         _maxHealth = _stats.MaxHealth;
     }
@@ -33,9 +36,8 @@ public class HelperHealth : Health
         }
     }
 
-
     void Die()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
