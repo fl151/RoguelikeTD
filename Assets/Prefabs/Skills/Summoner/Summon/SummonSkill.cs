@@ -8,40 +8,22 @@ public class SummonSkill : Skill
     private const float _reduseCooldawn2 = 2;
     private const int _bonusCountHelpers3 = 1;
 
-    [SerializeField] private GameObject _helperPrafab;
+    [SerializeField] private Helper _helperPrafab;
 
     private bool _isColldawnFinished = true;
 
     private float _cooldawn = 7f;
     private int _countHelpersPerSpawn = 1;
 
-    private List<GameObject> _helpers = new List<GameObject>();
+    private List<Helper> _helpers = new List<Helper>();
 
     private float _currentHelpersDamage;
     private float _currentHelpersAttackSpeed;
     private float _currentHelpersHealth;
 
+    private ObjectPool<Helper> _helpersPool;
+
     public static SummonSkill Instance;
-
-    public void SpawnHelper(Vector3 position)
-    {
-        var helper = Instantiate(_helperPrafab, transform);
-        helper.transform.parent = null;
-        helper.transform.position = position;
-
-        helper.GetComponent<HelperStats>().SetStats(_currentHelpersDamage, _currentHelpersAttackSpeed, _currentHelpersHealth);
-
-        _helpers.Add(helper);
-    }
-
-    public void AddStats(float damage, float attackSpeed, float health)
-    {
-        _currentHelpersDamage += damage;
-        _currentHelpersAttackSpeed += attackSpeed;
-        _currentHelpersHealth += health;
-
-        UpdateHelpersStats();
-    }
 
     private void Awake()
     {
@@ -53,6 +35,8 @@ public class SummonSkill : Skill
         {
             Destroy(gameObject);
         }
+
+        _helpersPool = new ObjectPool<Helper>(_helperPrafab, 10, true);
 
         var stats = _helperPrafab.GetComponent<HelperStats>();
 
@@ -69,6 +53,29 @@ public class SummonSkill : Skill
 
             StartCoroutine(SpawnHelpers());
         }
+    }
+
+    public void SpawnHelper(Vector3 position)
+    {
+        var helper = _helpersPool.GetFreeElement();
+        helper.transform.position = position;
+
+        var helperStats = helper.GetComponent<HelperStats>();
+
+        helperStats.SetStats(_currentHelpersDamage, _currentHelpersAttackSpeed, _currentHelpersHealth);
+        helperStats.OffEffect();
+
+        if (_helpers.Contains(helper) == false)
+            _helpers.Add(helper);
+    }
+
+    public void AddStats(float damage, float attackSpeed, float health)
+    {
+        _currentHelpersDamage += damage;
+        _currentHelpersAttackSpeed += attackSpeed;
+        _currentHelpersHealth += health;
+
+        UpdateHelpersStats();
     }
 
     protected override void UpgradeLevelOne()
@@ -106,7 +113,7 @@ public class SummonSkill : Skill
     {
         foreach (var helper in _helpers)
         {
-            if(helper == null)
+            if (helper.gameObject.activeSelf == false)
             {
                 _helpers.Remove(helper);
             }
@@ -114,7 +121,6 @@ public class SummonSkill : Skill
             {
                 helper.GetComponent<HelperStats>().SetStats(_currentHelpersDamage, _currentHelpersAttackSpeed);
             }
-
         }
     }
 }

@@ -45,10 +45,14 @@ public class HelperStats : MonoBehaviour
         _damageBonus -= value;
     }
 
+    public void OffEffect()
+    {
+        _effect.Stop();
+    }
+
     private void Awake()
     {
         _effect = Instantiate(_addStatsEffect, transform);
-        _effect.Stop();
     }
 
     private IEnumerator PlayEffect()
