@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class FireTowerBehavoir : MonoBehaviour
+public class FireTowerBehavoir : ShootingTowerBehavoir
 {
     private const float _explosionRadius = 1;
 
@@ -44,17 +44,19 @@ public class FireTowerBehavoir : MonoBehaviour
 
             if (enemyes.Count() != 0)
             {
-                AttackPoint(GetRandomEnemyPosition(enemyes.ToList()));
+                _target = GetRandomEnemy(enemyes.ToList());
+
+                AttackPoint(_target.transform.position);
                 _lastAttackTime = Time.time;
             }
         }
     }
 
-    private Vector3 GetRandomEnemyPosition(List<GameObject> enemyes)
+    private GameObject GetRandomEnemy(List<GameObject> enemyes)
     {
-        Vector3 point = enemyes[Random.Range(0, enemyes.Count())].transform.position;
+        GameObject enemy = enemyes[Random.Range(0, enemyes.Count())];
 
-        return point;
+        return enemy;
     }
 
     private void AttackPoint(Vector3 point)

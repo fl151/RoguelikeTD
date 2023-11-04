@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SniperTowerBehavoir : MonoBehaviour
+public class SniperTowerBehavoir : ShootingTowerBehavoir
 {
     [SerializeField] private float _damage;
     [SerializeField] private float _attackSpeed;
@@ -12,11 +12,8 @@ public class SniperTowerBehavoir : MonoBehaviour
     [SerializeField] private int _countBullets = 3;
 
     private ObjectPool<TargetBullet> _bulletPool;
-    private GameObject _currentEnemy;
 
     private float _lastAttackTime = 0;
-
-    public GameObject Target => _currentEnemy;
 
     public void SetStats(float damage, float attackSpeed, float attackRange)
     {
@@ -32,24 +29,24 @@ public class SniperTowerBehavoir : MonoBehaviour
 
     private void Update()
     {
-        if (_currentEnemy == null)
+        if (_target == null)
         {
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, _attackRange);
 
-            _currentEnemy = FindNearestEnemy(hitColliders);
+            _target = FindNearestEnemy(hitColliders);
         }
         else
         {
             if (Time.time - _lastAttackTime >= 1 / _attackSpeed)
             {
-                if (IsEnemyCorrect(_currentEnemy))
+                if (IsEnemyCorrect(_target))
                 {
-                    AttackEnemy(_currentEnemy);
+                    AttackEnemy(_target);
                     _lastAttackTime = Time.time;
                 }
                 else
                 {
-                    _currentEnemy = null;
+                    _target = null;
                 }
             }
         }
