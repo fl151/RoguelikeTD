@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class MultyshotTowerBehavoir : MonoBehaviour
+public class MultyshotTowerBehavoir : ShootingTowerBehavoir
 {
     private const float _attackRange = 7.5f;
 
@@ -53,6 +53,15 @@ public class MultyshotTowerBehavoir : MonoBehaviour
                     if (_currentEnemys.Contains(newEnemy)) break;
 
                     _currentEnemys.Add(newEnemy);
+                }
+
+                if (_currentEnemys.Count > 0)
+                {
+                    _target = _currentEnemys[0];
+                }
+                else
+                {
+                    _target = null;
                 }
             }
 

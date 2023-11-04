@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Linq;
 
-public class IceTowerBehavoir : MonoBehaviour
+public class IceTowerBehavoir : ShootingTowerBehavoir
 {
     private const float _attackRange = 7.5f;
 
@@ -15,7 +15,6 @@ public class IceTowerBehavoir : MonoBehaviour
     [SerializeField] private int _countBullets = 3;
 
     private ObjectPool<IceBullet> _bulletPool;
-    private GameObject _currentEnemy;
 
     private float _lastAttackTime = 0;
 
@@ -41,18 +40,18 @@ public class IceTowerBehavoir : MonoBehaviour
                           where hit.TryGetComponent(out EnemyHealth enemy)
                           select hit.gameObject;
 
-            _currentEnemy = GetRandomEnemy(enemyes.ToArray());
+            _target = GetRandomEnemy(enemyes.ToArray());
 
-            if (_currentEnemy != null)
+            if (_target != null)
             {
-                if (IsEnemyCorrect(_currentEnemy))
+                if (IsEnemyCorrect(_target))
                 {
-                    AttackEnemy(_currentEnemy);
+                    AttackEnemy(_target);
                     _lastAttackTime = Time.time;
                 }
                 else
                 {
-                    _currentEnemy = null;
+                    _target = null;
                 }
             }
         }
