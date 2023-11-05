@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum Charecter
+public enum CharecterType
 {
     Mage,
     Warrior,
@@ -17,24 +17,24 @@ public class PlayerCharecter : MonoBehaviour
     [SerializeField] private HeroRangeAttack _rangeAttack;
     [SerializeField] private HeroMeeleAttack _meeleAttack; 
 
-    private Charecter _charecter;
+    private CharecterType _charecter;
 
-    public Charecter Charecter => _charecter;
+    public CharecterType Charecter => _charecter;
 
-    public event UnityAction<Charecter> CharecterSeted;
+    public event UnityAction<CharecterType> CharecterSeted;
 
-    public void SetCharecter(Charecter charecter)
+    public void SetCharecter(CharecterType charecter)
     {
         switch (charecter) {
-            case Charecter.Mage:
+            case CharecterType.Mage:
                 SetMageCharecter();
                 break;
 
-            case Charecter.Warrior:
+            case CharecterType.Warrior:
                 SetWarriorCharecter();
                 break;
 
-            case Charecter.Summoner:
+            case CharecterType.Summoner:
                 SetSummonerCharecter();
                 break;
         }

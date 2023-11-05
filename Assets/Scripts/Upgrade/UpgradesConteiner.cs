@@ -26,7 +26,7 @@ public class UpgradesConteiner : MonoBehaviour
         _upgrades[1, 2] = _summonerTowerBuildUpgrades;
     }
 
-    public Upgrade[] GetCharecterUpgrades(UpgradeBranch branch, Charecter charecter)
+    public Upgrade[] GetCharecterUpgrades(UpgradeBranch branch, CharecterType charecter)
     {
         Awake();
 

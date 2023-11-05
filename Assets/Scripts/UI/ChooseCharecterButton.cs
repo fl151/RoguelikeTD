@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ChooseCharecterButton : DefaultButton
 {
-    [SerializeField] private Charecter _charecter;
+    [SerializeField] private CharecterType _charecter;
 
     private CharecterCanvas _charecterCanvas;
 
