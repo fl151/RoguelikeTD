@@ -31,9 +31,7 @@ public class SniperTowerBehavoir : ShootingTowerBehavoir
     {
         if (_target == null)
         {
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, _attackRange);
-
-            _target = FindNearestEnemy(hitColliders);
+            FindTarget();
         }
         else
         {
@@ -50,6 +48,13 @@ public class SniperTowerBehavoir : ShootingTowerBehavoir
                 }
             }
         }
+    }
+
+    private void FindTarget()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, _attackRange);
+
+        _target = FindNearestEnemy(hitColliders);
     }
 
     private GameObject FindNearestEnemy(Collider[] colliders)
