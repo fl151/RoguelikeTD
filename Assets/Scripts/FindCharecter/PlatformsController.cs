@@ -4,11 +4,12 @@ using UnityEngine;
 public class PlatformsController : MonoBehaviour
 {
     [SerializeField] private GameObject _platformPrefab;
-    [SerializeField] private List<GameObject> _charecterPrefabs;
+    [SerializeField] private List<Charecter> _charecterPrefabs;
     [SerializeField] private float _range;
 
-    private List<GameObject> _variants;
+    private List<GameObject> _platforms;
     private int _countVariants;
+    private VariantNode _currentNode;
 
     private void Awake()
     {
@@ -18,17 +19,18 @@ public class PlatformsController : MonoBehaviour
     private void Start()
     {
         SpawnVariants();
-    } 
+        _currentNode = CreateVariantsNodes();
+    }
 
     private void SpawnVariants()
     {
-        _variants = new List<GameObject>();
+        _platforms = new List<GameObject>();
 
         for (int i = 0; i < _countVariants; i++)
         {
-            var position = new Vector3(Mathf.Sin(360 / _countVariants * Mathf.Deg2Rad * i) * _range,
+            var position = new Vector3(Mathf.Sin(360 / _countVariants * Mathf.Deg2Rad * (_countVariants - i)) * _range,
                                            0,
-                                           Mathf.Cos(360 / _countVariants * Mathf.Deg2Rad * i) * _range);
+                                           Mathf.Cos(360 / _countVariants * Mathf.Deg2Rad * (_countVariants - i)) * _range);
 
             SpanwVariant(position, i);
         }
@@ -36,20 +38,43 @@ public class PlatformsController : MonoBehaviour
 
     private void SpanwVariant(Vector3 position, int chrecterIndex)
     {
-        var variant = Instantiate(_platformPrefab, transform);
+        var platform = Instantiate(_platformPrefab, transform);
 
-        variant.transform.position = transform.position + position;
+        platform.transform.position = transform.position + position;
 
-        Vector3 targetDir = transform.position - variant.transform.position;
-        variant.transform.rotation = Quaternion.LookRotation(targetDir);
+        Vector3 targetDir = transform.position - platform.transform.position;
+        platform.transform.rotation = Quaternion.LookRotation(targetDir);
 
-        _variants.Add(variant);
+        _platforms.Add(platform);
 
-        SpawnCharecter(variant.transform, _charecterPrefabs[chrecterIndex]);
+        SpawnCharecter(platform.transform, _charecterPrefabs[chrecterIndex].gameObject);
     }
 
     private void SpawnCharecter(Transform parent, GameObject prefab)
     {
         Instantiate(prefab, parent);
+    }
+
+    private VariantNode CreateVariantsNodes()
+    {
+        if (_platforms.Count == 0) return null;
+        if (_platforms.Count == 1) return new VariantNode(_platforms[0]);
+
+        List<VariantNode> nodes = new List<VariantNode>();
+
+        foreach (var platform in _platforms)
+        {
+            nodes.Add(new VariantNode(platform));
+        }
+
+        nodes[0].Init(nodes[^1], nodes[1]);
+        nodes[^1].Init(nodes[^2], nodes[0]);
+
+        for (int i = 1; i < nodes.Count - 1; i++)
+        {
+            nodes[i].Init(nodes[i - 1], nodes[i + 1]);
+        }
+
+        return nodes[0];
     }
 }

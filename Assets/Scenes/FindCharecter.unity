@@ -308,14 +308,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4340560759852122696, guid: 36fc8220239c98e4fbab6d6182402e3e, type: 3}
-      propertyPath: _range
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4340560759852122696, guid: 36fc8220239c98e4fbab6d6182402e3e, type: 3}
-      propertyPath: _platformPrefab
-      value: 
-      objectReference: {fileID: 6686857535953669790, guid: 53118f8f12e11024ea03fd9ebc9491e5, type: 3}
     - target: {fileID: 4623320369553070699, guid: 36fc8220239c98e4fbab6d6182402e3e, type: 3}
       propertyPath: m_Name
       value: Charecters
