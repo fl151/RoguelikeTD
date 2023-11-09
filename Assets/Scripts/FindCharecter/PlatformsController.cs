@@ -77,4 +77,24 @@ public class PlatformsController : MonoBehaviour
 
         return nodes[0];
     }
+
+    private void SwipeToLeft()
+    {
+
+    }
+
+    private void SwipeToRight()
+    {
+
+    }
+
+    private void MakeReadyRight(Transform transform)
+    {
+
+    }
+
+    private void MakeReadyLeft(Transform transform)
+    {
+
+    }
 }
