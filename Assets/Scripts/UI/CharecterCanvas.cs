@@ -9,7 +9,7 @@ public class CharecterCanvas : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void SetCharecter(Charecter charecter)
+    public void SetCharecter(CharecterType charecter)
     {
         _player.SetCharecter(charecter);
 

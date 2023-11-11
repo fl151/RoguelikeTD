@@ -36,7 +36,7 @@ public class PlayerUpgrades : MonoBehaviour
         resultSkill.First().UpLevel();
     }
 
-    private void OnCharecterSeted(Charecter charecter)
+    private void OnCharecterSeted(CharecterType charecter)
     {
         var upgradesChar = _conteiner.GetCharecterUpgrades(UpgradeBranch.Player, charecter);
         var upgradesDef = _conteiner.GetDefaultUpgrades(UpgradeBranch.Player);
