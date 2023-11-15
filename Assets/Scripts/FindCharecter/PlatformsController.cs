@@ -138,22 +138,42 @@ public class PlatformsController : MonoBehaviour
         Transform currentTransform = currentNode.Platform.transform;
         Transform newTransform = newNode.Platform.transform;
 
-        float time = 0.5f;
-        float angle = 180;
+        Vector3 currentPosition = currentTransform.position;
+        Quaternion currentRotation = currentTransform.rotation;
+
+        Vector3 backPosition = newTransform.position;
+        Quaternion backRotation = newTransform.rotation;
+
+        float time = 0.3f;
+        const float angle = 180;
 
         float angleSpeed = angle / time;
 
         var delay = new WaitForEndOfFrame();
 
+        float currentAngle = 0;
+
         while (time > 0)
         {
-            currentTransform.RotateAround(transform.position, Vector3.up, angleSpeed * Time.deltaTime * turnDirection);
-            newTransform.RotateAround(transform.position, Vector3.up, angleSpeed * Time.deltaTime * turnDirection);
+            float newAngle = angleSpeed * Time.deltaTime * turnDirection;
+            currentAngle += newAngle;
+
+            if(currentAngle > angle)
+                newAngle -= currentAngle - angle;
+
+            currentTransform.RotateAround(transform.position, Vector3.up, newAngle);
+            newTransform.RotateAround(transform.position, Vector3.up, newAngle);
 
             yield return delay;
 
             time -= Time.deltaTime;
         }
+
+        currentTransform.position = backPosition;
+        currentTransform.rotation = backRotation;
+
+        newTransform.position = currentPosition;
+        newTransform.rotation = currentRotation;
 
         _currentNode = newNode;
 
@@ -161,14 +181,4 @@ public class PlatformsController : MonoBehaviour
 
         yield return null;
     }
-
-    //private void MakeReadyRight(Transform transform)
-    //{
-
-    //}
-
-    //private void MakeReadyLeft(Transform transform)
-    //{
-
-    //}
 }
