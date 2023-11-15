@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -109,26 +110,65 @@ public class PlatformsController : MonoBehaviour
 
     private void OnSwipe(Swipe swipe)
     {
-
+        StartCoroutine(SwipeTo(_currentNode, swipe));
     }
 
-    private void SwipeToLeft()
+    private IEnumerator SwipeTo(VariantNode currentNode, Swipe swipe)
     {
+        VariantNode newNode;
+        float turnDirection;
 
+        switch (swipe) {
+            case Swipe.Left:
+                newNode = currentNode.Left;
+                turnDirection = 1;
+                break;
+
+            case Swipe.Right:
+                newNode = currentNode.Right;
+                turnDirection = -1;
+                break;
+
+            default:
+                newNode = null;
+                turnDirection = 0;
+                break;
+        }
+
+        Transform currentTransform = currentNode.Platform.transform;
+        Transform newTransform = newNode.Platform.transform;
+
+        float time = 0.5f;
+        float angle = 180;
+
+        float angleSpeed = angle / time;
+
+        var delay = new WaitForEndOfFrame();
+
+        while (time > 0)
+        {
+            currentTransform.RotateAround(transform.position, Vector3.up, angleSpeed * Time.deltaTime * turnDirection);
+            newTransform.RotateAround(transform.position, Vector3.up, angleSpeed * Time.deltaTime * turnDirection);
+
+            yield return delay;
+
+            time -= Time.deltaTime;
+        }
+
+        _currentNode = newNode;
+
+        SwipeFinished?.Invoke();
+
+        yield return null;
     }
 
-    private void SwipeToRight()
-    {
+    //private void MakeReadyRight(Transform transform)
+    //{
 
-    }
+    //}
 
-    private void MakeReadyRight(Transform transform)
-    {
+    //private void MakeReadyLeft(Transform transform)
+    //{
 
-    }
-
-    private void MakeReadyLeft(Transform transform)
-    {
-
-    }
+    //}
 }
