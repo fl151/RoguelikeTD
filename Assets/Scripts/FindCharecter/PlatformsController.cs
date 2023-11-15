@@ -1,42 +1,72 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlatformsController : MonoBehaviour
 {
     [SerializeField] private GameObject _platformPrefab;
     [SerializeField] private List<Charecter> _charecterPrefabs;
     [SerializeField] private float _range;
+    [SerializeField] private SwipeController _swipeController;
 
-    private List<GameObject> _platforms;
     private int _countVariants;
     private VariantNode _currentNode;
+
+    public event UnityAction SwipeFinished;
 
     private void Awake()
     {
         _countVariants = _charecterPrefabs.Count;
     }
 
+    private void OnEnable()
+    {
+        _swipeController.OnSwipe += OnSwipe;
+    }
+
     private void Start()
     {
-        SpawnVariants();
-        _currentNode = CreateVariantsNodes();
+        var platforms = SpawnVariants();
+        _currentNode = CreateVariantsNodes(platforms);
     }
 
-    private void SpawnVariants()
+    private void OnDisable()
     {
-        _platforms = new List<GameObject>();
-
-        for (int i = 0; i < _countVariants; i++)
-        {
-            var position = new Vector3(Mathf.Sin(360 / _countVariants * Mathf.Deg2Rad * (_countVariants - i)) * _range,
-                                           0,
-                                           Mathf.Cos(360 / _countVariants * Mathf.Deg2Rad * (_countVariants - i)) * _range);
-
-            SpanwVariant(position, i);
-        }
+        _swipeController.OnSwipe -= OnSwipe;
     }
 
-    private void SpanwVariant(Vector3 position, int chrecterIndex)
+    private List<GameObject> SpawnVariants()
+    {
+         var platforms = new List<GameObject>();
+
+        if(_countVariants > 0)
+        {
+            var positionFirst = GetPositionOnDegrees(0);
+
+            SpanwVariant(platforms, positionFirst, 0);
+        }
+
+        for (int i = 1; i < _countVariants; i++)
+        {
+            var position = GetPositionOnDegrees(180);
+
+            SpanwVariant(platforms, position, i);
+        }
+
+        return platforms;
+    }
+
+    private Vector3 GetPositionOnDegrees(float degrees)
+    {
+        var position = new Vector3(Mathf.Sin(degrees * Mathf.Deg2Rad) * _range,
+                                           0,
+                                           Mathf.Cos(degrees * Mathf.Deg2Rad) * _range);
+
+        return position;
+    }
+
+    private void SpanwVariant(List<GameObject> platforms, Vector3 position, int chrecterIndex)
     {
         var platform = Instantiate(_platformPrefab, transform);
 
@@ -45,7 +75,7 @@ public class PlatformsController : MonoBehaviour
         Vector3 targetDir = transform.position - platform.transform.position;
         platform.transform.rotation = Quaternion.LookRotation(targetDir);
 
-        _platforms.Add(platform);
+        platforms.Add(platform);
 
         SpawnCharecter(platform.transform, _charecterPrefabs[chrecterIndex].gameObject);
     }
@@ -55,14 +85,14 @@ public class PlatformsController : MonoBehaviour
         Instantiate(prefab, parent);
     }
 
-    private VariantNode CreateVariantsNodes()
+    private VariantNode CreateVariantsNodes(List<GameObject> platforms)
     {
-        if (_platforms.Count == 0) return null;
-        if (_platforms.Count == 1) return new VariantNode(_platforms[0]);
+        if (platforms.Count == 0) return null;
+        if (platforms.Count == 1) return new VariantNode(platforms[0]);
 
         List<VariantNode> nodes = new List<VariantNode>();
 
-        foreach (var platform in _platforms)
+        foreach (var platform in platforms)
         {
             nodes.Add(new VariantNode(platform));
         }
@@ -78,23 +108,77 @@ public class PlatformsController : MonoBehaviour
         return nodes[0];
     }
 
-    private void SwipeToLeft()
+    private void OnSwipe(Swipe swipe)
     {
-
+        StartCoroutine(SwipeTo(_currentNode, swipe));
     }
 
-    private void SwipeToRight()
+    private IEnumerator SwipeTo(VariantNode currentNode, Swipe swipe)
     {
+        VariantNode newNode;
+        float turnDirection;
 
-    }
+        switch (swipe) {
+            case Swipe.Left:
+                newNode = currentNode.Left;
+                turnDirection = 1;
+                break;
 
-    private void MakeReadyRight(Transform transform)
-    {
+            case Swipe.Right:
+                newNode = currentNode.Right;
+                turnDirection = -1;
+                break;
 
-    }
+            default:
+                newNode = null;
+                turnDirection = 0;
+                break;
+        }
 
-    private void MakeReadyLeft(Transform transform)
-    {
+        Transform currentTransform = currentNode.Platform.transform;
+        Transform newTransform = newNode.Platform.transform;
 
+        Vector3 currentPosition = currentTransform.position;
+        Quaternion currentRotation = currentTransform.rotation;
+
+        Vector3 backPosition = newTransform.position;
+        Quaternion backRotation = newTransform.rotation;
+
+        float time = 0.3f;
+        const float angle = 180;
+
+        float angleSpeed = angle / time;
+
+        var delay = new WaitForEndOfFrame();
+
+        float currentAngle = 0;
+
+        while (time > 0)
+        {
+            float newAngle = angleSpeed * Time.deltaTime * turnDirection;
+            currentAngle += newAngle;
+
+            if(currentAngle > angle)
+                newAngle -= currentAngle - angle;
+
+            currentTransform.RotateAround(transform.position, Vector3.up, newAngle);
+            newTransform.RotateAround(transform.position, Vector3.up, newAngle);
+
+            yield return delay;
+
+            time -= Time.deltaTime;
+        }
+
+        currentTransform.position = backPosition;
+        currentTransform.rotation = backRotation;
+
+        newTransform.position = currentPosition;
+        newTransform.rotation = currentRotation;
+
+        _currentNode = newNode;
+
+        SwipeFinished?.Invoke();
+
+        yield return null;
     }
 }
