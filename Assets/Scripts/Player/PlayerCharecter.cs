@@ -15,7 +15,9 @@ public class PlayerCharecter : MonoBehaviour
     [SerializeField] private GameObject _summonerModel;
 
     [SerializeField] private HeroRangeAttack _rangeAttack;
-    [SerializeField] private HeroMeeleAttack _meeleAttack; 
+    [SerializeField] private HeroMeeleAttack _meeleAttack;
+
+    [SerializeField] private CharecterCanvas _charecterCanvas;
 
     private CharecterType _charecter;
 
@@ -25,7 +27,11 @@ public class PlayerCharecter : MonoBehaviour
 
     private void Awake()
     {
-        SetCharecter(CharecterHolder.Instance.Charecter);
+        if(CharecterHolder.Instance != null)
+        {
+            _charecterCanvas.gameObject.SetActive(false);
+            SetCharecter(CharecterHolder.Instance.Charecter);
+        }
     }
 
     public void SetCharecter(CharecterType charecter)

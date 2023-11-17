@@ -6,7 +6,8 @@ public class CharecterCanvas : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 0;
+        if (CharecterHolder.Instance == null)
+            Time.timeScale = 0;
     }
 
     public void SetCharecter(CharecterType charecter)
