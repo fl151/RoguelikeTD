@@ -15,6 +15,8 @@ public class PlatformsController : MonoBehaviour
 
     public event UnityAction SwipeFinished;
 
+    public CharecterType CurrentCharecter => _currentNode.Charecter;
+
     private void Awake()
     {
         _countVariants = _charecterPrefabs.Count;

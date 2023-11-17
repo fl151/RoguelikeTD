@@ -23,6 +23,11 @@ public class PlayerCharecter : MonoBehaviour
 
     public event UnityAction<CharecterType> CharecterSeted;
 
+    private void Awake()
+    {
+        SetCharecter(CharecterHolder.Instance.Charecter);
+    }
+
     public void SetCharecter(CharecterType charecter)
     {
         switch (charecter) {
@@ -41,7 +46,7 @@ public class PlayerCharecter : MonoBehaviour
 
         _charecter = charecter;
 
-        CharecterSeted?.Invoke(charecter);
+        CharecterSeted?.Invoke(_charecter);
     }
 
     private void SetMageCharecter()
