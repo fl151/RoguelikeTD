@@ -7,7 +7,7 @@ public class CrystalRotate : MonoBehaviour
     [SerializeField] private GameObject _centre;
     [SerializeField] private Vector3 axis;
 
-     private float _rotateSpeed = 0.5f;
+    [SerializeField] private float _rotateSpeed = 0.5f;
 
     void Update()
     {
