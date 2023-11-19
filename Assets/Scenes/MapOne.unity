@@ -208,7 +208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4178270389004244066, guid: 904a930d135457840a0f68af615a7506, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4178270389004244066, guid: 904a930d135457840a0f68af615a7506, type: 3}
       propertyPath: m_LocalScale.x
@@ -3014,7 +3014,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 57.72, y: 0, z: 0}
 --- !u!65 &1067400994
 BoxCollider:
@@ -3238,7 +3238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4334727355438604200, guid: 8dfcaeb56a1da34458baf89c12039114, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4334727355438604200, guid: 8dfcaeb56a1da34458baf89c12039114, type: 3}
       propertyPath: m_AnchorMax.x
