@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e05c554c9521db34ba953a1572f00b35, type: 3}
+  m_Name: WarriorInfo
+  m_EditorClassIdentifier: 
+  _type: 1
+  _model: {fileID: 6098635871882201852, guid: b3d7bce101c194042b74da700def5931, type: 3}
+  _name: Warrior
+  _info: A valiant warrior. In battle, he uses a large red blade.
+  _tower1: {fileID: 6056657572574283880, guid: 8c3db7e1bd73f80488dd15d14a993079, type: 3}
+  _tower2: {fileID: 8731593491282766297, guid: 4ef3dcfc6b784944691643f9f70cf4d2, type: 3}

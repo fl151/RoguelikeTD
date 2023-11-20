@@ -45,11 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee74bb7901e651249836dfcfc293f64b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _platformPrefab: {fileID: 6686857535953669790, guid: 53118f8f12e11024ea03fd9ebc9491e5, type: 3}
-  _charecterPrefabs:
-  - {fileID: -7777082918234542951, guid: c4c9bbf255442514e9b5f4e3550a0ce0, type: 3}
-  - {fileID: -8488001202632993262, guid: d6d7174a828400e42a4064c1ab492cd8, type: 3}
-  - {fileID: 5397490849747900577, guid: a96aa057ec891be41bd012fb349d359b, type: 3}
+  _platformPrefab: {fileID: 8557578889404916528, guid: 53118f8f12e11024ea03fd9ebc9491e5, type: 3}
+  _charecterInfos:
+  - {fileID: 11400000, guid: 857ff6ddd6517d74aa777cedae7c16ea, type: 2}
+  - {fileID: 11400000, guid: 4bbedbd03236dfc4bbba168fb731ba0a, type: 2}
+  - {fileID: 11400000, guid: 2a3111611b6bdda49a85a59c1af24cfe, type: 2}
   _range: 2
   _swipeController: {fileID: 1680281510162581497}
 --- !u!114 &1680281510162581497

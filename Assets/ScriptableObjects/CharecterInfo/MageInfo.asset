@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e05c554c9521db34ba953a1572f00b35, type: 3}
+  m_Name: MageInfo
+  m_EditorClassIdentifier: 
+  _type: 0
+  _model: {fileID: 248468763550593024, guid: 7584b73f52b955d4f8c6fc2476e1a79c, type: 3}
+  _name: Mage
+  _info: A skilled magician. In battle, he relies on his mastery of magic.
+  _tower1: {fileID: 5027416178377007937, guid: 89e2fa3b61e92e445a02b530c5568fa7, type: 3}
+  _tower2: {fileID: 1432447250199037362, guid: 5143c770ff0a3f847933abe3a301ad2e, type: 3}
