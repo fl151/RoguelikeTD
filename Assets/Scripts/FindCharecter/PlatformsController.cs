@@ -5,8 +5,8 @@ using UnityEngine.Events;
 
 public class PlatformsController : MonoBehaviour
 {
-    [SerializeField] private GameObject _platformPrefab;
-    [SerializeField] private List<Charecter> _charecterPrefabs;
+    [SerializeField] private Platform _platformPrefab;
+    [SerializeField] private List<CharecterInfo> _charecterInfos;
     [SerializeField] private float _range;
     [SerializeField] private SwipeController _swipeController;
 
@@ -15,11 +15,11 @@ public class PlatformsController : MonoBehaviour
 
     public event UnityAction SwipeFinished;
 
-    public CharecterType CurrentCharecter => _currentNode.Charecter;
+    public CharecterType CurrentCharecter => _currentNode.CharecterInfo.CharecterType;
 
     private void Awake()
     {
-        _countVariants = _charecterPrefabs.Count;
+        _countVariants = _charecterInfos.Count;
     }
 
     private void OnEnable()
@@ -38,9 +38,9 @@ public class PlatformsController : MonoBehaviour
         _swipeController.OnSwipe -= OnSwipe;
     }
 
-    private List<GameObject> SpawnVariants()
+    private List<Platform> SpawnVariants()
     {
-         var platforms = new List<GameObject>();
+         var platforms = new List<Platform>();
 
         if(_countVariants > 0)
         {
@@ -68,7 +68,7 @@ public class PlatformsController : MonoBehaviour
         return position;
     }
 
-    private void SpanwVariant(List<GameObject> platforms, Vector3 position, int chrecterIndex)
+    private void SpanwVariant(List<Platform> platforms, Vector3 position, int chrecterIndex)
     {
         var platform = Instantiate(_platformPrefab, transform);
 
@@ -79,7 +79,10 @@ public class PlatformsController : MonoBehaviour
 
         platforms.Add(platform);
 
-        SpawnCharecter(platform.transform, _charecterPrefabs[chrecterIndex].gameObject);
+        SpawnCharecter(platform.transform, _charecterInfos[chrecterIndex].Model);
+
+        SpawnTower(platform.TowerTransform1, _charecterInfos[chrecterIndex].Tower1);
+        SpawnTower(platform.TowerTransform2, _charecterInfos[chrecterIndex].Tower2);
     }
 
     private void SpawnCharecter(Transform parent, GameObject prefab)
@@ -87,16 +90,21 @@ public class PlatformsController : MonoBehaviour
         Instantiate(prefab, parent);
     }
 
-    private VariantNode CreateVariantsNodes(List<GameObject> platforms)
+    private void SpawnTower(Transform parent, GameObject prefab)
+    {
+        Instantiate(prefab, parent);
+    }
+
+    private VariantNode CreateVariantsNodes(List<Platform> platforms)
     {
         if (platforms.Count == 0) return null;
-        if (platforms.Count == 1) return new VariantNode(platforms[0]);
+        if (platforms.Count == 1) return new VariantNode(platforms[0].gameObject, _charecterInfos[0]);
 
         List<VariantNode> nodes = new List<VariantNode>();
 
-        foreach (var platform in platforms)
+        for(int i = 0; i < platforms.Count; i++)
         {
-            nodes.Add(new VariantNode(platform));
+            nodes.Add(new VariantNode(platforms[i].gameObject, _charecterInfos[i]));
         }
 
         nodes[0].Init(nodes[^1], nodes[1]);

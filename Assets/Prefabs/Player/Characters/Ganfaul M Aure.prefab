@@ -2802,7 +2802,6 @@ GameObject:
   - component: {fileID: 7881604905875872321}
   - component: {fileID: 4287771214791360571}
   - component: {fileID: -3566249363950408032}
-  - component: {fileID: 5397490849747900577}
   m_Layer: 0
   m_Name: Ganfaul M Aure
   m_TagString: Untagged
@@ -2859,19 +2858,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1270c339e048e0c429025a36b66944e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5397490849747900577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7361913470427939067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d54a61c46d4f9f44aaac7b41878517e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _type: 2
 --- !u!1 &7535548274406553290
 GameObject:
   m_ObjectHideFlags: 0
