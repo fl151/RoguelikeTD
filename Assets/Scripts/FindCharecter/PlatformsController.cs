@@ -16,6 +16,7 @@ public class PlatformsController : MonoBehaviour
     public event UnityAction SwipeFinished;
 
     public CharecterType CurrentCharecter => _currentNode.CharecterInfo.CharecterType;
+    public CharecterInfo CurrentInfo => _currentNode.CharecterInfo;
 
     private void Awake()
     {
@@ -31,6 +32,8 @@ public class PlatformsController : MonoBehaviour
     {
         var platforms = SpawnVariants();
         _currentNode = CreateVariantsNodes(platforms);
+
+        SwipeFinished?.Invoke();
     }
 
     private void OnDisable()

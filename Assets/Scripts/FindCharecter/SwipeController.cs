@@ -34,17 +34,16 @@ public class SwipeController : MonoBehaviour
 
     private void OnLeftSwipe()
     {
-        AddSwipe(Swipe.Left);   
+        AddSwipe(Swipe.Left);
     }
 
     private void OnLastSwipeFinished()
     {
-        _swipes.Dequeue();
+        if (_swipes.Count > 0)
+            _swipes.Dequeue();
 
-        if(_swipes.Count > 0)
-        {
+        if (_swipes.Count > 0)
             OnSwipe?.Invoke(_swipes.Peek());
-        }
     }
 
     private void AddSwipe(Swipe swipe)
