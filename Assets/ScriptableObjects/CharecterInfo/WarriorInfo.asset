@@ -16,5 +16,5 @@ MonoBehaviour:
   _model: {fileID: 6098635871882201852, guid: b3d7bce101c194042b74da700def5931, type: 3}
   _name: Warrior
   _info: A valiant warrior. In battle, he uses a large red blade.
-  _tower1: {fileID: 6056657572574283880, guid: 8c3db7e1bd73f80488dd15d14a993079, type: 3}
+  _tower1: {fileID: 2981462012762112837, guid: 2a98a2bdb94951344aa0088f92ec0536, type: 3}
   _tower2: {fileID: 8731593491282766297, guid: 4ef3dcfc6b784944691643f9f70cf4d2, type: 3}
