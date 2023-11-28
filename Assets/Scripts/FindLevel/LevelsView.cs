@@ -10,6 +10,11 @@ public class LevelsView : MonoBehaviour
         LevelsController.Instance.LevelUpgrade += OnLevelUpgrade;
     }
 
+    private void Start()
+    {
+        FillView();
+    }
+
     private void OnDisable()
     {
         LevelsController.Instance.LevelUpgrade -= OnLevelUpgrade;
@@ -22,6 +27,20 @@ public class LevelsView : MonoBehaviour
 
     private void FillView()
     {
+        var old = _panelConteiner.GetComponentsInChildren<LevelInfoView>();
 
+        foreach (var item in old)
+        {
+            Destroy(item.gameObject);
+        }
+
+        var levels = LevelsController.Instance.GetLevels();
+
+        foreach (var levelPair in levels)
+        {
+            LevelInfoView levelInfo = Instantiate(_prefabLevelView, _panelConteiner);
+
+            levelInfo.Fill(levelPair);
+        }
     }
 }

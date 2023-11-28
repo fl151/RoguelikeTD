@@ -6,7 +6,7 @@ public class LevelsController : MonoBehaviour
 {
     [SerializeField] private List<Level> _levels;
 
-    private Dictionary<Level, bool> _levelsDic;
+    private Dictionary<Level, bool> _levelsDic = new Dictionary<Level, bool>();
 
     public static LevelsController Instance;
 
@@ -24,11 +24,20 @@ public class LevelsController : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+
+        AddLevelsInDic();
     }
 
-    private void Start()
+    public Dictionary<Level, bool> GetLevels()
     {
-        AddLevelsInDic();
+        var levels = new Dictionary<Level, bool>();
+
+        foreach (var levelPair in _levelsDic)
+        {
+            levels.Add(levelPair.Key, levelPair.Value);
+        }
+
+        return levels;
     }
 
     private void AddLevelsInDic()
