@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2717921455f742c49bf1a98d248c4636, type: 3}
   m_Name: LevelThree
   m_EditorClassIdentifier: 
-  _sceneIndex: 2
+  _sceneIndex: 4
   _icon: {fileID: 0}
   _isBlockedAsDefault: 1
