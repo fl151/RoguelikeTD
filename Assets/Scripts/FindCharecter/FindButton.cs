@@ -28,6 +28,6 @@ public class FindButton : MonoBehaviour
     {
         CharecterHolder.Instance.SetCharecter(_platformsController.CurrentCharecter);
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(LevelsController.Instance.LevelSceneIndex);
     }
 }

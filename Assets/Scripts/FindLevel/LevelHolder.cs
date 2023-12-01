@@ -4,7 +4,7 @@ public class LevelHolder : MonoBehaviour
 {
     public static LevelHolder Instance;
 
-    public int Level { get; private set; }
+    public Level Level { get; private set; }
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class LevelHolder : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void SetCharecter(int level)
+    public void SetLevel(Level level)
     {
         Level = level;
     }

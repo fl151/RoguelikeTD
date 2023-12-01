@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/FindLevel.unity
+    guid: c80ef53a26d18924e9c0d9fa07c8d00b
+  - enabled: 1
     path: Assets/Scenes/FindCharecter.unity
     guid: cf44168292a380b448ba059d64ad1724
   - enabled: 1
     path: Assets/Scenes/MapOne.unity
     guid: c03cd6fa43cf7c34caa9207d90842e73
+  - enabled: 1
+    path: Assets/Scenes/MapTwo.unity
+    guid: adcee1c08509ad841803ea09c4683411
   m_configObjects: {}
