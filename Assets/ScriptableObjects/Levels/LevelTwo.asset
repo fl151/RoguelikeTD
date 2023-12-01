@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneIndex: 3
   _icon: {fileID: 21300000, guid: e531a30cbc3c259468b47c36af051a70, type: 3}
-  _isBlockedAsDefault: 1
+  _isOpenAsDefault: 0
