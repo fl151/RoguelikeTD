@@ -2229,7 +2229,7 @@ PrefabInstance:
     - target: {fileID: 9118001787568041824, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
       propertyPath: _charecterCanvas
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 898779633}
     - target: {fileID: 9118001787568041825, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2495,6 +2495,17 @@ PrefabInstance:
       objectReference: {fileID: 779240334}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3550d3b5e3166274c9b6426c1f399650, type: 3}
+--- !u!114 &898779633 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4815112843421852791, guid: 3550d3b5e3166274c9b6426c1f399650, type: 3}
+  m_PrefabInstance: {fileID: 898779632}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5682cf5fb3ed80a43bdb4cb7f103ce7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &915142682
 GameObject:
   m_ObjectHideFlags: 0
