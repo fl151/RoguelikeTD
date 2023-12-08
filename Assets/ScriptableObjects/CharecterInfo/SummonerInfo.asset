@@ -16,5 +16,5 @@ MonoBehaviour:
   _model: {fileID: 7361913470427939067, guid: 4238f883cb38e7e4084396a72205314e, type: 3}
   _name: Summoner
   _info: A mysterious warlock. In battle, he uses the help of his "friends".
-  _tower1: {fileID: 4549084430202964426, guid: deefb4e1733e7b9419e12689674829f3, type: 3}
+  _tower1: {fileID: 2981462012762112837, guid: 2a98a2bdb94951344aa0088f92ec0536, type: 3}
   _tower2: {fileID: 5451905119524143299, guid: c7b5181e4c9050649bbb24a5be8c1e00, type: 3}
