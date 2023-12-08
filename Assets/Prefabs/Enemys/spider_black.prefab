@@ -1389,6 +1389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 0
   _currentHealth: 0
+  _diyingTime: 1
 --- !u!54 &8826586081023995681
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] private float _maxHealth;
     [SerializeField] private float _currentHealth;
+    [SerializeField] private float _diyingTime = 0.5f;
 
     private Animator _animator;
     private EnemyStats _stats;
@@ -64,8 +65,9 @@ public class EnemyHealth : MonoBehaviour
     }
 
     private IEnumerator Die()
-    {        
-        yield return new WaitForSeconds(0.5f);
+    {
+        _isAlive = false;
+        yield return new WaitForSeconds(_diyingTime);
         Dead?.Invoke(this);        
         gameObject.SetActive(false);
     }
