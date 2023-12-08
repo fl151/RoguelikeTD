@@ -5,8 +5,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(EnemyStats))]
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] private float _maxHealth;
-    [SerializeField] private float _currentHealth;
+    private float _maxHealth;
+    private float _currentHealth;
     [SerializeField] private float _diyingTime = 0.5f;
 
     private Animator _animator;
