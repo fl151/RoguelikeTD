@@ -90,13 +90,15 @@ public class HeroRangeAttack : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, _currentEnemy.transform.position);
 
-        if (distance > _player.AttackRange)
+        if (distance > _player.AttackRange || _currentEnemy.activeSelf == false)
         {
             _currentEnemy = null;
             return false;
         }
 
-        if(_currentEnemy.activeSelf == false)
+        EnemyHealth enemyHealth = _currentEnemy.GetComponent<EnemyHealth>();
+
+        if(enemyHealth.IsAlive == false)
         {
             _currentEnemy = null;
             return false;
