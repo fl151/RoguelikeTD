@@ -64,10 +64,9 @@ public class EnemyHealth : MonoBehaviour
     }
 
     private IEnumerator Die()
-    {
+    {        
         yield return new WaitForSeconds(0.5f);
-
-        Dead?.Invoke(this);
+        Dead?.Invoke(this);        
         gameObject.SetActive(false);
     }
 
