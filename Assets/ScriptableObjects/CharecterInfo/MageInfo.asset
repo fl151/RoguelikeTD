@@ -16,5 +16,5 @@ MonoBehaviour:
   _model: {fileID: 248468763550593024, guid: 7584b73f52b955d4f8c6fc2476e1a79c, type: 3}
   _name: Mage
   _info: A skilled magician. In battle, he relies on his mastery of magic.
-  _tower1: {fileID: 5027416178377007937, guid: 89e2fa3b61e92e445a02b530c5568fa7, type: 3}
+  _tower1: {fileID: 2628559324802015035, guid: d0cb9a5d5f7b19041955da54dfd2dca7, type: 3}
   _tower2: {fileID: 1432447250199037362, guid: 5143c770ff0a3f847933abe3a301ad2e, type: 3}
