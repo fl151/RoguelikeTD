@@ -55,6 +55,21 @@ public class ObjectPool<T> where T : MonoBehaviour
         throw new Exception($"no element in pool {typeof(T)}");
     }
 
+    public List<T> GetActiveElements()
+    {
+        List<T> result = new List<T>();
+
+        foreach (var obj in _objects)
+        {
+            if (obj.gameObject.activeSelf == true)
+            {
+                result.Add(obj);
+            }
+        }
+
+        return result;
+    }
+
     private void InitPool(int count)
     {
         _objects = new List<T>();

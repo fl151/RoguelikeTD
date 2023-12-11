@@ -46,11 +46,7 @@ public class EnemyHealth : MonoBehaviour
         StartCoroutine(PlayDamageEffect());
 
         if (_currentHealth <= 0)
-        {
-            _animator.SetTrigger("isDie");
-            _isAlive = false;
             StartCoroutine(Die());
-        }
     }
 
     private IEnumerator PlayDamageEffect()
@@ -66,9 +62,13 @@ public class EnemyHealth : MonoBehaviour
 
     private IEnumerator Die()
     {
+        _animator.SetTrigger("isDie");
         _isAlive = false;
+
         yield return new WaitForSeconds(_diyingTime);
-        Dead?.Invoke(this);        
+
+        Dead?.Invoke(this);
+
         gameObject.SetActive(false);
     }
 

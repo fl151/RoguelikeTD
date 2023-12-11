@@ -6,8 +6,10 @@ public class Level : ScriptableObject
     [SerializeField] private int _sceneIndex;
     [SerializeField] private Sprite _icon;
     [SerializeField] private bool _isOpenAsDefault;
+    [SerializeField] private Level _nextLevel;
 
     public int SceneIndex => _sceneIndex;
     public Sprite Icon => _icon;
-    public bool IsBlockedAsDefault => _isOpenAsDefault;
+    public bool OpenAsDefault => _isOpenAsDefault;
+    public Level NextLevel => _nextLevel;
 }
