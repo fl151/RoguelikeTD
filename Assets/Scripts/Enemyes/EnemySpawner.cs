@@ -12,19 +12,35 @@ public class EnemySpawner : MonoBehaviour
 
     private int _currentEnemyCount = 0;
     private float _lastSpawn = 0f;
+    private bool _lastEnemyDied = false;
 
     private int _difficulty = 0;
     private ExperienceDroper _expDroper;
+    private EnemyHealth _lastEnemy;
 
     private ObjectPool<EnemyStats> _enemyPool;
 
     public event UnityAction DifficultyUp;
     public event UnityAction<EnemyHealth> EnemySpawned;
+    public event UnityAction LastEnemyDied;
 
     private void Awake()
     {
         _enemyPool = new ObjectPool<EnemyStats>(_enemyPrefab, 10, transform, true);
         _expDroper = new ExperienceDroper(this, _expPrefab, _chanceDrop, transform);
+    }
+
+    private void OnDisable()
+    {
+        if (_lastEnemy != null)
+            _lastEnemy.Dead -= OnLastEnemyDead;
+    }
+
+    private void FixedUpdate()
+    {
+        if (_lastEnemyDied)
+            if (_enemyPool.GetActiveElements().Count == 0)
+                LastEnemyDied?.Invoke();
     }
 
     private void Update()
@@ -56,6 +72,12 @@ public class EnemySpawner : MonoBehaviour
 
         EnemySpawned?.Invoke(enemy.GetComponent<EnemyHealth>());
         _currentEnemyCount++;
+
+        if (_currentEnemyCount == _maxEnemys)
+        {
+            _lastEnemy = enemy.GetComponent<EnemyHealth>();
+            _lastEnemy.Dead += OnLastEnemyDead;
+        }
     }
 
     private Transform GetRandomSpawnPoint(Transform[] spanwPoints)
@@ -69,5 +91,11 @@ public class EnemySpawner : MonoBehaviour
     {
         _difficulty++;
         DifficultyUp?.Invoke();
+    }
+
+    private void OnLastEnemyDead(EnemyHealth enemy)
+    {
+        enemy.Dead -= OnLastEnemyDead;
+        _lastEnemyDied = true;
     }
 }

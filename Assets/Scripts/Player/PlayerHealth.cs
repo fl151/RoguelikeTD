@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(PlayerStats))]
@@ -9,6 +10,8 @@ public class PlayerHealth : Health
     private float _currentHealth;
 
     private PlayerStats _playerStats;
+
+    public event UnityAction Died;
 
     private void Awake()
     {
@@ -36,6 +39,8 @@ public class PlayerHealth : Health
 
     void Die()
     {
+        Died?.Invoke();
+
         Destroy(gameObject);
     }
 }

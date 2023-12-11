@@ -51,11 +51,22 @@ public class LevelsController : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void PassLevel()
+    {
+        var nextLevel = _playingLevel.NextLevel;
+
+        if (nextLevel != null)
+            _levelsDic[nextLevel] = true;
+    }
+
     private void AddLevelsInDic()
     {
-        foreach (var level in _levels)
+        if(_levelsDic.Count == 0)
         {
-            _levelsDic.Add(level, level.IsBlockedAsDefault);
+            foreach (var level in _levels)
+            {
+                _levelsDic.Add(level, level.OpenAsDefault);
+            }
         }
 
         LevelUpgrade?.Invoke();
