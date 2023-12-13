@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BuildThronsTowerUpgrade
   m_EditorClassIdentifier: 
   _title: Build Throns
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 5c82f772ec9f557439eae91f520481d2, type: 3}
   _prefab: {fileID: -6688078322007264357, guid: 93b521e0fbcb23740a99f4ab7fb7682d, type: 3}

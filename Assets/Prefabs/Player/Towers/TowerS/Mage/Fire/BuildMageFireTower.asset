@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BuildMageFireTower
   m_EditorClassIdentifier: 
   _title: Build Fire Tower
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 4fd85b1562e5330458b0a21afef283ce, type: 3}
   _prefab: {fileID: 2867555937439070495, guid: 66538b29cfa501545b1972420933e923, type: 3}

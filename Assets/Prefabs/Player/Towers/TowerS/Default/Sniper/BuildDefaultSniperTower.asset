@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BuildDefaultSniperTower
   m_EditorClassIdentifier: 
   _title: Build Sniper Tower
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 727bda3a500f66e4d87c90c88af35675, type: 3}
   _prefab: {fileID: 4886705830801991864, guid: 936770151543f3a4ba1c95040c1fa2b4, type: 3}

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BuildBuffHelpersTowerUpgrade
   m_EditorClassIdentifier: 
   _title: Build Buff Tower
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 0f4a36694efbee84ab6659ef85829c58, type: 3}
   _prefab: {fileID: 6627438037667885413, guid: 95fb2d45a8d120947bc810a1e2703ade, type: 3}

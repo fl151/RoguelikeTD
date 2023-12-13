@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BuildTowerUpgrade
   m_EditorClassIdentifier: 
   _title: Build Summon Tower
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 5ae3388949feab24fbfb68d7002de908, type: 3}
   _prefab: {fileID: 3867863051423157139, guid: c131d5f171167da479b38897c5b49d9f, type: 3}
