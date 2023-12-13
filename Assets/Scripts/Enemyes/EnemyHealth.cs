@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(EnemyStats))]
+[RequireComponent(typeof(EnemyColorController))]
 public class EnemyHealth : MonoBehaviour
 {
     private float _maxHealth;
@@ -11,25 +12,25 @@ public class EnemyHealth : MonoBehaviour
 
     private Animator _animator;
     private EnemyStats _stats;
-    private SkinnedMeshRenderer _skin;
+    private EnemyColorController _colorController;
 
     private bool _isAlive = true;
 
     public event UnityAction<EnemyHealth> Dead;
 
     public bool IsAlive => _isAlive;
+    public EnemyColorController ColorController => _colorController;
 
     private void Awake()
     {
         _stats = GetComponent<EnemyStats>();
-        _skin = GetComponentInChildren<SkinnedMeshRenderer>();
+        _colorController = GetComponent<EnemyColorController>();
         _animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
     {
         _isAlive = true;
-        _skin.material.color = Color.white;
 
         _stats.Inited += OnStatsInited;
     }
@@ -43,21 +44,10 @@ public class EnemyHealth : MonoBehaviour
     {
         _currentHealth -= damage;
 
-        StartCoroutine(PlayDamageEffect());
+        _colorController.AddEffect(new ColorEffect(Color.red, 0.1f, 5));
 
         if (_currentHealth <= 0)
             StartCoroutine(Die());
-    }
-
-    private IEnumerator PlayDamageEffect()
-    {
-        Color oldColor = _skin.material.color;
-
-        _skin.material.color = Color.red;
-
-        yield return new WaitForSeconds(0.1f);
-
-        _skin.material.color = oldColor;
     }
 
     private IEnumerator Die()
