@@ -37,9 +37,7 @@ public class IceDebuff : MonoBehaviour
 
     private void StartEffect()
     {
-        _skin = transform.parent.GetComponentInChildren<SkinnedMeshRenderer>();
-
-        _skin.material.color = Color.blue;
+        GetComponentInParent<EnemyHealth>().ColorController.AddEffect(new ColorEffect(Color.blue, _timeEffect, 3));
 
         _movement = transform.parent.GetComponent<Enemy>();
         _movement.MakeSlow(_slowCoeff);
@@ -47,7 +45,6 @@ public class IceDebuff : MonoBehaviour
 
     private void FinishEffect()
     {
-        _skin.material.color = Color.white;
         _movement.MakeNormalSpeed();
 
         Destroy(gameObject);
