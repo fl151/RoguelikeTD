@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: UpHelpersUpgrade
   m_EditorClassIdentifier: 
   _title: UpHelpers
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 687d678a548d8764ba60e8889752b3c3, type: 3}
   _skillPrefab: {fileID: 3810310942056406657, guid: 6a2e5b4d1dc7899448256fb43f8e8ee7, type: 3}

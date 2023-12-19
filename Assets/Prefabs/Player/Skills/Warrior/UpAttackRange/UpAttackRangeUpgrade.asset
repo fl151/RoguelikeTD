@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: UpAttackRangeUpgrade
   m_EditorClassIdentifier: 
   _title: Up Attack Range
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: f790a09aa1271cf4eb6762b47f71c44b, type: 3}
   _skillPrefab: {fileID: 2623118729277999077, guid: 3f4e687576dc9614d887a242488a567a, type: 3}

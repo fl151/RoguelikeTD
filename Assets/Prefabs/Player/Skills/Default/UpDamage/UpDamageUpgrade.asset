@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: UpDamageUpgrade
   m_EditorClassIdentifier: 
   _title: Up Player Damage
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 3522d5647baa74a48a63da156e8fa65f, type: 3}
   _skillPrefab: {fileID: 2737049733563143413, guid: bb7f286d454bbe94895ffbb98d2485ee, type: 3}

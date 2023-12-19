@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: UpArmorUpgrade
   m_EditorClassIdentifier: 
   _title: UpArmor
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: f1e0e1ea46ca2e648ba6a5a8c159da81, type: 3}
   _skillPrefab: {fileID: -7328655984502929315, guid: 2ad5b0c3c00e0144ebef4b957e4e5d76, type: 3}
