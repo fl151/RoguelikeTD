@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CriticalAttackUpgrade
   m_EditorClassIdentifier: 
   _title: Critical Attack
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: b0b010a1bdb126c479de320616f27197, type: 3}
   _skillPrefab: {fileID: -5906810345336559865, guid: d15fb77cd41aa984d8804c3d7561aef6, type: 3}

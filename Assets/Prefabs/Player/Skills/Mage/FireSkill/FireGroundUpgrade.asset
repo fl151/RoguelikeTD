@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: FireGroundUpgrade
   m_EditorClassIdentifier: 
   _title: Fire Ground
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: f5548e0cee4947c43903fc712eb576f9, type: 3}
   _skillPrefab: {fileID: 9022428827288296576, guid: 0c8e29289b21a344ca24e24482b40df5, type: 3}

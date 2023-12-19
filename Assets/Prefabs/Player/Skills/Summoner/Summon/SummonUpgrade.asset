@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: SummonUpgrade
   m_EditorClassIdentifier: 
   _title: More Helpers
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 576c4842fcca7fc439df2e10dd9400f1, type: 3}
   _skillPrefab: {fileID: 1580874262044408369, guid: ce2db005bc32c534689eec2bf3734138, type: 3}

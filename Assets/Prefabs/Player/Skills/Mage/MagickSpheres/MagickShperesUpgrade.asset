@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MagickShperesUpgrade
   m_EditorClassIdentifier: 
   _title: MagickSpheres
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: fb2d14b4c9da166459c076a0f49364f7, type: 3}
   _skillPrefab: {fileID: 5784752641266855453, guid: b3f30fb4f94c71c4ca66a860579a1ad2, type: 3}
