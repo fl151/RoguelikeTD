@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI Table_tr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: tr
+  m_SharedData: {fileID: 11400000, guid: 3b8b952fdce2d334eb42f675fdf51b35, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 83585048576
+    m_Localized: "Se\xE7mek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380373999616
+    m_Localized: "B\xFCy\xFCc\xFC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 386602541056
+    m_Localized: "Yetenekli bir sihirbaz. Sava\u015Fta sihirdeki ustal\u0131\u011F\u0131na
+      g\xFCveniyor."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2859115388928
+    m_Localized: "Sava\u015F\xE7\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7727905415168
+    m_Localized: "Yi\u011Fit bir sava\u015F\xE7\u0131. Sava\u015Fta b\xFCy\xFCk k\u0131rm\u0131z\u0131
+      bir k\u0131l\u0131\xE7 kullan\u0131r."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7911402020864
+    m_Localized: Sihirdar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7916460351488
+    m_Localized: "Gizemli bir b\xFCy\xFCc\xFC. Sava\u015Fta \"arkada\u015Flar\u0131n\u0131n\"
+      yard\u0131m\u0131n\u0131 kullan\u0131r."
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

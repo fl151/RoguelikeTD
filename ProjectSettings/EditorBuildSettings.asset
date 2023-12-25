@@ -17,4 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MapTwo.unity
     guid: adcee1c08509ad841803ea09c4683411
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 56f982a2e0b17ec4c843a60ac7cd0232, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 894cf1f2ba2bfb14dab6ce110099239a, type: 2}
