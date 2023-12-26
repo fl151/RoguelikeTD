@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: LevelThree
   m_EditorClassIdentifier: 
   _sceneIndex: 4
-  _icon: {fileID: 0}
+  _icon: {fileID: 21300000, guid: 1e3521a573887614fac47d291d58aade, type: 3}
   _isOpenAsDefault: 0
+  _nextLevel: {fileID: 0}
