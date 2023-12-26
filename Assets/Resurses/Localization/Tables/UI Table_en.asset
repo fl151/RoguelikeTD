@@ -46,6 +46,58 @@ MonoBehaviour:
     m_Localized: A mysterious warlock. In battle, he uses the help of his "friends".
     m_Metadata:
       m_Items: []
+  - m_Id: 352920290631680
+    m_Localized: Meteor Rain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352926275903488
+    m_Localized: Magic spheres
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352928012345344
+    m_Localized: Attack Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352929031561216
+    m_Localized: Armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352929836867584
+    m_Localized: Attack speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352930768003072
+    m_Localized: More helpers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 353388328820736
+    m_Localized: Attack radius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 353386965671936
+    m_Localized: Strengthen assistants
+    m_Metadata:
+      m_Items: []
+  - m_Id: 353613864935424
+    m_Localized: Critical Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360162754732032
+    m_Localized: Build
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360164310818816
+    m_Localized: Upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363897706946560
+    m_Localized: Strengthen character
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363902970798080
+    m_Localized: Upgrade tower arsenal
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: UpLevelSummonerSummonTowerUpgrade
   m_EditorClassIdentifier: 
   _title: Up Level Summoner Summon Towers
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 5ae3388949feab24fbfb68d7002de908, type: 3}
