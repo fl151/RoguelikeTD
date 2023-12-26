@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: UpLevelDefaultMultishotTowerUpgrade
   m_EditorClassIdentifier: 
   _title: Up Level Default Multishot Towers
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 8d911a02f75f54e4f822cdd98f42babf, type: 3}

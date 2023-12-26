@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: UpLevelSummonerBuffTowerUpgrade
   m_EditorClassIdentifier: 
   _title: Up Level Buff Towers
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 0f4a36694efbee84ab6659ef85829c58, type: 3}

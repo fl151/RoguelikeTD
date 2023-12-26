@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: UpLevelDefaultSniperTowerUpgrade
   m_EditorClassIdentifier: 
   _title: Up Level Default Sniper Towers
-  _sprite: {fileID: 0}
+  _sprite: {fileID: 21300000, guid: 727bda3a500f66e4d87c90c88af35675, type: 3}

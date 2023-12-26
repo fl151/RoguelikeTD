@@ -1,0 +1,132 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI Table Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: UI Table
+  m_TableCollectionNameGuidString: 3b8b952fdce2d334eb42f675fdf51b35
+  m_Entries:
+  - m_Id: 83585048576
+    m_Key: Pick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380373999616
+    m_Key: MageName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 386602541056
+    m_Key: MageInfo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2859115388928
+    m_Key: WarriorName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7727905415168
+    m_Key: WarriorInfo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7911402020864
+    m_Key: SummonerName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7916460351488
+    m_Key: SummonerInfo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352920290631680
+    m_Key: FireSkillTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352926275903488
+    m_Key: SpheresSkillTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352928012345344
+    m_Key: DamageSkillTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352929031561216
+    m_Key: ArmorSkillTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352929836867584
+    m_Key: AttackSpeedSkillTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352930768003072
+    m_Key: SpawnSkillTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 353386965671936
+    m_Key: BuffHelpersSkillTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 353388328820736
+    m_Key: AttackRangeSkillTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 353613864935424
+    m_Key: CritsSkillTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360162754732032
+    m_Key: Build
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360164310818816
+    m_Key: Upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363897706946560
+    m_Key: PlayerPower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363902970798080
+    m_Key: TowersPower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 365493635424256
+    m_Key: WinMessage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 365526283886592
+    m_Key: LoseMessage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366073133047808
+    m_Key: TryAgain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366078325596160
+    m_Key: BackToMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366079986540544
+    m_Key: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367145524305920
+    m_Key: Play
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5625927799253762048
+  references:
+    version: 2
+    RefIds:
+    - rid: 5625927799253762048
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1703508513829

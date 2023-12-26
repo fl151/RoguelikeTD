@@ -9,6 +9,8 @@ public class CharecterInfoVeiw : MonoBehaviour
     [SerializeField] private TMP_Text _info;
     [SerializeField] private PlatformsController _platformsController;
 
+    private CharecterInfo _currentInfo;
+
     private void OnEnable()
     {
         _platformsController.SwipeFinished += OnPlatformChanged;
@@ -26,9 +28,28 @@ public class CharecterInfoVeiw : MonoBehaviour
 
     private void UpdateView()
     {
-        var info = _platformsController.CurrentInfo;
+        if(_currentInfo != null)
+        {
+            _currentInfo.InfoChanged -= OnInfoChanged;
+            _currentInfo.NameChanged -= OnNameChanged;
+        }
 
-        _name.text = info.Name;
-        _info.text = info.Info;
+        _currentInfo = _platformsController.CurrentInfo;
+
+        _name.text = _currentInfo.Name;
+        _info.text = _currentInfo.Info;
+
+        _currentInfo.InfoChanged += OnInfoChanged;
+        _currentInfo.NameChanged += OnNameChanged;
+    }
+
+    private void OnNameChanged(string name)
+    {
+        _name.text = name;
+    }
+
+    private void OnInfoChanged(string info)
+    {
+        _info.text = info;
     }
 }

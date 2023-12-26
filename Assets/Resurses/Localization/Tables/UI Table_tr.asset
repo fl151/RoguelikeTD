@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI Table_tr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: tr
+  m_SharedData: {fileID: 11400000, guid: 3b8b952fdce2d334eb42f675fdf51b35, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 83585048576
+    m_Localized: "Se\xE7mek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380373999616
+    m_Localized: "B\xFCy\xFCc\xFC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 386602541056
+    m_Localized: "Yetenekli bir sihirbaz. Sava\u015Fta sihirdeki ustal\u0131\u011F\u0131na
+      g\xFCveniyor."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2859115388928
+    m_Localized: "Sava\u015F\xE7\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7727905415168
+    m_Localized: "Yi\u011Fit bir sava\u015F\xE7\u0131. Sava\u015Fta b\xFCy\xFCk k\u0131rm\u0131z\u0131
+      bir k\u0131l\u0131\xE7 kullan\u0131r."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7911402020864
+    m_Localized: Sihirdar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7916460351488
+    m_Localized: "Gizemli bir b\xFCy\xFCc\xFC. Sava\u015Fta \"arkada\u015Flar\u0131n\u0131n\"
+      yard\u0131m\u0131n\u0131 kullan\u0131r."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352920290631680
+    m_Localized: "Meteor ya\u011Fmuru"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352926275903488
+    m_Localized: "Sihirli k\xFCreler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352928012345344
+    m_Localized: "Sald\u0131r\u0131 hasar\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352929031561216
+    m_Localized: "Z\u0131rh"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352929836867584
+    m_Localized: "Atak h\u0131z\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352930768003072
+    m_Localized: "Daha fazla yard\u0131mc\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 353388328820736
+    m_Localized: "Sald\u0131r\u0131 yar\u0131\xE7ap\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 353386965671936
+    m_Localized: "Asistanlar\u0131 g\xFC\xE7lendirin"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 353613864935424
+    m_Localized: Kritik hasar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360164310818816
+    m_Localized: "Geni\u015Fletmek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360162754732032
+    m_Localized: "\u0130n\u015Fa etmek"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363897706946560
+    m_Localized: "Karakterinizi g\xFC\xE7lendirin"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363902970798080
+    m_Localized: "Kule cephaneli\u011Finizi y\xFCkseltin"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 365493635424256
+    m_Localized: "Kazand\u0131n!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 365526283886592
+    m_Localized: Kaybettin!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366073133047808
+    m_Localized: Tekrar deneyin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366078325596160
+    m_Localized: "Men\xFCye d\xF6n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366079986540544
+    m_Localized: Devam etmek
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367145524305920
+    m_Localized: Oynamak
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

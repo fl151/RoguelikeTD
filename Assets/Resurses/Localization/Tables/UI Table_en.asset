@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI Table_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 3b8b952fdce2d334eb42f675fdf51b35, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 83585048576
+    m_Localized: Pick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 380373999616
+    m_Localized: Mage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 386602541056
+    m_Localized: A skilled magician. In battle, he relies on his mastery of magic.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2859115388928
+    m_Localized: Warrior
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7727905415168
+    m_Localized: A valiant warrior. In battle, he uses a large red blade.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7911402020864
+    m_Localized: Summoner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7916460351488
+    m_Localized: A mysterious warlock. In battle, he uses the help of his "friends".
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352920290631680
+    m_Localized: Meteor Rain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352926275903488
+    m_Localized: Magic spheres
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352928012345344
+    m_Localized: Attack Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352929031561216
+    m_Localized: Armor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352929836867584
+    m_Localized: Attack speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 352930768003072
+    m_Localized: More helpers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 353388328820736
+    m_Localized: Attack radius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 353386965671936
+    m_Localized: Strengthen assistants
+    m_Metadata:
+      m_Items: []
+  - m_Id: 353613864935424
+    m_Localized: Critical Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360162754732032
+    m_Localized: Build
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360164310818816
+    m_Localized: Upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363897706946560
+    m_Localized: Strengthen character
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363902970798080
+    m_Localized: Upgrade tower arsenal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 365493635424256
+    m_Localized: You WIN!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 365526283886592
+    m_Localized: You LOSE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366073133047808
+    m_Localized: Try again
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366078325596160
+    m_Localized: Back to menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366079986540544
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367145524305920
+    m_Localized: Play
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

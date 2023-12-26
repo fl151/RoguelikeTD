@@ -14,6 +14,8 @@ public class UpgradeView : MonoBehaviour
     {
         _upgrade = upgrade;
 
+        _upgrade.TitleChanged += OnTitleChanged;
+
         _title.text = _upgrade.Title;
         _image.sprite = _upgrade.Sprite;
 
@@ -23,6 +25,7 @@ public class UpgradeView : MonoBehaviour
     private void OnDisable()
     {
         _button.onClick.RemoveListener(OnButtonClick);
+        _upgrade.TitleChanged -= OnTitleChanged;
     }
 
     private void OnButtonClick()
@@ -30,5 +33,10 @@ public class UpgradeView : MonoBehaviour
         _upgrade.Realize();
 
         GetComponentInParent<Canvas>().gameObject.SetActive(false);
+    }
+
+    private void OnTitleChanged(string newTitle)
+    {
+        _title.text = newTitle;
     }
 }
