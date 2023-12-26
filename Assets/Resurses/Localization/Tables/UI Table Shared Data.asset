@@ -95,6 +95,30 @@ MonoBehaviour:
     m_Key: TowersPower
     m_Metadata:
       m_Items: []
+  - m_Id: 365493635424256
+    m_Key: WinMessage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 365526283886592
+    m_Key: LoseMessage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366073133047808
+    m_Key: TryAgain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366078325596160
+    m_Key: BackToMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366079986540544
+    m_Key: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367145524305920
+    m_Key: Play
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

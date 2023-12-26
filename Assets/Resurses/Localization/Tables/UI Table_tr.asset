@@ -101,6 +101,30 @@ MonoBehaviour:
     m_Localized: "Kule cephaneli\u011Finizi y\xFCkseltin"
     m_Metadata:
       m_Items: []
+  - m_Id: 365493635424256
+    m_Localized: "Kazand\u0131n!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 365526283886592
+    m_Localized: Kaybettin!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366073133047808
+    m_Localized: Tekrar deneyin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366078325596160
+    m_Localized: "Men\xFCye d\xF6n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 366079986540544
+    m_Localized: Devam etmek
+    m_Metadata:
+      m_Items: []
+  - m_Id: 367145524305920
+    m_Localized: Oynamak
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
