@@ -647,6 +647,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2865582962233268141, guid: 38520b9cd93fbf24689d54aff9f692c5, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 982951193}
+    - target: {fileID: 3624901247213832053, guid: 38520b9cd93fbf24689d54aff9f692c5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624901247213832053, guid: 38520b9cd93fbf24689d54aff9f692c5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624901247213832053, guid: 38520b9cd93fbf24689d54aff9f692c5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624901247213832053, guid: 38520b9cd93fbf24689d54aff9f692c5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624901247213832053, guid: 38520b9cd93fbf24689d54aff9f692c5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3632513272689704185, guid: 38520b9cd93fbf24689d54aff9f692c5, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -691,11 +715,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5499633819157338177, guid: 38520b9cd93fbf24689d54aff9f692c5, type: 3}
+      propertyPath: m_text
+      value: 'Jora
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 5541230283815757142, guid: 38520b9cd93fbf24689d54aff9f692c5, type: 3}
       propertyPath: m_Name
       value: PlaneMapThree
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8989863582217269550, guid: 38520b9cd93fbf24689d54aff9f692c5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 38520b9cd93fbf24689d54aff9f692c5, type: 3}
 --- !u!1001 &1037339751
 PrefabInstance:
