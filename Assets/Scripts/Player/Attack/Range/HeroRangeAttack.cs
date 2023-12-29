@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerStats))]
 public class HeroRangeAttack : MonoBehaviour
 {
+    [SerializeField] private ShootingSound shootingSoundComponent;
+
     private Transform _attackPoint;
     private PlayerStats _player;
     private ObjectPool<TargetBullet> _bulletPool;
@@ -84,6 +86,11 @@ public class HeroRangeAttack : MonoBehaviour
         targetBullet.gameObject.SetActive(true);
         targetBullet.transform.position = _attackPoint.position;
         targetBullet.Init(enemy, _player.Damage);
+
+        if (shootingSoundComponent != null)
+        {
+            shootingSoundComponent.PlayShootingSound();
+        }
     }
 
     private bool IsEnemyCorrect()
