@@ -4,8 +4,11 @@ using UnityEngine.Events;
 
 [RequireComponent(typeof(EnemyStats))]
 [RequireComponent(typeof(EnemyColorController))]
+[RequireComponent(typeof(EnemyAudioController))]
 public class EnemyHealth : MonoBehaviour
 {
+    private EnemyAudioController _audioController;
+
     private float _maxHealth;
     private float _currentHealth;
     [SerializeField] private float _diyingTime = 0.5f;
@@ -26,6 +29,7 @@ public class EnemyHealth : MonoBehaviour
         _stats = GetComponent<EnemyStats>();
         _colorController = GetComponent<EnemyColorController>();
         _animator = GetComponent<Animator>();
+        _audioController = GetComponent<EnemyAudioController>();
     }
 
     private void OnEnable()
@@ -45,6 +49,11 @@ public class EnemyHealth : MonoBehaviour
         _currentHealth -= damage;
 
         _colorController.AddEffect(new ColorEffect(Color.red, 0.1f, 5));
+
+        if (_audioController != null)
+        {
+            _audioController.PlayDamageSound();
+        }
 
         if (_currentHealth <= 0)
             StartCoroutine(Die());
