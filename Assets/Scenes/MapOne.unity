@@ -2408,10 +2408,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChooseUpgradeBranchCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 4334727355438604196, guid: 8dfcaeb56a1da34458baf89c12039114, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4334727355438604200, guid: 8dfcaeb56a1da34458baf89c12039114, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2495,14 +2491,6 @@ PrefabInstance:
     - target: {fileID: 4334727355438604200, guid: 8dfcaeb56a1da34458baf89c12039114, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334727355438604201, guid: 8dfcaeb56a1da34458baf89c12039114, type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4334727355438604201, guid: 8dfcaeb56a1da34458baf89c12039114, type: 3}
-      propertyPath: m_PlaneDistance
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4334727356438686744, guid: 8dfcaeb56a1da34458baf89c12039114, type: 3}
       propertyPath: _upgradesCanvas
