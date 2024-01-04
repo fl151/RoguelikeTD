@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -60,12 +61,12 @@ public class HeroMeeleAttack : MonoBehaviour
 
             Attack?.Invoke(isCriticalAttack);
 
-            StartCoroutine(AttackAfterDeley(0.05f, hitColliders, isCriticalAttack));
+            StartCoroutine(AttackAfterDeley(0.05f, hitColliders, isCriticalAttack, attackRange));
             _lastAttackTime = Time.time;
         }
     }
 
-    private IEnumerator AttackAfterDeley(float delay, Collider[] colliders, bool isCriticalAttack)
+    private IEnumerator AttackAfterDeley(float delay, Collider[] colliders, bool isCriticalAttack, float attackRange)
     {
         float damage = _player.Damage;
 
@@ -75,7 +76,7 @@ public class HeroMeeleAttack : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         foreach (var collider in colliders)
-            if (collider != null)
+            if (IsCorrectTarget(collider, attackRange))
                 collider.GetComponent<EnemyHealth>().TakeDamage(damage);   
     }
 
@@ -84,5 +85,20 @@ public class HeroMeeleAttack : MonoBehaviour
         if (_criticalAttackChance == 0) return false;
 
         return _criticalAttackChance >= Random.Range(0f, 1f);
+    }
+
+    private bool IsCorrectTarget(Collider collider, float attackRange)
+    {
+        if (collider == null) return false;
+
+        if (collider.gameObject.activeSelf == false) return false;
+
+        float distance = Vector3.Distance(collider.gameObject.transform.position, transform.position);
+
+        if (distance > attackRange * 1.5f) return false;
+
+        if (collider.GetComponent<EnemyHealth>().IsAlive == false) return false;
+
+        return true;
     }
 }
