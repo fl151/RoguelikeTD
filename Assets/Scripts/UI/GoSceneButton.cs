@@ -1,10 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public class BackToMenuButton : MonoBehaviour
+public class GoSceneButton : MonoBehaviour
 {
+    [SerializeField] private int _targetSceneIndex;
+
     private Button _button;
 
     private void Awake()
@@ -25,6 +29,6 @@ public class BackToMenuButton : MonoBehaviour
     private void OnButtonClick()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(_targetSceneIndex);
     }
 }

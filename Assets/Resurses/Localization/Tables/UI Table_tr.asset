@@ -125,6 +125,14 @@ MonoBehaviour:
     m_Localized: Oynamak
     m_Metadata:
       m_Items: []
+  - m_Id: 4318759679336448
+    m_Localized: Ayarlar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4325191195729920
+    m_Localized: Geri
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

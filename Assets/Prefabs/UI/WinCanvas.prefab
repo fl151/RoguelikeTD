@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3912620975400911789}
   - component: {fileID: 4907887989538247467}
   - component: {fileID: 4660206993296657602}
-  - component: {fileID: 5605522695947234780}
+  - component: {fileID: 2873656904155880588}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -36,10 +36,10 @@ RectTransform:
   m_Father: {fileID: 22138913303658072}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 60.850006}
-  m_SizeDelta: {x: 160, y: 60}
+  m_AnchorMin: {x: 0.30415103, y: 0.061000004}
+  m_AnchorMax: {x: 0.690151, y: 0.17400001}
+  m_AnchoredPosition: {x: 1.5, y: 4.8499756}
+  m_SizeDelta: {x: -1, y: -5}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3912620975400911789
 CanvasRenderer:
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &5605522695947234780
+--- !u!114 &2873656904155880588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,9 +132,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 862648225905073003}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59538b56fadab8a4690118c5d3b7dd6c, type: 3}
+  m_Script: {fileID: 11500000, guid: 8284ce3ec9d9d7c45ba68718ac0dd15e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _targetSceneIndex: 1
 --- !u!1 &6966490410330320002
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,10 +406,10 @@ RectTransform:
   m_Father: {fileID: 22138913303658072}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 400, y: 200}
+  m_AnchorMin: {x: 0.115471505, y: 0.39133012}
+  m_AnchorMax: {x: 0.88600004, y: 0.60700005}
+  m_AnchoredPosition: {x: -0.5, y: 0.5}
+  m_SizeDelta: {x: -1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &914796654770365932
 CanvasRenderer:
@@ -441,7 +442,7 @@ MonoBehaviour:
   m_text: You win
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02485f17eb9af7a48baebff29a9b178a, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  m_sharedMaterial: {fileID: 2164040, guid: 02485f17eb9af7a48baebff29a9b178a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -465,12 +466,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 107.76
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 107.76
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -504,6 +505,6 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
