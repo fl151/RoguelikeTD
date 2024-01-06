@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 3566790397378140713}
   - component: {fileID: 1444157296}
   - component: {fileID: 7551421255088052763}
+  - component: {fileID: 9018767412945350631}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -263,7 +264,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e174167a833faba4ab00ca3c5c5241fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingSound: {fileID: 8300000, guid: 4c444f238c40da84fa4ddd0731ab1b8b, type: 3}
+  shootingSound: {fileID: 8300000, guid: 1f6d4bc4aabfb434ca1ae9919a0c61cf, type: 3}
+--- !u!114 &9018767412945350631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9118001787568041855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd83045ac57bb274e966b665dd135883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingSound: {fileID: 8300000, guid: 9e6356064623280458655402bdffac34, type: 3}
 --- !u!1001 &2478514974251709747
 PrefabInstance:
   m_ObjectHideFlags: 0

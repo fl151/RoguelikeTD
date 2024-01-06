@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class EnemyAudioController : MonoBehaviour
+public class TurtleEnemyAudioController : MonoBehaviour
 {
     [SerializeField] private AudioClip damageSound; 
     private AudioSource audioSource; 

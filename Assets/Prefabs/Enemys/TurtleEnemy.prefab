@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 8745600568818551370}
   - component: {fileID: 5462791390620648404}
   - component: {fileID: 290881903134785119}
-  - component: {fileID: 5883602407555359728}
+  - component: {fileID: 5016080489350864726}
   m_Layer: 8
   m_Name: TurtleEnemy
   m_TagString: Untagged
@@ -782,7 +782,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5883602407555359728
+--- !u!114 &5016080489350864726
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -794,7 +794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e7f336e1ae04894b975a60c4ab11186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageSound: {fileID: 8300000, guid: 0b3c7f833b306704291584e9896ff1de, type: 3}
+  damageSound: {fileID: 8300000, guid: 2ab2e14424a872d489a0cbfeef68974a, type: 3}
 --- !u!1 &1532652994627396
 GameObject:
   m_ObjectHideFlags: 0

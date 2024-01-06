@@ -4,10 +4,10 @@ using UnityEngine.Events;
 
 [RequireComponent(typeof(EnemyStats))]
 [RequireComponent(typeof(EnemyColorController))]
-[RequireComponent(typeof(EnemyAudioController))]
+[RequireComponent(typeof(TurtleEnemyAudioController))]
 public class EnemyHealth : MonoBehaviour
 {
-    private EnemyAudioController _audioController;
+    private TurtleEnemyAudioController _audioController;
 
     private float _maxHealth;
     private float _currentHealth;
@@ -29,7 +29,7 @@ public class EnemyHealth : MonoBehaviour
         _stats = GetComponent<EnemyStats>();
         _colorController = GetComponent<EnemyColorController>();
         _animator = GetComponent<Animator>();
-        _audioController = GetComponent<EnemyAudioController>();
+        _audioController = GetComponent<TurtleEnemyAudioController>();
     }
 
     private void OnEnable()
