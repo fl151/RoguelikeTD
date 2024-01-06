@@ -1154,25 +1154,9 @@ PrefabInstance:
       propertyPath: _startUpgradeCanvas
       value: 
       objectReference: {fileID: 1111678741}
-    - target: {fileID: 7741187039464298, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
-      propertyPath: _count
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7741187039464298, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
-      propertyPath: _prefab
-      value: 
-      objectReference: {fileID: 132819866326406661, guid: 28ce7a174a31dd7439049bce8981da5b, type: 3}
-    - target: {fileID: 7741187039464298, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
-      propertyPath: _conteiner
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 92717486984118601, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 570237229162162895, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
-      propertyPath: m_Camera
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1289987007582271484, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1181,14 +1165,6 @@ PrefabInstance:
     - target: {fileID: 1289987007582271484, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1377913989137057648, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
-      propertyPath: _conteiner
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3566790397378140713, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
-      propertyPath: _attackRangeMeele
-      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3629030888527742153, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
       propertyPath: _conteiner
@@ -1246,30 +1222,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1377913989137057648, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
 --- !u!1 &779240332 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9118001787568041855, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
   m_PrefabInstance: {fileID: 779240331}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &779240333
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779240332}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &779240334 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9118001787568041824, guid: 9af15df520f66084e800b2b35f5e0bf1, type: 3}
