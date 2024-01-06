@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class UpgradesRealizator : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class UpgradesRealizator : MonoBehaviour
     private PlayerUpgrades _playerUpgrades;
 
     public static UpgradesRealizator Instance;
+    public event UnityAction SomeBuffed;
 
     private void Awake()
     {
@@ -26,6 +28,7 @@ public class UpgradesRealizator : MonoBehaviour
     public void UpgradePlayer(PlayerUpgrade upgrade)
     {
         _playerUpgrades.UpLevelSkill(upgrade);
+        SomeBuffed?.Invoke();
     }
 
     public void BuildTower(Tower tower)
@@ -36,5 +39,6 @@ public class UpgradesRealizator : MonoBehaviour
     public void UpLevelTowers(UpLevelTowerUpgrade upgrade)
     {
         _playerTowers.UpLevelTowers(upgrade);
+        SomeBuffed?.Invoke();
     }
 }

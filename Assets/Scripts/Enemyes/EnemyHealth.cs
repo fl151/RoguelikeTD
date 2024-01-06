@@ -50,11 +50,6 @@ public class EnemyHealth : MonoBehaviour
 
         _colorController.AddEffect(new ColorEffect(Color.red, 0.1f, 5));
 
-        if (_audioController != null)
-        {
-            _audioController.PlayDamageSound();
-        }
-
         if (_currentHealth <= 0)
             StartCoroutine(Die());
     }
@@ -63,6 +58,11 @@ public class EnemyHealth : MonoBehaviour
     {
         _animator.SetTrigger("isDie");
         _isAlive = false;
+
+        if (_audioController != null)
+        {
+            _audioController.PlayDamageSound();
+        }
 
         yield return new WaitForSeconds(_diyingTime);
 
