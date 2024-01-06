@@ -6,6 +6,10 @@ using UnityEngine.Events;
 [RequireComponent(typeof(PlayerStats))]
 public class HeroMeeleAttack : MonoBehaviour
 {
+    private SoundForSwordMan _shootingSound;
+
+
+
     private const int _enemyLayerIndex = 1 << 8;
 
     private float _lastAttackTime = 0f;
@@ -25,6 +29,7 @@ public class HeroMeeleAttack : MonoBehaviour
     {
         _player = GetComponent<PlayerStats>();
         _movement = GetComponentInParent<PlayerMovement>();
+        _shootingSound = GetComponent<SoundForSwordMan>();
     }
 
     private void Update()
@@ -60,6 +65,12 @@ public class HeroMeeleAttack : MonoBehaviour
             bool isCriticalAttack = IsCriticalAttack();
 
             Attack?.Invoke(isCriticalAttack);
+
+
+
+            _shootingSound.PlayShootingSound();
+
+
 
             StartCoroutine(AttackAfterDeley(0.05f, hitColliders, isCriticalAttack, attackRange));
             _lastAttackTime = Time.time;

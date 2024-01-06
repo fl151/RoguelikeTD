@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _count: 200
+  _pickupSound: {fileID: 8300000, guid: 0b3c7f833b306704291584e9896ff1de, type: 3}
 --- !u!54 &-1265563459207421892
 Rigidbody:
   m_ObjectHideFlags: 0
