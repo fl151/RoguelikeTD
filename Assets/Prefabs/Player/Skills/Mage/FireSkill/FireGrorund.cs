@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FireGrorund : MonoBehaviour
 {
@@ -10,11 +11,13 @@ public class FireGrorund : MonoBehaviour
     private ParticleSystem _effect;
 
     private int _countHits = 3;
-    private float _delayBetweenHits = 1f; // Анимация длится 3 секунды
+    private float _delayBetweenHits = 0.75f; // Анимация длится 3 секунды
     private float _delayBetweenAttacks = 5;
 
     private float _totalDamage;
     private float _scale;
+
+    public event UnityAction Hited;
 
     private void Awake()
     {
@@ -69,5 +72,12 @@ public class FireGrorund : MonoBehaviour
                 enemy.TakeDamage(_totalDamage / _countHits);
             }
         }
+
+        Hited?.Invoke();
+    }
+
+    private void PlaySound()
+    {
+
     }
 }
