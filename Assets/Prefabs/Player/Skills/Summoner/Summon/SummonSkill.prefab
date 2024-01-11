@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6334615880918547614}
   - component: {fileID: 1580874262044408369}
   - component: {fileID: -566099216953899601}
+  - component: {fileID: 1560241636024786172}
   m_Layer: 0
   m_Name: SummonSkill
   m_TagString: Untagged
@@ -143,3 +144,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1560241636024786172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6508614942787850736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6403fac75f38dfc40b7fae4b83153014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audio: {fileID: -566099216953899601}
+  _summonSkill: {fileID: 1580874262044408369}

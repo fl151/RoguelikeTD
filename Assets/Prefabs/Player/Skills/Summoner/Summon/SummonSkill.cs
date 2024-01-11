@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SummonSkill : Skill
 {
@@ -24,6 +25,7 @@ public class SummonSkill : Skill
     private ObjectPool<Helper> _helpersPool;
 
     public static SummonSkill Instance;
+    public event UnityAction Spawned;
 
     private void Awake()
     {
@@ -67,6 +69,8 @@ public class SummonSkill : Skill
 
         if (_helpers.Contains(helper) == false)
             _helpers.Add(helper);
+
+        Spawned?.Invoke();
     }
 
     public void AddStats(float damage, float attackSpeed, float health)
