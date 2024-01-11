@@ -8,11 +8,20 @@ public class PlayerMovementAudio : MonoBehaviour
     [SerializeField] private AudioSource _audio;
     [SerializeField] private NavMeshAgent _agent;
 
-    private void FixedUpdate()
+    private void Update()
     {
         var velocity = _agent.velocity.magnitude;
+        
 
-        if (velocity > 0.5f) _audio.volume = 1;
-        else _audio.volume = 0;
+        if(Time.timeScale == 1)
+        {
+            if (velocity > 0.5f) _audio.volume = 1;
+            else _audio.volume = 0;
+        }
+        else
+        {
+            Debug.Log(Time.timeScale);
+            _audio.volume = 0;
+        }
     }
 }
