@@ -48,7 +48,7 @@ public class LevelsController : MonoBehaviour
     public void SetPlayingLevel(Level level)
     {
         _playingLevel = level;
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void PassLevel()
