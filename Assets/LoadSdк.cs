@@ -26,8 +26,8 @@ public class LoadSdк : MonoBehaviour
 
     private void SetLeanguage()
     {
-        switch (YandexGamesSdk.Environment.i18n.lang)
-        {
+        //switch (YandexGamesSdk.Environment.i18n.lang)
+        //{
             //case EnglishLanguage:
                 //_leanLocalization.CurrentLanguage = Lenguage.English;
                 //break;
@@ -43,7 +43,7 @@ public class LoadSdк : MonoBehaviour
             //default:
                 //_leanLocalization.CurrentLanguage = Lenguage.Russian;
                 //break;
-        }
+        //}
 
         SceneManager.LoadScene(1);
     }
