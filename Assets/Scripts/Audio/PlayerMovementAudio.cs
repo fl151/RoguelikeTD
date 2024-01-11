@@ -11,17 +11,11 @@ public class PlayerMovementAudio : MonoBehaviour
     private void Update()
     {
         var velocity = _agent.velocity.magnitude;
-        
 
+        _audio.volume = 0;
         if(Time.timeScale == 1)
-        {
-            if (velocity > 0.5f) _audio.volume = 1;
-            else _audio.volume = 0;
-        }
-        else
-        {
-            Debug.Log(Time.timeScale);
-            _audio.volume = 0;
-        }
+        {            
+            if (velocity > 0.5f) _audio.volume = 1;            
+        }       
     }
 }
