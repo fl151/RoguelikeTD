@@ -422,6 +422,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerExperience: {fileID: -1197536596423350217}
   _audio: {fileID: 8300000, guid: 4c444f238c40da84fa4ddd0731ab1b8b, type: 3}
+  _audioXp: {fileID: 8300000, guid: 0b3c7f833b306704291584e9896ff1de, type: 3}
 --- !u!1001 &2478514974251709747
 PrefabInstance:
   m_ObjectHideFlags: 0

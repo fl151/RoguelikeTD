@@ -13,7 +13,7 @@ public class PlayerExperience : MonoBehaviour
     public float ShareOfNextLevel => _currentExp / _currentTargetExp;
     public float CurrentLevel => _currentLevel;
 
-    public event UnityAction LevelUp;//добавить звук поднятия уровня как в упгрейд реализаторе аудио
+    public event UnityAction LevelUp;
     public event UnityAction ExpGained;
 
     private void Awake()

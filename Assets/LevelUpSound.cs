@@ -6,6 +6,7 @@ public class LevelUpSound : MonoBehaviour
 {
     [SerializeField] private PlayerExperience _playerExperience;
     [SerializeField] private AudioClip _audio;
+    [SerializeField] private AudioClip _audioXp;
 
     private AudioSource _audioSource;
 
@@ -17,15 +18,22 @@ public class LevelUpSound : MonoBehaviour
     private void OnEnable()
     {
         _playerExperience.LevelUp += OnLevelUp;
+        _playerExperience.ExpGained += OnXpGained;
     }
 
     private void OnDisable()
     {
         _playerExperience.LevelUp -= OnLevelUp;
+        _playerExperience.ExpGained -= OnXpGained;
     }
 
     private void OnLevelUp()
     {
         _audioSource.PlayOneShot(_audio);
+    }
+
+    private void OnXpGained()
+    {
+        _audioSource.PlayOneShot(_audioXp);
     }
 }
