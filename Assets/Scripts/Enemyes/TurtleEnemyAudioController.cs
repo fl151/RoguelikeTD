@@ -4,7 +4,8 @@ using UnityEngine;
 public class TurtleEnemyAudioController : MonoBehaviour
 {
     [SerializeField] private AudioClip damageSound; 
-    private AudioSource audioSource; 
+    private AudioSource audioSource;
+    [SerializeField] [Range(0, 1)] private float _volume;
 
     private void Awake()
     {
@@ -15,6 +16,8 @@ public class TurtleEnemyAudioController : MonoBehaviour
     {        
         if (audioSource != null && damageSound != null)
         {
+            audioSource.volume = _volume * AudioVolumeControler.Instance.Volume;
+
             audioSource.PlayOneShot(damageSound);
         }
     }

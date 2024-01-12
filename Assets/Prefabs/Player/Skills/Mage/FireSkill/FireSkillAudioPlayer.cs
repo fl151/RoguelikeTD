@@ -8,6 +8,8 @@ public class FireSkillAudioPlayer : MonoBehaviour
     [SerializeField] private FireGrorund _fireGround;
     [SerializeField] private AudioClip _audio;
 
+    [SerializeField] [Range(0, 1)] private float _volume;
+
     private AudioSource _audioSource;
 
     private void Awake()
@@ -27,6 +29,8 @@ public class FireSkillAudioPlayer : MonoBehaviour
 
     private void OnHited()
     {
+        _audioSource.volume = _volume * AudioVolumeControler.Instance.Volume;
+        
         _audioSource.PlayOneShot(_audio);
     }
 }

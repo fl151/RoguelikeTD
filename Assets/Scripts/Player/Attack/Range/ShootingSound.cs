@@ -5,22 +5,15 @@ using UnityEngine;
 public class ShootingSound : MonoBehaviour
 {
     [SerializeField] private AudioClip shootingSound; 
-    private AudioSource shootingAudio; 
-
-    private void Awake()
-    {
-        shootingAudio = GetComponent<AudioSource>();
-       
-        if (shootingAudio == null)
-        {
-            shootingAudio = gameObject.AddComponent<AudioSource>();
-        }
-    }
+    [SerializeField] private AudioSource shootingAudio;
+    [SerializeField] [Range(0, 1)] private float _volume;
 
     public void PlayShootingSound()
     {        
         if (shootingAudio != null && shootingSound != null)
         {
+            shootingAudio.volume = _volume * AudioVolumeControler.Instance.Volume;
+
             shootingAudio.PlayOneShot(shootingSound);
         }
     }

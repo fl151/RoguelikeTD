@@ -8,8 +8,6 @@ public class HeroMeeleAttack : MonoBehaviour
 {
     private SoundForSwordMan _shootingSound;
 
-
-
     private const int _enemyLayerIndex = 1 << 8;
 
     private float _lastAttackTime = 0f;

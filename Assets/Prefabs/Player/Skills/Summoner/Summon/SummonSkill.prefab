@@ -158,3 +158,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audio: {fileID: -566099216953899601}
   _summonSkill: {fileID: 1580874262044408369}
+  _volume: 0.506

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelUpSound : MonoBehaviour
@@ -8,12 +6,11 @@ public class LevelUpSound : MonoBehaviour
     [SerializeField] private AudioClip _audio;
     [SerializeField] private AudioClip _audioXp;
 
-    private AudioSource _audioSource;
+    [SerializeField] private AudioSource _audioSourceLevel;
+    [SerializeField] private AudioSource _audioSourceXP;
 
-    private void Awake()
-    {
-        _audioSource = GetComponent<AudioSource>();
-    }
+    [SerializeField] [Range(0, 1)] private float _volumeUpLevel;
+    [SerializeField] [Range(0, 1)] private float _volumeXP;
 
     private void OnEnable()
     {
@@ -29,11 +26,15 @@ public class LevelUpSound : MonoBehaviour
 
     private void OnLevelUp()
     {
-        _audioSource.PlayOneShot(_audio);
+        _audioSourceLevel.volume = _volumeUpLevel * AudioVolumeControler.Instance.Volume;
+
+        _audioSourceLevel.PlayOneShot(_audio);
     }
 
     private void OnXpGained()
     {
-        _audioSource.PlayOneShot(_audioXp);
+        _audioSourceXP.volume = _volumeXP * AudioVolumeControler.Instance.Volume;
+
+        _audioSourceXP.PlayOneShot(_audioXp);
     }
 }
