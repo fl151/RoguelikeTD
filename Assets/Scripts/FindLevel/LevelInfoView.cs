@@ -30,6 +30,8 @@ public class LevelInfoView : MonoBehaviour
 
     private void OnButtonClicked()
     {
+        ButtonSoundPlayer.Instanse.Play();
+
         if (FindLevelController.Instance.TrySetLevel(_level))
         {
             _active.SetActive(true);

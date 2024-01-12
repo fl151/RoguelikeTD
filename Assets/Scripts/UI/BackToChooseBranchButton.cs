@@ -7,6 +7,8 @@ public class BackToChooseBranchButton : DefaultButton
 
     protected override void OnButtonClick()
     {
+        base.OnButtonClick();
+
         _chooseBranchCanvas.SetActive(true);
         _upgradesCanvas.SetActive(false);
     }

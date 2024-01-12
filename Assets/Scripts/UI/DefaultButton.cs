@@ -21,5 +21,8 @@ public abstract class DefaultButton : MonoBehaviour
         _button.onClick.RemoveListener(OnButtonClick);
     }
 
-    protected abstract void OnButtonClick();
+    protected virtual void OnButtonClick()
+    {
+        ButtonSoundPlayer.Instanse.Play();
+    }
 }

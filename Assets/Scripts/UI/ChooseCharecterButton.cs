@@ -13,6 +13,8 @@ public class ChooseCharecterButton : DefaultButton
 
     protected override void OnButtonClick()
     {
+        base.OnButtonClick();
+
         _charecterCanvas.SetCharecter(_charecter);
     }
 }

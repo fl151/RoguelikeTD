@@ -30,6 +30,8 @@ public class UpgradeView : MonoBehaviour
 
     private void OnButtonClick()
     {
+        ButtonSoundPlayer.Instanse.Play();
+
         _upgrade.Realize();
 
         GetComponentInParent<Canvas>().gameObject.SetActive(false);

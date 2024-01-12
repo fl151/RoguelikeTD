@@ -1,30 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
-public class MenuButton : MonoBehaviour
+public class MenuButton : DefaultButton
 {
-    private Button _button;
-
-    private void Awake()
+    protected override void OnButtonClick()
     {
-        _button = GetComponent<Button>();
-    }
+        base.OnButtonClick();
 
-    private void OnEnable()
-    {
-        _button.onClick.AddListener(OnButtonClick);
-    }
-
-    private void OnDisable()
-    {
-        _button.onClick.RemoveListener(OnButtonClick);
-    }
-
-    private void OnButtonClick()
-    {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

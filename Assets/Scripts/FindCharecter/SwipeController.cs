@@ -29,11 +29,13 @@ public class SwipeController : MonoBehaviour
 
     private void OnRightSwipe()
     {
+        ButtonSoundPlayer.Instanse.Play();
         AddSwipe(Swipe.Right);
     }
 
     private void OnLeftSwipe()
     {
+        ButtonSoundPlayer.Instanse.Play();
         AddSwipe(Swipe.Left);
     }
 
