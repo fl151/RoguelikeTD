@@ -1,23 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
-public class FindLevelButton : MonoBehaviour
+public class FindLevelButton : DefaultButton
 {
-    [SerializeField] private Button _button;
-
-    private void OnEnable()
+    protected override void OnButtonClick()
     {
-        _button.onClick.AddListener(FindLevel);
-    }
+        base.OnButtonClick();
 
-    private void OnDisable()
-    {
-        _button.onClick.RemoveListener(FindLevel);
-    }
-
-    private void FindLevel()
-    {
         FindLevelController.Instance.FindLevel();
     }
 }

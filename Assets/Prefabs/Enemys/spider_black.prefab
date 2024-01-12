@@ -1567,6 +1567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageSound: {fileID: 8300000, guid: ccdb630aa6a83ba448a9581e4ac42a59, type: 3}
+  _volume: 0.443
 --- !u!1 &5245346726286412734
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum UpgradeBranch {
@@ -15,6 +13,8 @@ public class ChooseUpgradeButton : DefaultButton
 
     protected override void OnButtonClick()
     {
+        base.OnButtonClick();
+
         _upgradesCanvas.gameObject.SetActive(true);
         _upgradesCanvas.Fill(_upgradeBranch);
 

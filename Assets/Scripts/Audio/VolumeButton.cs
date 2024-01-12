@@ -15,6 +15,8 @@ public class VolumeButton : DefaultButton
     {
         if (_isVolumeActive) OffVolume();
         else OnVolume();
+
+        base.OnButtonClick();
     }
 
     public void SetVolume(float value)

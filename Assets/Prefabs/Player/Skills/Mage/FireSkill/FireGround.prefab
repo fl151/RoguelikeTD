@@ -212,3 +212,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fireGround: {fileID: 1925580090668248722}
   _audio: {fileID: 8300000, guid: b19b94b07f580e74783f9b0ac955c185, type: 3}
+  _volume: 0.42
