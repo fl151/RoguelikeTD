@@ -25,8 +25,6 @@ public class WinMusicPlayer : MonoBehaviour
             audioSource.volume = _volume * AudioVolumeControler.Instance.Volume;
             audioSource.clip = victoryMusic;
             audioSource.Play();
-
-            Debug.Log(audioSource.volume);
         }
     }
 }
