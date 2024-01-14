@@ -45,7 +45,7 @@ public abstract class Tower : MonoBehaviour
         _currentLevel++;
         PlayEffect();
 
-        Time.timeScale = 1;
+        PauseManager.Instance.Unpause();
     }
 
     public void UpLevel(int level)

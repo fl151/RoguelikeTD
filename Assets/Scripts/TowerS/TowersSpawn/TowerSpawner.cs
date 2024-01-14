@@ -43,7 +43,7 @@ public class TowerSpawner : MonoBehaviour
                         _isBuildingNow = false;
                         _placeController.gameObject.SetActive(false);
 
-                        Time.timeScale = 1;
+                        PauseManager.Instance.Unpause();
 
                         Build?.Invoke(tower);
 

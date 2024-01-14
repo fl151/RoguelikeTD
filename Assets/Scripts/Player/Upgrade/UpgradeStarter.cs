@@ -19,6 +19,6 @@ public class UpgradeStarter : MonoBehaviour
     {
         _startUpgradeCanvas.gameObject.SetActive(true);
 
-        Time.timeScale = 0;
+        PauseManager.Instance.Pause();
     }
 }

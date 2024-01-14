@@ -33,7 +33,7 @@ public abstract class Skill : MonoBehaviour
 
         _currentLevel++;
 
-        Time.timeScale = 1;
+        PauseManager.Instance.Unpause();
     }
 
     protected abstract void UpgradeLevelOne();
