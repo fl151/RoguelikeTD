@@ -36,14 +36,13 @@ public class GameResultController : MonoBehaviour
     private void LoseGame()
     {
         Time.timeScale = 0;
-        //показать рекламу
+        //показать рекламу с каким-то шансом
         _loseCanvas.SetActive(true);
     }
 
     private void WinGame()
     {
         Time.timeScale = 0;
-        //показать рекламу
         LevelsController.Instance.PassLevel();
         _winCanvas.SetActive(true);
     }
