@@ -133,6 +133,10 @@ MonoBehaviour:
     m_Localized: Geri
     m_Metadata:
       m_Items: []
+  - m_Id: 7694698513604608
+    m_Localized: "Sen en g\xFC\xE7l\xFCs\xFCn"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
