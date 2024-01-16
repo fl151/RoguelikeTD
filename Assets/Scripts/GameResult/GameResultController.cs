@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Agava.YandexGames;
 using UnityEngine;
 
 public class GameResultController : MonoBehaviour
@@ -36,6 +37,14 @@ public class GameResultController : MonoBehaviour
     private void LoseGame()
     {
         Time.timeScale = 0;
+
+        int randomChance = Random.Range(0, 100);//------------------
+
+        if (randomChance < 50)
+        {
+            InterstitialAd.Show(OpenCallback, CloseCallback);
+        }
+
         //показать рекламу с каким-то шансом
         _loseCanvas.SetActive(true);
     }
@@ -45,5 +54,19 @@ public class GameResultController : MonoBehaviour
         Time.timeScale = 0;
         LevelsController.Instance.PassLevel();
         _winCanvas.SetActive(true);
+    }
+
+
+    private void OpenCallback()
+    {
+        Time.timeScale = 0f;
+    }
+
+    private void CloseCallback(bool isClose)
+    {
+        if (isClose)
+        {
+            Time.timeScale = 1f;
+        }
     }
 }
