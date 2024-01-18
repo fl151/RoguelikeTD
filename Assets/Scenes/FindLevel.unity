@@ -537,7 +537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5074e7d7446bf5740998c3439b1a549f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 993725888}
 --- !u!1 &1053210021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,5 +1028,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2880831728102244411, guid: f471736552c347845808bad5211a95db, type: 3}
+      propertyPath: _levels.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4957e8bc227f4d248b4f54dc98b2d147, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f471736552c347845808bad5211a95db, type: 3}
