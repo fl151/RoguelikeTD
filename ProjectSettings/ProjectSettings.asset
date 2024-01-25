@@ -797,11 +797,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 
+  cloudProjectId: 8a3d59e2-de29-4f5c-abdb-1eb6bfbea2dd
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: RoguelikeTD
+  organizationId: frenk778
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
