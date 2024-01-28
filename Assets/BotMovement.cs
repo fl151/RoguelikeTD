@@ -16,7 +16,7 @@ public class BotMovement : MonoBehaviour
         StartCoroutine(MoveBetweenPoints());
     }
 
-    void GetWaypoints()
+    private void GetWaypoints()
     {
         if (waypointsContainer != null)
         {            
