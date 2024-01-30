@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BotMovement : MonoBehaviour
+public class RatBotMovement : MonoBehaviour
 {
     public Transform waypointsContainer;
     public float speed = 2f;
@@ -28,10 +28,10 @@ public class BotMovement : MonoBehaviour
         }
     }
 
-    IEnumerator MoveBetweenPoints()
+    private IEnumerator MoveBetweenPoints()
     {
         while (true)
-        {            
+        {
             ShuffleWaypoints();
 
             for (int i = 0; i < waypoints.Length; i++)
@@ -41,7 +41,7 @@ public class BotMovement : MonoBehaviour
         }
     }
 
-    void ShuffleWaypoints()
+    private void ShuffleWaypoints()
     {
         for (int i = waypoints.Length - 1; i > 0; i--)
         {
@@ -52,7 +52,7 @@ public class BotMovement : MonoBehaviour
         }
     }
 
-    IEnumerator MoveTo(Vector3 destination)
+    private IEnumerator MoveTo(Vector3 destination)
     {
         while (Vector3.Distance(transform.position, destination) > 0.1f)
         {
@@ -61,5 +61,5 @@ public class BotMovement : MonoBehaviour
 
             yield return null;
         }
-    }    
+    }
 }
