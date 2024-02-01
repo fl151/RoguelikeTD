@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5626556732643684307}
   - component: {fileID: 733846189365620463}
   - component: {fileID: 9098106019717316244}
+  - component: {fileID: 6161233273322033615}
   m_Layer: 5
   m_Name: Button level
   m_TagString: Untagged
@@ -122,6 +123,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6161233273322033615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2445283132118156348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fd9ca8ac427a364fb42e6e9ffc2aa1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myCanvas: {fileID: 5580111401916061429}
+  _addLevelCanvas: {fileID: 0}
 --- !u!1 &5424753917283358650
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &826593554842304776
 RectTransform:
   m_ObjectHideFlags: 0
@@ -371,6 +386,7 @@ GameObject:
   - component: {fileID: 8860861567171716151}
   - component: {fileID: 6630661916989667800}
   - component: {fileID: 4753022915397151485}
+  - component: {fileID: 8833982924629131745}
   m_Layer: 5
   m_Name: Button Menu
   m_TagString: Untagged
@@ -481,6 +497,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8833982924629131745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6033564324232646272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aee7ce2b92f1e7449323cbdd6d5c886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _myCanvas: {fileID: 5580111401916061429}
+  _pauseCanvas: {fileID: 0}
 --- !u!1 &7629676162325384142
 GameObject:
   m_ObjectHideFlags: 0

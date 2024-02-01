@@ -30,6 +30,11 @@ public class PlayerExperience : MonoBehaviour
         }
     }
 
+    public void AddLevel()
+    {
+        AddExp(_currentTargetExp);
+    }
+
     private void AddExp(float count)
     {
         _currentExp += count;
