@@ -31,6 +31,7 @@ public class LevelsController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         AddLevelsInDic();
+        TryUpgradeData();
     }
 
     public Dictionary<Level, bool> GetLevels()
@@ -57,6 +58,9 @@ public class LevelsController : MonoBehaviour
 
         if (nextLevel != null)
             _levelsDic[nextLevel] = true;
+
+        Progress.Instance.PlayerData.CountLevelsOpened++;
+        Progress.SaveDataCloud();
     }
 
     private void AddLevelsInDic()
@@ -70,5 +74,25 @@ public class LevelsController : MonoBehaviour
         }
 
         LevelUpgrade?.Invoke();
+    }
+
+    private void TryUpgradeData()
+    {
+        var data = Progress.Instance.PlayerData;
+
+        if (data != default)
+        {
+            int i = 0;
+
+            foreach (var level in _levelsDic)
+            {
+                if (i < data.CountLevelsOpened)
+                    _levelsDic[level.Key] = true;
+                else
+                    break;
+
+                i++;
+            }
+        }
     }
 }
