@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private EnemyStats _enemyPrefab;
+    [SerializeField] private EnemyStats _enemyPrefab;    
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private float _spawnInterval = 2f;
     [SerializeField] private int _maxEnemys = 5;
@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
     private void Awake()
     {
         _enemyPool = new ObjectPool<EnemyStats>(_enemyPrefab, 10, transform, true);
-        _expDroper = new ExperienceDroper(this, _expPrefab, _chanceDrop, transform);
+        _expDroper = new ExperienceDroper(this, _expPrefab, _chanceDrop, transform);        
     }
 
     private void OnDisable()
