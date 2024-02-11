@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageBonus: 5
-  _armorBonus: 0.01
+  _armorBonus: 0.1
 --- !u!135 &6412004009185259318
 SphereCollider:
   m_ObjectHideFlags: 0

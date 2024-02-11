@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BuffHelpersTowerBehavoir : MonoBehaviour
 {
-    [SerializeField] private float _damageBonus = 1;
+    [SerializeField] private float _damageBonus = 0.5f;
 
     private HashSet<HelperStats> _helpers = new HashSet<HelperStats>();
 

@@ -992,6 +992,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2215780586254750974, guid: a0f65c1a03a37a848ae388e13449d431, type: 3}
     - target: {fileID: 2196238166469302376, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
+      propertyPath: _spawnInterval
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196238166469302376, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
       propertyPath: _spawnPoints.Array.size
       value: 8
       objectReference: {fileID: 0}

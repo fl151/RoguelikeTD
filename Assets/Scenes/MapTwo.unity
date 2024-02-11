@@ -1232,6 +1232,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7221906318109926911, guid: e42dce10de392fb46b7cf553d7658cf4, type: 3}
     - target: {fileID: 2196238166469302376, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
+      propertyPath: _spawnInterval
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196238166469302376, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
       propertyPath: _spawnPoints.Array.size
       value: 7
       objectReference: {fileID: 0}
