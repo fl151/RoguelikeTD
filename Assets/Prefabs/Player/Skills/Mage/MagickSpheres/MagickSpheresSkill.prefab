@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotateSpeed: 90
   _sphereTemlate: {fileID: 2627464551077033665, guid: 18adce5870817c34384eba605fe6a073, type: 3}
-  _range: 3
+  _range: 2
   _countSpheres: 3
 --- !u!114 &3999121867572256748
 MonoBehaviour:

@@ -4,7 +4,7 @@ public class SpheresController : MonoBehaviour
 {
     [SerializeField] private float _rotateSpeed;
     [SerializeField] private MagickSphere _sphereTemlate;
-    [SerializeField] private float _range = 10;
+    [SerializeField] private float _range = 5;
     [SerializeField] private int _countSpheres = 3;
 
     private MagickSphere[] _spheres;

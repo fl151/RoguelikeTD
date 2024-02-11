@@ -49,12 +49,15 @@ public class EnemySpawner : MonoBehaviour
         {
             if (Time.time - _lastSpawn >= _spawnInterval)
             {
-                SpawnEnemy();
-
-                if (_currentEnemyCount % 10 == 0)
+                for (int i = 0; i < 3; i++)
                 {
-                    UpDifficulty();
-                }
+                    SpawnEnemy();
+
+                    if (_currentEnemyCount % 20 == 0)
+                    {
+                        UpDifficulty();
+                    }
+                }                   
 
                 _lastSpawn = Time.time;
             }

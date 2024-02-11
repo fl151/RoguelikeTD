@@ -235,7 +235,7 @@ MonoBehaviour:
   _armor: 0
   _damage: 150
   _attackSpeed: 1
-  _attackRange: 5
+  _attackRange: 3
   _attackRangeMeele: 1.5
 --- !u!195 &1444157296
 NavMeshAgent:

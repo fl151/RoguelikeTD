@@ -2,14 +2,20 @@ using UnityEngine;
 
 public class TurnerToCamera : MonoBehaviour
 {
+    private Camera _camera;
+
+    private void Start()
+    {
+        _camera = Camera.current;        
+    }
+
     private void Update()
     {
-        var camera = Camera.current;
 
-        if(camera != null)
+        if(_camera != null)
         {
-            transform.LookAt(camera.transform);
-            transform.Rotate(new Vector3(0, 180, 0));
+            transform.LookAt(_camera.transform);
+            transform.Rotate(new Vector3(transform.rotation.x, 180, transform.rotation.z));
         }
     }
 }
