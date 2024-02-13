@@ -1,9 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private EnemyStats _enemyPrefab;    
+    [SerializeField] private List<EnemyStats> _enemyPrefabs;    
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private float _spawnInterval = 2f;
     [SerializeField] private int _maxEnemys = 5;
@@ -18,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     private ExperienceDroper _expDroper;
     private EnemyHealth _lastEnemy;
 
-    private ObjectPool<EnemyStats> _enemyPool;
+    private List<ObjectPool<EnemyStats>> _enemyPools = new List<ObjectPool<EnemyStats>>();
 
     public event UnityAction DifficultyUp;
     public event UnityAction<EnemyHealth> EnemySpawned;
@@ -26,7 +27,9 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
-        _enemyPool = new ObjectPool<EnemyStats>(_enemyPrefab, 10, transform, true);
+        for (int i = 0; i < _enemyPrefabs.Count; i++)
+            _enemyPools.Add(new ObjectPool<EnemyStats>(_enemyPrefabs[i], 5, transform, true));
+
         _expDroper = new ExperienceDroper(this, _expPrefab, _chanceDrop, transform);        
     }
 
@@ -39,8 +42,15 @@ public class EnemySpawner : MonoBehaviour
     private void FixedUpdate()
     {
         if (_lastEnemyDied)
-            if (_enemyPool.GetActiveElements().Count == 0)
+        {
+            int activeElements = 0;
+
+            for (int i = 0; i < _enemyPools.Count; i++)
+                activeElements += _enemyPools[i].GetActiveElements().Count;
+
+            if (activeElements == 0)
                 LastEnemyDied?.Invoke();
+        }     
     }
 
     private void Update()
@@ -68,7 +78,7 @@ public class EnemySpawner : MonoBehaviour
     {
         var position = GetRandomSpawnPoint(_spawnPoints).position;
 
-        EnemyStats enemy = _enemyPool.GetFreeElement();
+        EnemyStats enemy = GetRandomEnemyPool(_enemyPools).GetFreeElement();
 
         enemy.transform.position = position;
         enemy.Init(this, _difficulty);
@@ -88,6 +98,13 @@ public class EnemySpawner : MonoBehaviour
         if (spanwPoints.Length == 0) return null;
 
         return spanwPoints[Random.Range(0, spanwPoints.Length)];
+    }
+
+    private ObjectPool<EnemyStats> GetRandomEnemyPool(List<ObjectPool<EnemyStats>> pools)
+    {
+        if (pools.Count == 0) return null;
+
+        return pools[Random.Range(0, pools.Count)];
     }
 
     private void UpDifficulty()
