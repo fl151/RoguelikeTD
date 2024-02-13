@@ -32,6 +32,8 @@ public class LevelsController : MonoBehaviour
 
         AddLevelsInDic();
         TryUpgradeData();
+
+        LevelUpgrade?.Invoke();
     }
 
     public Dictionary<Level, bool> GetLevels()
@@ -59,6 +61,8 @@ public class LevelsController : MonoBehaviour
         if (nextLevel != null)
             _levelsDic[nextLevel] = true;
 
+        LevelUpgrade?.Invoke();
+
         Progress.Instance.PlayerData.CountLevelsOpened++;
         Progress.SaveDataCloud();
     }
@@ -72,8 +76,6 @@ public class LevelsController : MonoBehaviour
                 _levelsDic.Add(level, level.OpenAsDefault);
             }
         }
-
-        LevelUpgrade?.Invoke();
     }
 
     private void TryUpgradeData()

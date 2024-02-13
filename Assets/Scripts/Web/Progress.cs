@@ -80,6 +80,8 @@ public class Progress : MonoBehaviour
     {
         Instance.PlayerData = data;
         Instance.DataLoaded?.Invoke();
+
+        Debug.Log("data loaded");
     }
 
     private static void AskUserAboutProgress(PlayerData dataCloud)
