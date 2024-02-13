@@ -27,4 +27,9 @@ public class DefaultEnemyStateMachine : StateMachine
         _transits.Add(new RangeAttackTransit(moveState, attackState, _enemy));
         _transits.Add(new NoRangeAttackTransit(attackState, moveState, _enemy));  
     }
+
+    public void OnEnable()
+    {
+        _currentState = _firstState;
+    }
 }
