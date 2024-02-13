@@ -11,11 +11,7 @@ public class TurnerToCamera : MonoBehaviour
 
     private void Update()
     {
-
         if(_camera != null)
-        {
             transform.LookAt(_camera.transform);
-            transform.Rotate(new Vector3(transform.rotation.x, 180, transform.rotation.z));
-        }
     }
 }
