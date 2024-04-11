@@ -53,8 +53,6 @@ public class EnemyStats : MonoBehaviour
 
         _attackCooldown *= 1 - difficultiUp;
 
-        Debug.Log(_maxHealth + " - " + _damage);
-
         StatsChanged?.Invoke();
     }
 
