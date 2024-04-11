@@ -11,17 +11,18 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Experience _expPrefab;
     [SerializeField] private float _chanceDrop;
 
+    public int CurrentEnemyCount => _currentEnemyCount;
+    public int MaxEnemyCount => _maxEnemys;
+
     private int _currentEnemyCount = 0;
     private float _lastSpawn = 0f;
     private bool _lastEnemyDied = false;
 
-    private int _difficulty = 0;
     private ExperienceDroper _expDroper;
     private EnemyHealth _lastEnemy;
 
     private List<ObjectPool<EnemyStats>> _enemyPools = new List<ObjectPool<EnemyStats>>();
 
-    public event UnityAction DifficultyUp;
     public event UnityAction<EnemyHealth> EnemySpawned;
     public event UnityAction LastEnemyDied;
 
@@ -62,11 +63,6 @@ public class EnemySpawner : MonoBehaviour
                 for (int i = 0; i < 3; i++)
                 {
                     SpawnEnemy();
-
-                    if (_currentEnemyCount % 20 == 0)
-                    {
-                        UpDifficulty();
-                    }
                 }                   
 
                 _lastSpawn = Time.time;
@@ -81,7 +77,7 @@ public class EnemySpawner : MonoBehaviour
         EnemyStats enemy = GetRandomEnemyPool(_enemyPools).GetFreeElement();
 
         enemy.transform.position = position;
-        enemy.Init(this, _difficulty);
+        enemy.Init(this);
 
         EnemySpawned?.Invoke(enemy.GetComponent<EnemyHealth>());
         _currentEnemyCount++;
@@ -105,12 +101,6 @@ public class EnemySpawner : MonoBehaviour
         if (pools.Count == 0) return null;
 
         return pools[Random.Range(0, pools.Count)];
-    }
-
-    private void UpDifficulty()
-    {
-        _difficulty++;
-        DifficultyUp?.Invoke();
     }
 
     private void OnLastEnemyDead(EnemyHealth enemy)

@@ -3,7 +3,11 @@ using UnityEngine.Events;
 
 public class EnemyStats : MonoBehaviour
 {
-    private const float _difficultyCoefficient = 0.1f;
+    private const float _difficultyCoefficient = 7f;
+
+    private const float _health = 100f;
+    private const float _damageC = 10f;
+    private const float _attackCooldownC = 2f;
 
     [SerializeField] private float _maxHealth = 100f;
     [SerializeField] private float _damage = 10f;
@@ -18,14 +22,11 @@ public class EnemyStats : MonoBehaviour
     public event UnityAction StatsChanged;
     public event UnityAction Inited;
 
-    public void Init(EnemySpawner spawner, int difficultyLevel)
+    public void Init(EnemySpawner spawner)
     {
         _spawner = spawner;
 
-        for (int i = 0; i < difficultyLevel; i++)
-        {
-            OnDifficultyUp();
-        }
+        SetDifficulty();
 
         Inited?.Invoke();
 
@@ -41,13 +42,30 @@ public class EnemyStats : MonoBehaviour
     //    _spawner.DifficultyUp -= OnDifficultyUp;
     //}
 
-    private void OnDifficultyUp()
+    private void SetDifficulty()
     {
-        _maxHealth *= _difficultyCoefficient + 1;
-        _damage *= _difficultyCoefficient + 1;
+        ResetStats();
 
-        _attackCooldown *= 1 - _difficultyCoefficient;
+        float difficultiUp = GetDifficulty();
+
+        _maxHealth *= difficultiUp + 1;
+        _damage *= difficultiUp + 1;
+
+        _attackCooldown *= 1 - difficultiUp;
 
         StatsChanged?.Invoke();
+    }
+
+    private float GetDifficulty()
+    {
+        float curveValue = 1 - Mathf.Cos((float)_spawner.CurrentEnemyCount / _spawner.MaxEnemyCount * 3.14f);
+        return curveValue * _difficultyCoefficient;
+    }
+
+    private void ResetStats()
+    {
+        _maxHealth = _health;
+        _damage = _damageC;
+        _attackCooldown = _attackCooldownC;
     }
 }
