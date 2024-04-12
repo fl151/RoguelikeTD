@@ -85,16 +85,19 @@ public class LevelsController : MonoBehaviour
         if (data != default)
         {
             int i = 0;
+            var levels = new Dictionary<Level, bool>();
 
             foreach (var level in _levelsDic)
             {
                 if (i < data.CountLevelsOpened)
-                    _levelsDic[level.Key] = true;
+                    levels[level.Key] = true;
                 else
-                    break;
+                    levels[level.Key] = false;
 
                 i++;
             }
+
+            _levelsDic = levels;
         }
     }
 }

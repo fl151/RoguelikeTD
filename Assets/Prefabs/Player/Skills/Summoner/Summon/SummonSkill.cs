@@ -115,8 +115,10 @@ public class SummonSkill : Skill
 
     private void UpdateHelpersStats()
     {
-        foreach (var helper in _helpers)
+        for (int i = 0; i < _helpers.Count; i++)
         {
+            var helper = _helpers[i];
+
             if (helper.gameObject.activeSelf == false)
             {
                 _helpers.Remove(helper);
