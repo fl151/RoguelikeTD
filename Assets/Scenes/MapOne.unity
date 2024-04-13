@@ -717,7 +717,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2196238166469302376, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
       propertyPath: _maxEnemys
-      value: 200
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 2196238166469302376, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
       propertyPath: _enemyPrefab
@@ -725,7 +725,7 @@ PrefabInstance:
       objectReference: {fileID: -212665207546353323, guid: 2deefaf52f016e74984bed07e86b009e, type: 3}
     - target: {fileID: 2196238166469302376, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
       propertyPath: _spawnInterval
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2196238166469302376, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
       propertyPath: _spawnPoints.Array.size

@@ -1221,7 +1221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2196238166469302376, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
       propertyPath: _maxEnemys
-      value: 200
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 2196238166469302376, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
       propertyPath: _chanceDrop
@@ -1233,11 +1233,15 @@ PrefabInstance:
       objectReference: {fileID: 7221906318109926911, guid: e42dce10de392fb46b7cf553d7658cf4, type: 3}
     - target: {fileID: 2196238166469302376, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
       propertyPath: _spawnInterval
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2196238166469302376, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
       propertyPath: _spawnPoints.Array.size
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2196238166469302376, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
+      propertyPath: _enemyPrefabs.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2196238166469302376, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
       propertyPath: _spawnPoints.Array.data[2]
@@ -1262,7 +1266,15 @@ PrefabInstance:
     - target: {fileID: 2196238166469302376, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
       propertyPath: _enemyPrefabs.Array.data[0]
       value: 
+      objectReference: {fileID: 3530967425471182753, guid: e15007ba9e0dc31409c85d688fd6cf31, type: 3}
+    - target: {fileID: 2196238166469302376, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
+      propertyPath: _enemyPrefabs.Array.data[1]
+      value: 
       objectReference: {fileID: 7221906318109926911, guid: e42dce10de392fb46b7cf553d7658cf4, type: 3}
+    - target: {fileID: 2196238166469302376, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
+      propertyPath: _enemyPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 5228218848099580602, guid: dcc982307a817354fafb192abcd9b917, type: 3}
     - target: {fileID: 2196238166469302377, guid: 0a9d473c50c3edd4cbe0a50f377b85ef, type: 3}
       propertyPath: m_RootOrder
       value: 6
