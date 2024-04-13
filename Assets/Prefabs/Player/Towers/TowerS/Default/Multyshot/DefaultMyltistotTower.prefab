@@ -79,8 +79,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee73aeeedaa67894ca281ecaa0cd519d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 25
-  _attackSpeed: 0.5
+  _damage: 100
+  _attackSpeed: 0.75
   _countAttacks: 1
   _shotPoint: {fileID: 211952154885166894}
   _bulletPrefab: {fileID: 8750632407963787569, guid: 1ee09420d0462ef4982c784d0e8b687b, type: 3}

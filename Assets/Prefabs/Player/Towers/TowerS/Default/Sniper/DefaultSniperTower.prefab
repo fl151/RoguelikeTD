@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3d0e1ab48cbde49992830bd0f42965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 50
-  _attackSpeed: 0.25
+  _damage: 150
+  _attackSpeed: 0.6
   _attackRange: 4
   _shotPoint: {fileID: 766994036383881892}
   _prefab: {fileID: 4336417059742116786, guid: 24a88176d6785c04a970bf503be9f8d9, type: 3}

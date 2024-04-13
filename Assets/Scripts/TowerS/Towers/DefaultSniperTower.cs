@@ -3,17 +3,17 @@ using UnityEngine;
 [RequireComponent(typeof(SniperTowerBehavoir))]
 public class DefaultSniperTower : Tower
 {
-    private const float _damage1 = 100;
-    private const float _damage2 = 200;
-    private const float _damage3 = 400;
+    private const float _damage1 = 300;
+    private const float _damage2 = 600;
+    private const float _damage3 = 900;
 
-    private const float _attackSpeed1 = 0.3f;
-    private const float _attackSpeed2 = 0.5f;
-    private const float _attackSpeed3 = 0.7f;
+    private const float _attackSpeed1 = 0.7f;
+    private const float _attackSpeed2 = 0.9f;
+    private const float _attackSpeed3 = 1.2f;
 
     private const float _attackRange1 = 7;
-    private const float _attackRange2 = 10;
-    private const float _attackRange3 = 15;//Range-это дальность
+    private const float _attackRange2 = 9;
+    private const float _attackRange3 = 12;//Range-это дальность
 
     private SniperTowerBehavoir _tower;
 

@@ -3,9 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(FireTowerBehavoir))]
 public class MageFireTower : Tower
 {
-    private const float _damage1 = 50;
-    private const float _damage2 = 100;
-    private const float _damage3 = 200;
+    private const float _damage1 = 250;
+    private const float _damage2 = 335;
+    private const float _damage3 = 400;
 
     private const float _attackSpeed1 = 0.4f;
     private const float _attackSpeed2 = 0.5f;
@@ -13,7 +13,7 @@ public class MageFireTower : Tower
 
     private const float _attackRange1 = 5;
     private const float _attackRange2 = 7;
-    private const float _attackRange3 = 12;
+    private const float _attackRange3 = 10;
 
     private FireTowerBehavoir _tower;
 

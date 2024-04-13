@@ -3,13 +3,13 @@ using UnityEngine;
 [RequireComponent(typeof(MultyshotTowerBehavoir))]
 public class DefaultMultishotTower : Tower
 {
-    private const float _damage1 = 50;
-    private const float _damage2 = 100;
-    private const float _damage3 = 150;
+    private const float _damage1 = 150;
+    private const float _damage2 = 225;
+    private const float _damage3 = 300;
 
-    private const float _attackSpeed1 = 0.3f;
-    private const float _attackSpeed2 = 0.5f;
-    private const float _attackSpeed3 = 0.7f;
+    private const float _attackSpeed1 = 0.6f;
+    private const float _attackSpeed2 = 1f;
+    private const float _attackSpeed3 = 1.4f;
 
     private const int _countAttacks1 = 2;
     private const int _countAttacks2 = 3;
