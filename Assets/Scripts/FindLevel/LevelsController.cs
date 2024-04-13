@@ -89,7 +89,7 @@ public class LevelsController : MonoBehaviour
 
             foreach (var level in _levelsDic)
             {
-                if (i < data.CountLevelsOpened)
+                if (i < 4)//data.CountLevelsOpened
                     levels[level.Key] = true;
                 else
                     levels[level.Key] = false;
