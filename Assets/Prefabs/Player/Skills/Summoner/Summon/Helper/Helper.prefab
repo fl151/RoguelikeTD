@@ -290,6 +290,7 @@ GameObject:
   - component: {fileID: 457020132484019236}
   - component: {fileID: 5634799908308233841}
   - component: {fileID: 3985977747167807183}
+  - component: {fileID: -4035662571713727458}
   m_Layer: 0
   m_Name: Helper
   m_TagString: Untagged
@@ -428,11 +429,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52cf9874f6fb2cd409b191570141c836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 5
-  _damage: 15
+  _maxHealth: 15
+  _damage: 30
   _damageBonus: 0
   _attackRange: 1.5
-  _agrRange: 10
+  _agrRange: 7
   _attackSpeed: 0.7
   _addStatsEffect: {fileID: 6810471105834413002, guid: 97c43495f80a3244fad1301dfafbe252, type: 3}
 --- !u!114 &3985977747167807183
@@ -445,6 +446,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b564f937c5139f4098ab000c4291e08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4035662571713727458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845742921716089003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 334cb9bff07e62c418419ce1a77da710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2003476178909396414

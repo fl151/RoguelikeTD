@@ -22,4 +22,11 @@ public class DefaultHelpersStateMachine : StateMachine
         _transits.Add(new RangeAttackHelperTransit(moveState, attackState, _helper));
         _transits.Add(new NoRangeAttackHelperTransit(attackState, moveState, _helper));
     }
+
+    private void OnEnable()
+    {
+        _currentState = _firstState;
+
+        _currentState.Start();
+    }
 }

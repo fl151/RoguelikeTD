@@ -5,9 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(SummonTowerBehavoir))]
 public class SummSummoneTower : Tower
 {
-    private const float _spawnSpeed1 = 0.125f;
-    private const float _spawnSpeed2 = 0.175f;
-    private const float _spawnSpeed3 = 0.225f;
+    private const float _spawnSpeed1 = 0.3f;
+    private const float _spawnSpeed2 = 0.5f;
+    private const float _spawnSpeed3 = 0.7f;
 
     private SummonTowerBehavoir _tower;
 
