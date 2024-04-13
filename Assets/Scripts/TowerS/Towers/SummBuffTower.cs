@@ -3,9 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(BuffHelpersTowerBehavoir))]
 public class SummBuffTower : Tower
 {
-    private const float _damageBonus1 = 2;
-    private const float _damageBonus2 = 3;
-    private const float _damageBonus3 = 5;
+    private const float _damageBonus1 = 10;
+    private const float _damageBonus2 = 13;
+    private const float _damageBonus3 = 16;
 
     private BuffHelpersTowerBehavoir _tower;
 

@@ -37,8 +37,10 @@ public class FindTargetHelperState : IState
         GameObject nearestTarget = null;
         float nearestDistance = float.MaxValue;
 
-        foreach (Collider collider in colliders)
+        for(var i = 0; i < colliders.Length; i++)
         {
+            var collider = colliders[i];
+
             EnemyHealth target = collider.GetComponent<EnemyHealth>();
 
             if (target != null && collider.gameObject.activeSelf)

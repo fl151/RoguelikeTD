@@ -1,14 +1,14 @@
 public class UpHelpersSkill : Skill
 {
-    private const float _damageBonus1 = 1;
-    private const float _damageBonus2 = 2;
-    private const float _damageBonus3 = 3;
-    private const float _attackSpeedBonus1 = 0.1f;
-    private const float _attackSpeedBonus2 = 0.1f;
-    private const float _attackSpeedBonus3 = 0.1f;
-    private const float _healthBonus1 = 0;
-    private const float _healthBonus2 = 0;
-    private const float _healthBonus3 = 0;
+    private const float _damageBonus1 = 30;
+    private const float _damageBonus2 = 50;
+    private const float _damageBonus3 = 100;
+    private const float _attackSpeedBonus1 = 0.15f;
+    private const float _attackSpeedBonus2 = 0.15f;
+    private const float _attackSpeedBonus3 = 0.15f;
+    private const float _healthBonus1 = 30;
+    private const float _healthBonus2 = 50;
+    private const float _healthBonus3 = 70;
 
     private SummonSkill _summoner;
 

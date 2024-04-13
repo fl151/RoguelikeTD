@@ -6,14 +6,14 @@ using UnityEngine.Events;
 public class SummonSkill : Skill
 {
     private const int _bonusCountHelpers1 = 1;
-    private const float _reduseCooldawn2 = 3;
+    private const float _reduseCooldawn2 = 4;
     private const int _bonusCountHelpers3 = 1;
 
     [SerializeField] private Helper _helperPrafab;
 
     private bool _isColldawnFinished = true;
 
-    private float _cooldawn = 15f;
+    private float _cooldawn = 7f;
     private int _countHelpersPerSpawn = 1;
 
     private List<Helper> _helpers = new List<Helper>();
