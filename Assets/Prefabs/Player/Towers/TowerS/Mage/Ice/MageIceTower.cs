@@ -3,13 +3,13 @@ using UnityEngine;
 [RequireComponent(typeof(IceTowerBehavoir))]
 public class MageIceTower : Tower
 {
-    private const float _damage1 = 30;
-    private const float _damage2 = 50;
-    private const float _damage3 = 100;
+    private const float _damage1 = 0;
+    private const float _damage2 = 0;
+    private const float _damage3 = 0;
 
     private const float _attackSpeed1 = 1;
-    private const float _attackSpeed2 = 1.5f;
-    private const float _attackSpeed3 = 2f;
+    private const float _attackSpeed2 = 2f;
+    private const float _attackSpeed3 = 2.5f;
 
     private const float _slowCoefficient1 = 0.3f;
     private const float _slowCoefficient2 = 0.5f;

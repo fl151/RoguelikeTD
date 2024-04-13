@@ -4,7 +4,7 @@ using System.Linq;
 
 public class MultyshotTowerBehavoir : ShootingTowerBehavoir
 {
-    private const float _attackRange = 7.5f;
+    private const float _attackRange = 5.0f;
 
     [SerializeField] private float _damage;
     [SerializeField] private float _attackSpeed;
