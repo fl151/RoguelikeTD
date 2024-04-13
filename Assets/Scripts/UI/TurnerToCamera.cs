@@ -12,6 +12,6 @@ public class TurnerToCamera : MonoBehaviour
     private void Update()
     {
         if(_camera != null)
-            transform.LookAt(_camera.transform);
+            transform.LookAt(_camera.transform.position);
     }
 }
