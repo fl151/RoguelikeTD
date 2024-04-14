@@ -9,7 +9,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private float _spawnInterval = 2f;
     [SerializeField] private int _maxEnemys = 5;
     [SerializeField] private Experience _expPrefab;
+    [SerializeField] private Experience _bigExpPrefab;
     [SerializeField] private float _chanceDrop;
+    [SerializeField] private float _chanceDropBig;
 
     public int CurrentEnemyCount => _currentEnemyCount;
     public int MaxEnemyCount => _maxEnemys;
@@ -31,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < _enemyPrefabs.Count; i++)
             _enemyPools.Add(new ObjectPool<EnemyStats>(_enemyPrefabs[i], 5, transform, true));
 
-        _expDroper = new ExperienceDroper(this, _expPrefab, _chanceDrop, transform);        
+        _expDroper = new ExperienceDroper(this, _expPrefab, _bigExpPrefab, _chanceDrop, _chanceDropBig,  transform);        
     }
 
     private void OnDisable()
