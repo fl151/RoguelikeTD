@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6627438037667885413}
   - component: {fileID: 6751952700745099783}
   - component: {fileID: 8148537088855208643}
+  - component: {fileID: 3015643513251155817}
   m_Layer: 0
   m_Name: HelperBuffTower
   m_TagString: Untagged
@@ -77,6 +78,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageBonus: 0.5
+--- !u!114 &3015643513251155817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4765322681497231761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8ebcf57cc6a9b49be376534946ac81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleColor: {r: 0, g: 0, b: 0, a: 1}
+  towerCollider: {fileID: 6751952700745099783}
+  particlePrefab: {fileID: 5400245945309772693, guid: c607f92dc9368e34782809f9276c40c9, type: 3}
 --- !u!1001 &931789824559214178
 PrefabInstance:
   m_ObjectHideFlags: 0
