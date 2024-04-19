@@ -137,6 +137,22 @@ MonoBehaviour:
     m_Localized: "Sen en g\xFC\xE7l\xFCs\xFCn"
     m_Metadata:
       m_Items: []
+  - m_Id: 41921956430798848
+    m_Localized: "Tekrar ba\u015Flat"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41922342591979520
+    m_Localized: Duraklat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41922506396327936
+    m_Localized: + Seviye
+    m_Metadata:
+      m_Items: []
+  - m_Id: 41925220215873536
+    m_Localized: Videoyu izle
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
