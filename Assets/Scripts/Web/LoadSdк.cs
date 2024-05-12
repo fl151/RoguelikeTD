@@ -21,6 +21,7 @@ public class LoadSdк : MonoBehaviour
 
     private IEnumerator LoadYandexSdk()
     {
+        yield return new WaitForSeconds(2f);
         yield return YandexGamesSdk.Initialize(() => SetLeanguage());        
     }
 
