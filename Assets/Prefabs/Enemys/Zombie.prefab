@@ -735,8 +735,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e7f336e1ae04894b975a60c4ab11186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageSound: {fileID: 0}
-  _volume: 0
+  damageSound: {fileID: 8300000, guid: 56fb93bd462cb6149a17901bf676b5ec, type: 3}
+  _volume: 0.443
 --- !u!1 &1786999476906242876
 GameObject:
   m_ObjectHideFlags: 0
