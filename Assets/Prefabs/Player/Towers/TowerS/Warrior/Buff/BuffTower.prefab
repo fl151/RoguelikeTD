@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc8ebcf57cc6a9b49be376534946ac81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleColor: {r: 0, g: 0.0323627, b: 1, a: 1}
+  particleColor: {r: 0, g: 0, b: 0, a: 1}
   towerCollider: {fileID: 6412004009185259318}
   particlePrefab: {fileID: 5400245945309772693, guid: c607f92dc9368e34782809f9276c40c9, type: 3}
 --- !u!1001 &2990128116279602371
