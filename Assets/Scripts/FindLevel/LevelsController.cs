@@ -89,6 +89,7 @@ public class LevelsController : MonoBehaviour
 
             foreach (var level in _levelsDic)
             {
+                Debug.Log(i);
                 if (i < data.CountLevelsOpened)//data.CountLevelsOpened
                     levels[level.Key] = true;
                 else
@@ -96,6 +97,9 @@ public class LevelsController : MonoBehaviour
 
                 i++;
             }
+
+            Debug.Log(levels);
+
 
             _levelsDic = levels;
         }

@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Web : MonoBehaviour
 {
+    [SerializeField] private PauseManager _pauseManager;
     public event UnityAction PlayerAuth;
 
     public static Web Instance;
@@ -48,13 +49,9 @@ public class Web : MonoBehaviour
     public static void AuthAccount()
     {
         if (PlayerAccount.IsAuthorized == false)
-        {
             PlayerAccount.Authorize(Instance.OnPlayerAuth);
-        }
         else
-        {
             Instance.OnPlayerAuth();
-        }
     }
 
     private void OnInBackgroundChange(bool inBackground)
@@ -62,7 +59,8 @@ public class Web : MonoBehaviour
         AudioListener.pause = inBackground;
         AudioListener.volume = inBackground ? 0f : 1f;
 
-        Time.timeScale = inBackground ? 0f : 1f;
+        if(_pauseManager.IsPaused == false)
+            Time.timeScale = inBackground ? 0f : 1f;
     }
 
     private void OnPlayerAuth()
