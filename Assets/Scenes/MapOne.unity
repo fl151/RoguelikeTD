@@ -435,10 +435,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6966490410330320002, guid: bebf585d905bc054c9779d5d343b72f4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bebf585d905bc054c9779d5d343b72f4, type: 3}
 --- !u!1 &225950929 stripped
@@ -1381,10 +1377,6 @@ PrefabInstance:
     - target: {fileID: 7696216187989393862, guid: 3d6e63ef346fcb341b75a4eb7b908aba, type: 3}
       propertyPath: m_Name
       value: LoseCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 7696216187989393862, guid: 3d6e63ef346fcb341b75a4eb7b908aba, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d6e63ef346fcb341b75a4eb7b908aba, type: 3}
