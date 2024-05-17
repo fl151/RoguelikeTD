@@ -59,14 +59,17 @@ public class GameResultController : MonoBehaviour
 
     private void OpenCallback()
     {
-        Time.timeScale = 0f;
+        PauseManager.Instance.Pause();
+
+        AudioListener.pause = true;
+        AudioListener.volume = 0f;
     }
 
     private void CloseCallback(bool isClose)
     {
-        if (isClose)
-        {
-            Time.timeScale = 1f;
-        }
+        AudioListener.pause = false;
+        AudioListener.volume = 1f;
+
+        PauseManager.Instance.Unpause();
     }
 }
