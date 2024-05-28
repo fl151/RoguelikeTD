@@ -31,14 +31,10 @@ public class Web : MonoBehaviour
 
     private void Start()
     {
-        //if(PlayerAccount.IsAuthorized == false)
-        //    Progress.SetPrefsData();
-        //else
-        //    OnPlayerAuth();
-
         Progress.SetPrefsData();
 
-        AuthAccount();
+        if (PlayerAccount.IsAuthorized)
+            OnPlayerAuth();
     }
 
     private void OnDisable()
