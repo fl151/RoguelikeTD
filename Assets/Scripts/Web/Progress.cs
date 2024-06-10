@@ -2,7 +2,7 @@ using UnityEngine;
 using Agava.YandexGames;
 using UnityEngine.Events;
 
-public enum Language
+public enum Language1
 {
     Null,
     Ru,
@@ -14,7 +14,7 @@ public class PlayerData
 {
     public int CountLevelsOpened = 1;
 
-    public Language Language = Language.Null;
+    public Language1 Language = Language1.Null;
 }
 
 public class Progress : MonoBehaviour

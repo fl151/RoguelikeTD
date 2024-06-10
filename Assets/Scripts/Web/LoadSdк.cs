@@ -2,18 +2,11 @@ using System.Collections;
 using UnityEngine;
 using Agava.YandexGames;
 using UnityEngine.SceneManagement;
-//using Lean.Localization;
+using UnityEngine.Localization.Settings;
 
 
 public class LoadSdк : MonoBehaviour
 {
-    //[SerializeField] private LeanLocalization _leanLocalization;
-
-    //private const string EnglishLanguage = "en";
-    //private const string RussionLanguage = "ru";
-    //private const string TurkishLanguage = "tr";
-
-
     private void Awake()
     {
         StartCoroutine(LoadYandexSdk());
@@ -21,29 +14,16 @@ public class LoadSdк : MonoBehaviour
 
     private IEnumerator LoadYandexSdk()
     {
-        yield return YandexGamesSdk.Initialize(() => SetLeanguage());        
+        yield return YandexGamesSdk.Initialize(() => StartCoroutine(GetLocale()));        
     }
 
-    private void SetLeanguage()
+    private IEnumerator GetLocale()
     {
-        //switch (YandexGamesSdk.Environment.i18n.lang)
-        //{
-            //case EnglishLanguage:
-                //_leanLocalization.CurrentLanguage = Lenguage.English;
-                //break;
+        yield return LocalizationSettings.InitializationOperation;
 
-            //case RussionLanguage:
-               // _leanLocalization.CurrentLanguage = Lenguage.Russian;
-                //break;
+        var language = YandexGamesSdk.Environment.browser.lang;
 
-            //case TurkishLanguage:
-               // _leanLocalization.CurrentLanguage = Lenguage.Turkish;
-                //break;
-
-            //default:
-                //_leanLocalization.CurrentLanguage = Lenguage.Russian;
-                //break;
-        //}
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(language);
 
         SceneManager.LoadScene(1);
     }
