@@ -42,8 +42,6 @@ public class WatchVideoButton : DefaultButton
         AudioListener.pause = false;
         AudioListener.volume = 1f;
 
-        PauseManager.Instance.Unpause();
-
         _gameCanvas.SetActive(true);
         _myCanvas.SetActive(false);
     }
