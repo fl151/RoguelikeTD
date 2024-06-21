@@ -22,8 +22,6 @@ public class WatchVideoButton : DefaultButton
 
     private void OnRewardedCallback() // при досматривании рекламы до конца
     {
-        ContinueGame();
-        
         _playerExp.AddLevel();
     }
 
