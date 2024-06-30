@@ -155,6 +155,18 @@ MonoBehaviour:
     m_Key: RoguelikeTD
     m_Metadata:
       m_Items: []
+  - m_Id: 68065551889375232
+    m_Key: NO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68065572701511680
+    m_Key: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68065883155505152
+    m_Key: Are you sure
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

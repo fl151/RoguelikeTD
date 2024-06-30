@@ -158,6 +158,18 @@ MonoBehaviour:
     m_Localized: Roguelike TD
     m_Metadata:
       m_Items: []
+  - m_Id: 68065551889375232
+    m_Localized: NO
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68065572701511680
+    m_Localized: YES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 68065883155505152
+    m_Localized: Are you sure you want to log in?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
