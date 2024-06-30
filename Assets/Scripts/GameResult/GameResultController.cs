@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameResultController : MonoBehaviour
 {
+    private const float _adChance = 50;
+
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private PlayerHealth _player;
 
@@ -37,16 +39,9 @@ public class GameResultController : MonoBehaviour
     private void LoseGame()
     {
         Time.timeScale = 0;
-
-        int randomChance = Random.Range(0, 100);//------------------
-
-        if (randomChance < 50)
-        {
-            InterstitialAd.Show(OpenCallback, CloseCallback);
-        }
-
-        //показать рекламу с каким-то шансом
         _loseCanvas.SetActive(true);
+
+        StartCoroutine(ShowAd());
     }
 
     private void WinGame()
@@ -71,5 +66,15 @@ public class GameResultController : MonoBehaviour
         AudioListener.volume = 1f;
 
         PauseManager.Instance.Unpause();
+    }
+
+    private IEnumerator ShowAd()
+    {
+        yield return new WaitForSeconds(0.25f);
+
+        int randomChance = Random.Range(0, 100);
+
+        if (randomChance < _adChance)
+            InterstitialAd.Show(OpenCallback, CloseCallback);
     }
 }
