@@ -1,11 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using Agava.YandexGames;
 using UnityEngine;
 
 public class GameResultController : MonoBehaviour
 {
-    private const float _adChance = 50;
+    private const int _adChance = 50;
 
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private PlayerHealth _player;
@@ -70,7 +69,7 @@ public class GameResultController : MonoBehaviour
 
     private IEnumerator ShowAd()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSecondsRealtime(0.5f);
 
         int randomChance = Random.Range(0, 100);
 
