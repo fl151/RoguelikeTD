@@ -170,7 +170,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 68065883155505152
-    m_Localized: "Giri\u015F yapmak istedi\u011Finizden eminiz?"
+    m_Localized: "Giri\u015F yapmak istedi\u011Finizden emin misiniz? Yetkilendirme
+      ile mevcut ilerlemeniz kaybolacakt\u0131r!"
     m_Metadata:
       m_Items: []
   references:
