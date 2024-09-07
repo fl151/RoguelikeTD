@@ -167,7 +167,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 68065883155505152
-    m_Localized: Are you sure you want to log in?
+    m_Localized: Are you sure you want to log in? When you log in, your current progress
+      will be lost!
     m_Metadata:
       m_Items: []
   references:

@@ -1321,7 +1321,7 @@ MonoBehaviour:
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 9
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -4141,7 +4141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fb6918d522f8542914382efe34d787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pauseManager: {fileID: 374704069}
 --- !u!114 &1882465898
 MonoBehaviour:
   m_ObjectHideFlags: 0
