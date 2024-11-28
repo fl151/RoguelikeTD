@@ -1,11 +1,7 @@
-using System.Collections;
-using Agava.YandexGames;
 using UnityEngine;
 
 public class GameResultController : MonoBehaviour
 {
-    private const int _adChance = 50;
-
     [SerializeField] private EnemySpawner _enemySpawner;
     [SerializeField] private PlayerHealth _player;
 
@@ -37,43 +33,14 @@ public class GameResultController : MonoBehaviour
 
     private void LoseGame()
     {
-        Time.timeScale = 0;
+        PauseManager.Instance.Pause();
         _loseCanvas.SetActive(true);
-
-        StartCoroutine(ShowAd());
     }
 
     private void WinGame()
     {
-        Time.timeScale = 0;
+        PauseManager.Instance.Pause();
         LevelsController.Instance.PassLevel();
         _winCanvas.SetActive(true);
-    }
-
-
-    private void OpenCallback()
-    {
-        PauseManager.Instance.Pause();
-
-        AudioListener.pause = true;
-        AudioListener.volume = 0f;
-    }
-
-    private void CloseCallback(bool isClose)
-    {
-        AudioListener.pause = false;
-        AudioListener.volume = 1f;
-
-        PauseManager.Instance.Unpause();
-    }
-
-    private IEnumerator ShowAd()
-    {
-        yield return new WaitForSecondsRealtime(0.5f);
-
-        int randomChance = Random.Range(0, 100);
-
-        if (randomChance < _adChance)
-            InterstitialAd.Show(OpenCallback, CloseCallback);
-    }
+    } 
 }
