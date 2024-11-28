@@ -9,12 +9,13 @@ public class LoadSdк : MonoBehaviour
 {
     private void Awake()
     {
+        YandexGamesSdk.CallbackLogging = true;
         StartCoroutine(LoadYandexSdk());
     }
 
     private IEnumerator LoadYandexSdk()
     {
-        yield return YandexGamesSdk.Initialize(() => StartCoroutine(GetLocale()));        
+        yield return YandexGamesSdk.Initialize(() => StartCoroutine(GetLocale()));
     }
 
     private IEnumerator GetLocale()
