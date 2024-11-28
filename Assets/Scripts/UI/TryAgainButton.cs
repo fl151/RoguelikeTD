@@ -17,7 +17,7 @@ public class TryAgainButton : DefaultButton
         if (randomChance < _adChance)
             InterstitialAd.Show(OpenCallback, CloseCallback);
         else
-            SceneManager.LoadScene(LevelsController.Instance.LevelSceneIndex);
+            CloseCallback(true);
     }
 
     private void OpenCallback()
