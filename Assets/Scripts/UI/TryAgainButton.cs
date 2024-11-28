@@ -1,14 +1,41 @@
+using System.Collections;
+using Agava.YandexGames;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TryAgainButton : DefaultButton
 {
+    private const int _adChance = 50;
+
     protected override void OnButtonClick()
     {
         base.OnButtonClick();
 
-        Time.timeScale = 1;
+        int randomChance = Random.Range(0, 100);
+
+        if (randomChance < _adChance)
+            InterstitialAd.Show(OpenCallback, CloseCallback);
+        else
+            SceneManager.LoadScene(LevelsController.Instance.LevelSceneIndex);
+    }
+
+    private void OpenCallback()
+    {
+        PauseManager.Instance.Pause();
+
+        AudioListener.pause = true;
+        AudioListener.volume = 0f;
+    }
+
+    private void CloseCallback(bool isClose)
+    {
+        AudioListener.pause = false;
+        AudioListener.volume = 1f;
+
+        PauseManager.Instance.Unpause();
+
         SceneManager.LoadScene(LevelsController.Instance.LevelSceneIndex);
     }
+
 }
